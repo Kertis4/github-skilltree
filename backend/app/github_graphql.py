@@ -60,6 +60,7 @@ query($cursor: String) {
           name
           target {
             ... on Commit {
+              oid
               tree {
                 entries {
                   name
@@ -134,6 +135,7 @@ def _shape_repo(node: dict) -> dict:
         "forks": node.get("forkCount", 0),
         "updatedAt": node.get("updatedAt", ""),
         "defaultBranch": ref.get("name"),
+        "headSha": target.get("oid"),
         "totalBytes": total_bytes,
         "estimatedLines": _est_lines(total_bytes),
         "primaryLanguage": (
