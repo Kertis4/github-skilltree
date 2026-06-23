@@ -7,7 +7,7 @@ import { Icon } from '@/components/ui/icons'
 import { useBootSequence } from '@/hooks/useBootSequence'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { bootLines, type BootTone } from '@/data/bootLines'
-import { loginWithGitHub, OAUTH_SCOPES } from '@/lib/auth'
+import { OAUTH_SCOPES } from '@/lib/auth'
 
 const toneColor: Record<BootTone, string> = {
   ok: 'text-term-green',
@@ -24,19 +24,21 @@ const toneLabel: Record<BootTone, string> = {
   rdy: ' rdy  ',
 }
 
-type Status = 'idle' | 'connecting' | 'stub'
+type Status = 'idle' | 'connecting' | 'error'
 
 interface LoginPanelProps {
   id?: string
   className?: string
+  /** Starts the GitHub OAuth popup. Returns false if the popup was blocked. */
+  onStartLogin?: () => boolean
 }
 
 /**
  * The hero's interactive console. It streams a fake boot log, then reveals the
- * GitHub OAuth call-to-action. Login is wired to `loginWithGitHub`, which falls
- * back to an honest "not configured yet" message during the frontend preview.
+ * GitHub OAuth call-to-action. Clicking it opens the OAuth popup and the app
+ * navigates to the dashboard, which shows the analysis once it arrives.
  */
-export function LoginPanel({ id, className }: LoginPanelProps) {
+export function LoginPanel({ id, className, onStartLogin }: LoginPanelProps) {
   const reduced = useReducedMotion()
   const { visible, done } = useBootSequence(bootLines.length, {
     enabled: !reduced,
@@ -44,14 +46,18 @@ export function LoginPanel({ id, className }: LoginPanelProps) {
     startDelay: 350,
   })
   const [status, setStatus] = useState<Status>('idle')
+  const [message, setMessage] = useState<string | null>(null)
 
   const handleLogin = () => {
     setStatus('connecting')
-    const result = loginWithGitHub()
-    if (!result.ok) {
-      // No client id / backend yet — surface a friendly, accurate message.
-      window.setTimeout(() => setStatus('stub'), 950)
+    setMessage(null)
+    const ok = onStartLogin?.() ?? false
+    if (!ok) {
+      // Browser blocked the popup — tell the user how to recover.
+      setStatus('error')
+      setMessage('Popup blocked — allow popups for this site, then try again.')
     }
+    // On success the app switches to the dashboard view and this panel unmounts.
   }
 
   return (
@@ -103,19 +109,9 @@ export function LoginPanel({ id, className }: LoginPanelProps) {
                 </span>
               )}
               {status === 'connecting' && (
-                <span className="text-term-cyan">
-                  › redirecting to github.com/login/oauth/authorize …
-                </span>
+                <span className="text-term-cyan">› opening github authorization …</span>
               )}
-              {status === 'stub' && (
-                <div className="space-y-1">
-                  <p className="text-term-amber">! oauth endpoint not wired (frontend preview)</p>
-                  <p className="text-term-dim">
-                    set <span className="text-accent">VITE_GITHUB_CLIENT_ID</span> &amp; backend{' '}
-                    <span className="text-accent">/auth/github</span> to go live.
-                  </p>
-                </div>
-              )}
+              {status === 'error' && <p className="text-term-amber">! {message}</p>}
             </div>
           </div>
         )}
