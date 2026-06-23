@@ -1,9 +1,11 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  /** GitHub OAuth app client id. When unset, the login button runs in demo mode. */
-  readonly VITE_GITHUB_CLIENT_ID?: string
-  /** Base URL of the backend API (see README API contract). Defaults to same origin. */
+  /**
+   * Base URL of the FastAPI backend that performs GitHub OAuth.
+   * Defaults to http://localhost:8000 when unset. The OAuth client id/secret
+   * live on the backend — the frontend never needs them.
+   */
   readonly VITE_API_BASE_URL?: string
 }
 

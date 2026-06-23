@@ -1,49 +1,131 @@
 /**
- * GitHub OAuth — placeholder wiring.
+ * GitHub OAuth — frontend client for the FastAPI backend.
  *
- * The real flow lives on the backend (`GET /auth/github` -> GitHub -> callback);
- * see the API contract in the project README. The frontend only needs to send
- * the user to GitHub's authorize page, so we keep this isolated — swapping in the
- * production endpoint is a one-line change.
+ * The OAuth *client secret* lives only on the backend, so the browser never
+ * sees it. The flow:
+ *   1. We open the backend's `/auth/github/login` route in a popup window.
+ *   2. The backend redirects the popup to GitHub, handles the callback,
+ *      exchanges the code for a token (server-side), reads the user's PUBLIC
+ *      repo names, prints them to its console, then discards the token.
+ *   3. The backend's result page posts the repo names back to this window via
+ *      `postMessage`, then closes itself.
  *
- * Security (per README): request the *minimum* scopes, analyze PUBLIC repos only
- * for the demo, and never store tokens in the client.
+ * Security: no tokens are ever stored in the client; only repository *names*
+ * (public data) cross the boundary, and we validate the message origin.
  */
 
-const CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? ''
+/** Backend API base URL (no trailing slash). Defaults to the local dev server. */
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000').replace(
+  /\/$/,
+  '',
+)
 
-/** Minimal scopes: read profile + read public repos. */
+/** Minimal scopes the backend requests: read profile + read public repos. */
 export const OAUTH_SCOPES = ['read:user', 'public_repo'] as const
 
-/** True when a GitHub OAuth client id has been provided via env. */
-export function isOAuthConfigured(): boolean {
-  return Boolean(CLIENT_ID)
+/** One language's contribution to a repo (or to the global total). */
+export interface LanguageStat {
+  name: string
+  /** GitHub's language color (hex), or null when unknown. */
+  color: string | null
+  bytes: number
+  /** Lines estimated from byte size (an approximation, not an exact count). */
+  estimatedLines: number
+  /** Fraction 0..1 of the parent total. */
+  share: number
 }
 
-/** Build the GitHub authorize URL (used once a client id is configured). */
-export function getGitHubAuthorizeUrl(): string {
-  const redirectUri = `${API_BASE_URL || window.location.origin}/auth/callback`
-  const params = new URLSearchParams({
-    client_id: CLIENT_ID ?? '',
-    redirect_uri: redirectUri,
-    scope: OAUTH_SCOPES.join(' '),
-    state: crypto.randomUUID(),
-    allow_signup: 'true',
-  })
-  return `https://github.com/login/oauth/authorize?${params.toString()}`
+/** A single top-level entry of a repo's default branch. */
+export interface RepoFile {
+  name: string
+  extension: string | null
+  type: 'blob' | 'tree'
+  bytes: number
+  estimatedLines: number
 }
 
-export type LoginResult = { ok: true } | { ok: false; reason: 'not-configured' }
+/** Per-repository analysis produced by the backend GraphQL stage. */
+export interface RepoAnalysis {
+  nameWithOwner: string
+  name: string
+  description: string | null
+  url: string
+  isFork: boolean
+  isArchived: boolean
+  stars: number
+  forks: number
+  updatedAt: string
+  defaultBranch: string | null
+  totalBytes: number
+  estimatedLines: number
+  primaryLanguage: { name: string; color: string | null } | null
+  languages: LanguageStat[]
+  files: RepoFile[]
+}
+
+/** Aggregate totals across every analyzed repo. */
+export interface AnalysisTotals {
+  repoCount: number
+  totalBytes: number
+  estimatedLines: number
+  languages: LanguageStat[]
+}
+
+/** The full payload the backend hands back after a successful sign-in. */
+export interface Analysis {
+  user: { login: string; name: string | null }
+  totals: AnalysisTotals
+  repos: RepoAnalysis[]
+}
+
+/** The message the backend popup posts back to us on completion. */
+export interface AuthMessage {
+  type: 'skilltree:auth'
+  ok: boolean
+  error: string | null
+  analysis: Analysis | null
+}
+
+/** The resolved backend API base URL (no trailing slash). */
+export function getApiBaseUrl(): string {
+  return API_BASE_URL
+}
 
 /**
- * Begin the GitHub OAuth dance. Returns a result instead of throwing so the UI
- * can show a friendly terminal message while the backend isn't wired up yet.
+ * Open the backend login route in a centered popup. Returns the popup handle,
+ * or `null` if the browser blocked it.
  */
-export function loginWithGitHub(): LoginResult {
-  if (!isOAuthConfigured()) {
-    return { ok: false, reason: 'not-configured' }
+export function startGitHubLogin(): Window | null {
+  const w = 720
+  const h = 820
+  const baseLeft = window.screenLeft ?? window.screenX ?? 0
+  const baseTop = window.screenTop ?? window.screenY ?? 0
+  const viewW = window.innerWidth || document.documentElement.clientWidth || screen.width
+  const viewH = window.innerHeight || document.documentElement.clientHeight || screen.height
+  const left = baseLeft + Math.max(0, (viewW - w) / 2)
+  const top = baseTop + Math.max(0, (viewH - h) / 2)
+  const features = `popup=yes,width=${w},height=${h},left=${left},top=${top}`
+  return window.open(`${API_BASE_URL}/auth/github/login`, 'skilltree-github-oauth', features)
+}
+
+/**
+ * Subscribe to the backend's completion message. Returns an unsubscribe fn.
+ * Only messages from the backend origin carrying our message `type` are
+ * delivered to the handler.
+ */
+export function onAuthMessage(handler: (msg: AuthMessage) => void): () => void {
+  const backendOrigin = new URL(API_BASE_URL).origin
+  const listener = (event: MessageEvent) => {
+    if (event.origin !== backendOrigin) return
+    const data = event.data as Partial<AuthMessage> | undefined
+    if (!data || data.type !== 'skilltree:auth') return
+    handler({
+      type: 'skilltree:auth',
+      ok: Boolean(data.ok),
+      error: data.error ?? null,
+      analysis: (data.analysis as Analysis | null) ?? null,
+    })
   }
-  window.location.assign(getGitHubAuthorizeUrl())
-  return { ok: true }
+  window.addEventListener('message', listener)
+  return () => window.removeEventListener('message', listener)
 }
