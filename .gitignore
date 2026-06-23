@@ -1,0 +1,56 @@
+# ──────────────────────────────────────────────────────────────────────────
+#  SECRETS-SAFE BY DEFAULT — never commit real credentials (only *.example is OK).
+#  (If you ever commit a secret, rotate it immediately — history keeps it.)
+# ──────────────────────────────────────────────────────────────────────────
+#  Ignore EVERY dotfile / dot-directory (.env, .env.local, .aws/, .ssh/, .npmrc,
+#  .vscode/, …) so a stray credential can never be committed — then allow back
+#  only the dotfiles the repo needs. New legit dotfile? add a "!" line below.
+#  (.* only matches dot-prefixed names; non-dot secrets are listed after.)
+.*
+
+# …keep these tracked (MUST come after .*):
+!.gitignore
+!.gitattributes
+!.editorconfig
+!.nvmrc
+!.github/
+!.env.example
+!.env.*.example
+
+# Non-dot secrets — keys, certificates, tokens, credential stores
+# (.* above does NOT catch these because they don't start with a dot)
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+*.keystore
+id_rsa
+id_ed25519
+secrets.json
+service-account*.json
+*.local
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Dependencies / build output (any subproject)
+# ──────────────────────────────────────────────────────────────────────────
+node_modules/
+dist/
+dist-ssr/
+build/
+coverage/
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Logs
+# ──────────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ──────────────────────────────────────────────────────────────────────────
+#  OS / editor noise (non-dot — the dot ones like .DS_Store/.idea are covered by .*)
+# ───────────────────────────────────────────────────────────────────────────────
+Thumbs.db
+*.suo
