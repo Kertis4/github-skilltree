@@ -69,32 +69,14 @@
 [data-theme='amber'] {
   --accent: var(--color-term-amber);
   --accent-bright: #ffd089;
-  --color-term-fg: #ffe7bd;
-  --color-term-muted: #9f8a63;
-  --color-term-dim: #776648;
-  --color-term-faint: #3d3424;
-  --color-term-border: #2d2618;
-  --color-term-border-bright: #4f3d24;
 }
 [data-theme='cyan'] {
   --accent: var(--color-term-cyan);
   --accent-bright: #7af2f2;
-  --color-term-fg: #d0f8ff;
-  --color-term-muted: #71a1ab;
-  --color-term-dim: #4e7078;
-  --color-term-faint: #263e44;
-  --color-term-border: #1d2f34;
-  --color-term-border-bright: #2a4951;
 }
 [data-theme='magenta'] {
   --accent: var(--color-term-magenta);
   --accent-bright: #ff8cc6;
-  --color-term-fg: #ffd6e8;
-  --color-term-muted: #a07a90;
-  --color-term-dim: #795c70;
-  --color-term-faint: #3e2a37;
-  --color-term-border: #2f1f2b;
-  --color-term-border-bright: #4e3046;
 }
 
 /* ==========================================================================
@@ -141,11 +123,7 @@
         color-mix(in srgb, var(--accent) 12%, transparent) 0%,
         transparent 55%
       ),
-      radial-gradient(
-        80% 60% at 100% 100%,
-        color-mix(in srgb, var(--accent) 10%, transparent),
-        transparent 60%
-      );
+      radial-gradient(80% 60% at 100% 100%, rgba(46, 230, 230, 0.06), transparent 60%);
   }
 
   body::after {
