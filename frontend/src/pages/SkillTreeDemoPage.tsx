@@ -29,7 +29,7 @@ export function SkillTreeDemoPage() {
             initial={{ opacity: 0, y: -18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-2xl border border-term-border-bright bg-term-surface/75 p-6 shadow-[0_0_0_1px_rgba(43,255,136,0.08),0_32px_80px_-40px_rgba(43,255,136,0.45)] backdrop-blur-sm sm:p-8"
+            className="relative overflow-hidden rounded-2xl border border-term-border-bright bg-term-surface/75 p-6 shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent)_22%,transparent),0_32px_80px_-40px_color-mix(in_srgb,var(--accent)_45%,transparent)] backdrop-blur-sm sm:p-8"
           >
             <div aria-hidden className="absolute inset-0 bg-grid-fade opacity-25" />
             <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
@@ -102,7 +102,7 @@ export function SkillTreeDemoPage() {
           >
             <div aria-hidden className="absolute inset-0 bg-grid-fade opacity-20" />
             <div aria-hidden className="absolute left-10 top-10 h-44 w-44 rounded-full bg-accent/8 blur-3xl" />
-            <div aria-hidden className="absolute bottom-10 right-10 h-36 w-36 rounded-full bg-term-cyan/8 blur-3xl" />
+            <div aria-hidden className="absolute bottom-10 right-10 h-36 w-36 rounded-full bg-accent/10 blur-3xl" />
 
             <div className="relative mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>

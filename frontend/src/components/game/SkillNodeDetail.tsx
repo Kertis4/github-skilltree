@@ -33,9 +33,9 @@ export function SkillNodeDetail({
 }: SkillNodeDetailProps) {
   const totalXpNeeded = getXpThreshold(skill.level + 1)
   const currentLevelXp = getXpThreshold(skill.level)
-  const xpInLevel = skill.xp - currentLevelXp
+  const xpInLevel = Math.max(0, skill.xp - currentLevelXp)
   const xpToNextLevel = totalXpNeeded - currentLevelXp
-  const xpProgress = xpInLevel / xpToNextLevel
+  const xpProgress = xpToNextLevel > 0 ? Math.min(xpInLevel / xpToNextLevel, 1) : 0
 
   return (
     <motion.div
@@ -85,7 +85,7 @@ export function SkillNodeDetail({
             initial={{ width: 0 }}
             animate={{ width: `${Math.min(xpProgress * 100, 100)}%` }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="h-full bg-gradient-to-r from-accent to-cyan-400"
+            className="h-full bg-gradient-to-r from-accent to-accent-bright"
           />
         </div>
       </div>
@@ -116,7 +116,7 @@ export function SkillNodeDetail({
             <strong>Deepen:</strong> Master the next level
           </span>
         ) : (
-          <span className="text-cyan-400">
+          <span className="text-accent-bright">
             <strong>Core:</strong> Expand into sub-skills
           </span>
         )}

@@ -131,7 +131,7 @@ export function SkillTreeViz({
   return (
     <div
       className={cn(
-        'relative w-full overflow-hidden rounded-2xl border border-term-border-bright bg-term-bg/55 shadow-[0_0_0_1px_rgba(43,255,136,0.05)]',
+        'relative w-full overflow-hidden rounded-2xl border border-term-border-bright bg-term-bg/55 shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent)_20%,transparent)]',
         className
       )}
     >

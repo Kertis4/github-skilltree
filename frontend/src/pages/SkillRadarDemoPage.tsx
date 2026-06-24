@@ -28,7 +28,7 @@ export const SkillRadarDemoPage = () => {
       label: cat.label,
       icon: iconMap[cat.key],
       value: mockProfile.radar[cat.key as keyof typeof mockProfile.radar],
-      color: cat.color.default,
+      color: 'var(--accent)',
       description: cat.description,
     }))
   }, [])
@@ -57,7 +57,7 @@ export const SkillRadarDemoPage = () => {
             initial={{ opacity: 0, y: -18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-2xl border border-term-border-bright bg-term-surface/75 p-6 shadow-[0_0_0_1px_rgba(43,255,136,0.08),0_32px_80px_-40px_rgba(43,255,136,0.45)] backdrop-blur-sm sm:p-8"
+            className="relative overflow-hidden rounded-2xl border border-term-border-bright bg-term-surface/75 p-6 shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent)_22%,transparent),0_32px_80px_-40px_color-mix(in_srgb,var(--accent)_45%,transparent)] backdrop-blur-sm sm:p-8"
           >
             <div aria-hidden className="absolute inset-0 bg-grid-fade opacity-25" />
             <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
@@ -109,19 +109,19 @@ export const SkillRadarDemoPage = () => {
               <p className="font-display text-5xl leading-none text-accent glow-text">{avgProficiency}</p>
               <p className="mt-3 text-sm text-term-muted">Average score across all tracked categories.</p>
             </div>
-            <div className="rounded-2xl border border-term-cyan/35 bg-term-surface/70 p-5 backdrop-blur-sm">
+            <div className="rounded-2xl border border-accent/35 bg-term-surface/70 p-5 backdrop-blur-sm">
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-term-dim">categories</p>
-              <p className="font-display text-5xl leading-none text-term-cyan">{RADAR_CATEGORIES.length}</p>
+              <p className="font-display text-5xl leading-none text-accent">{RADAR_CATEGORIES.length}</p>
               <p className="mt-3 text-sm text-term-muted">Languages, paradigms, tooling, and quality.</p>
             </div>
-            <div className="rounded-2xl border border-term-green/35 bg-term-surface/70 p-5 backdrop-blur-sm">
+            <div className="rounded-2xl border border-accent/35 bg-term-surface/70 p-5 backdrop-blur-sm">
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-term-dim">highest signal</p>
-              <p className="font-display text-3xl leading-none text-term-green glow-text">{highestCategory.label}</p>
+              <p className="font-display text-3xl leading-none text-accent glow-text">{highestCategory.label}</p>
               <p className="mt-3 font-mono text-sm uppercase tracking-[0.2em] text-term-muted">{highestCategory.value} / 100</p>
             </div>
-            <div className="rounded-2xl border border-term-magenta/35 bg-term-surface/70 p-5 backdrop-blur-sm">
+            <div className="rounded-2xl border border-accent/35 bg-term-surface/70 p-5 backdrop-blur-sm">
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-term-dim">next frontier</p>
-              <p className="font-display text-3xl leading-none text-term-magenta glow-text">{lowestCategory.label}</p>
+              <p className="font-display text-3xl leading-none text-accent glow-text">{lowestCategory.label}</p>
               <p className="mt-3 font-mono text-sm uppercase tracking-[0.2em] text-term-muted">{lowestCategory.value} / 100</p>
             </div>
           </motion.section>
