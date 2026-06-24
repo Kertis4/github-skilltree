@@ -63,20 +63,21 @@ export const calculateTreeLayout = (
 
   levels.forEach((skillsAtLevel, levelIndex) => {
     const y = verticalSpacing * (levelIndex + 1);
-    const levelWidth = maxWidth - horizontalPadding * 2;
+    const levelWidth = Math.max(0, maxWidth - horizontalPadding * 2);
     const skillCount = skillsAtLevel.length;
-    // Increase minimum spacing between nodes to prevent text overlap
+    const desiredSpacing = 140;
+
+    // Keep siblings inside the viewport while trying to preserve readable spacing.
     const horizontalSpacing =
-      skillCount > 1 ? Math.max(levelWidth / (skillCount + 1), 140) : levelWidth / 2;
-    // Adjust padding to center nodes with wider spacing
-    const adjustedHorizontalPadding = Math.max(
-      horizontalPadding,
-      (maxWidth - skillCount * 140) / 2
-    );
+      skillCount > 1 ? Math.min(desiredSpacing, levelWidth / (skillCount - 1)) : 0;
+    const totalRowWidth = horizontalSpacing * Math.max(0, skillCount - 1);
+    const rowStartX = (maxWidth - totalRowWidth) / 2;
 
     skillsAtLevel.forEach((skill, skillIndex) => {
       const x =
-        adjustedHorizontalPadding + horizontalSpacing * (skillIndex + 1);
+        skillCount === 1
+          ? maxWidth / 2
+          : rowStartX + horizontalSpacing * skillIndex;
 
       nodes.push({
         skillId: skill.id,

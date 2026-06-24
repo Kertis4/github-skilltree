@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Tooltip, ResponsiveContainer } from 'recharts'
 import { motion } from 'framer-motion'
-import { RADAR_CATEGORIES, getCategoryColor } from '@/data/radarData'
+import { RADAR_CATEGORIES } from '@/data/radarData'
 import type { RadarData } from '@/types/api'
 import { cn } from '@/lib/cn'
 
@@ -62,8 +62,7 @@ export const SkillRadar = ({
     }))
   }, [data])
 
-  // Get the primary category color (using first category as main color)
-  const primaryColor = getCategoryColor('Languages', 'default')
+  const primaryColor = 'var(--accent)'
 
   return (
     <motion.div
@@ -81,7 +80,7 @@ export const SkillRadar = ({
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-[15%] rounded-full border border-term-cyan/20"
+        className="pointer-events-none absolute inset-[15%] rounded-full border border-accent/20"
         animate={{ scale: [1.04, 1, 1.04], opacity: [0.2, 0.42, 0.2] }}
         transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
       />
