@@ -198,8 +198,10 @@ export function SkillTreeViz({
 
             const radius = getNodeRadius(skill)
             const isHovered = hoveredSkillId === node.skillId
-            const isChild = layout.nodes.some(
-              (n) => skillsById.get(n.skillId)?.parent_id === node.skillId
+            // Check if this skill has any children (check full skills array, not just visible nodes)
+            // This allows re-expanding nodes even when their children are hidden
+            const isChild = skills.some(
+              (s) => s.parent_id === node.skillId
             )
             const isExpanded = expandedNodeIds.has(node.skillId)
             const color = getSkillCategoryColor(skill)
@@ -272,14 +274,14 @@ export function SkillTreeViz({
                   y={radius + 18}
                   className="font-mono"
                   style={{
-                    fontSize: 11,
+                    fontSize: skill.name.length > 20 ? 9 : 11,
                     fill: isHovered ? 'var(--color-term-fg)' : 'var(--color-term-muted)',
                   }}
                   initial={{ opacity: 0.7 }}
                   animate={{ opacity: isHovered ? 1 : 0.7 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {skill.name}
+                  {skill.name.length > 22 ? skill.name.substring(0, 19) + '...' : skill.name}
                 </motion.text>
 
                 {/* Expand/collapse indicator (if has children) */}
