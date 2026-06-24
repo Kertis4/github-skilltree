@@ -49,6 +49,7 @@ from fastapi.responses import (
 from .config import get_settings
 from .blob import build_analysis_blob
 from .github_oauth import build_authorize_url, exchange_code_for_token
+from .scheduler import run_analysis
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s  %(levelname)-7s  %(message)s"
@@ -77,6 +78,61 @@ STATE_COOKIE = "skilltree_oauth_state"
 def health() -> dict[str, object]:
     """Liveness probe; also reports whether OAuth credentials are configured."""
     return {"status": "ok", "oauth_configured": settings.configured}
+
+
+@app.post("/analyze")
+async def analyze(
+    request: Request,
+    dryRun: bool = False,
+    maxRepos: int | None = None,
+) -> Response:
+    """Run the analysis pipeline on a posted ingestion blob.
+
+    The body is the analysis **blob** (same shape ingestion produces): an object
+    with a non-empty ``repos`` map. Returns the **collated, reduce-ready blob**
+    (an overall per-skill ``skillset`` with scores + grounded evidence, plus a
+    compact repo ``corpus`` for provenance) for the strong-model / XP stage.
+
+    Query params:
+      * ``dryRun=true``  - skip all LLM calls; return heuristic-only insights
+        (useful to validate the pipeline without Azure configured).
+      * ``maxRepos=N``   - analyze only the first N repos (demo/cost cap).
+    """
+    if not dryRun and not settings.analysis_configured:
+        return JSONResponse(
+            status_code=503,
+            content={
+                "detail": (
+                    "Analysis LLM is not configured. Set AZURE_OPENAI_ENDPOINT, "
+                    "AZURE_OPENAI_API_KEY and AZURE_OPENAI_DEPLOYMENT in backend/.env "
+                    "(see .env.example), or call with ?dryRun=true."
+                )
+            },
+        )
+
+    try:
+        blob = await request.json()
+    except (ValueError, UnicodeDecodeError):
+        return JSONResponse(
+            status_code=400, content={"detail": "Request body must be valid JSON."}
+        )
+
+    if not isinstance(blob, dict) or not isinstance(blob.get("repos"), dict) or not blob["repos"]:
+        return JSONResponse(
+            status_code=422,
+            content={"detail": "Blob must contain a non-empty 'repos' object."},
+        )
+
+    collated = await run_analysis(blob, dry_run=dryRun, max_repos=maxRepos)
+    logger.info(
+        "Analysis complete for @%s: %d repos, %d LLM call(s)%s",
+        (collated.get("user") or {}).get("login", "unknown"),
+        collated["stats"]["reposAnalyzed"],
+        collated["stats"]["llmCalls"],
+        " (dry run)" if dryRun else "",
+    )
+    return JSONResponse(content=collated)
+
 
 
 @app.get("/auth/github/login")

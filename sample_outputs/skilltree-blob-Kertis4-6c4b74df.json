@@ -1,0 +1,5075 @@
+{
+  "jobId": "6c4b74dfaeca496eb2c671da7641910e",
+  "user": {
+    "login": "Kertis4",
+    "name": "Eoin Curtis"
+  },
+  "config": {
+    "taxonomy": [
+      "oop",
+      "functional",
+      "async",
+      "testing",
+      "typing",
+      "docker",
+      "ci",
+      "iac",
+      "architecture",
+      "error-handling",
+      "documentation"
+    ],
+    "perRepoTokenBudget": 12000,
+    "maxFilesPerRepo": 5,
+    "modelId": "map.v1"
+  },
+  "totals": {
+    "repoCount": 32,
+    "totalBytes": 1424353,
+    "estimatedLines": 29674,
+    "languages": [
+      {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B",
+        "bytes": 608150,
+        "estimatedLines": 12670,
+        "share": 0.42696578727323914
+      },
+      {
+        "name": "TypeScript",
+        "color": "#3178c6",
+        "bytes": 237798,
+        "estimatedLines": 4954,
+        "share": 0.16695159135410956
+      },
+      {
+        "name": "HTML",
+        "color": "#e34c26",
+        "bytes": 144850,
+        "estimatedLines": 3018,
+        "share": 0.10169529603967556
+      },
+      {
+        "name": "Python",
+        "color": "#3572A5",
+        "bytes": 136911,
+        "estimatedLines": 2852,
+        "share": 0.09612153728745614
+      },
+      {
+        "name": "C++",
+        "color": "#f34b7d",
+        "bytes": 118326,
+        "estimatedLines": 2465,
+        "share": 0.08307350776106766
+      },
+      {
+        "name": "JavaScript",
+        "color": "#f1e05a",
+        "bytes": 83777,
+        "estimatedLines": 1745,
+        "share": 0.05881758243918467
+      },
+      {
+        "name": "TeX",
+        "color": "#3D6117",
+        "bytes": 36116,
+        "estimatedLines": 752,
+        "share": 0.025356073950769227
+      },
+      {
+        "name": "Astro",
+        "color": "#ff5a03",
+        "bytes": 32234,
+        "estimatedLines": 672,
+        "share": 0.022630625975442884
+      },
+      {
+        "name": "CSS",
+        "color": "#663399",
+        "bytes": 14925,
+        "estimatedLines": 311,
+        "share": 0.010478441790763947
+      },
+      {
+        "name": "C",
+        "color": "#555555",
+        "bytes": 8068,
+        "estimatedLines": 168,
+        "share": 0.005664326188802916
+      },
+      {
+        "name": "Dockerfile",
+        "color": "#384d54",
+        "bytes": 1650,
+        "estimatedLines": 34,
+        "share": 0.0011584207004864664
+      },
+      {
+        "name": "Go",
+        "color": "#00ADD8",
+        "bytes": 981,
+        "estimatedLines": 20,
+        "share": 0.0006887337619255901
+      },
+      {
+        "name": "Shell",
+        "color": "#89e051",
+        "bytes": 277,
+        "estimatedLines": 6,
+        "share": 0.00019447426305136436
+      },
+      {
+        "name": "Brainfuck",
+        "color": "#2F2530",
+        "bytes": 232,
+        "estimatedLines": 5,
+        "share": 0.0001628809712199153
+      },
+      {
+        "name": "Procfile",
+        "color": "#3B2F63",
+        "bytes": 58,
+        "estimatedLines": 1,
+        "share": 0.000040720242804978824
+      }
+    ]
+  },
+  "repos": {
+    "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis": {
+      "nameWithOwner": "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+      "name": "Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+      "description": "Data analysis of Airbnb listings and reviews in Dublin using Python. Highlights trends in pricing, host activity, and neighbourhood patterns with clear visualisations.",
+      "url": "https://github.com/Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-04-19T20:14:27Z",
+      "defaultBranch": "main",
+      "headSha": "c43a91a53dabbee0008bf86eed4547393cd6fe2f",
+      "totalBytes": 517353,
+      "estimatedLines": 10778,
+      "primaryLanguage": {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B"
+      },
+      "languages": [
+        {
+          "name": "Jupyter Notebook",
+          "color": "#DA5B0B",
+          "bytes": 517353,
+          "estimatedLines": 10778,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "Air-BnB-DataAnalysis.ipynb",
+          "extension": ".ipynb",
+          "type": "blob",
+          "bytes": 517353,
+          "estimatedLines": 10778
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 3383,
+          "estimatedLines": 70
+        },
+        {
+          "name": "Data",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 11612662,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 1,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          },
+          {
+            "name": "Data",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".ipynb",
+          "fileCount": 1,
+          "bytes": 517353
+        },
+        {
+          "extension": ".csv",
+          "fileCount": 1,
+          "bytes": 11091926
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 3383
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Data/listings.csv",
+          "bytes": 11091926,
+          "estimatedLines": 231082
+        },
+        {
+          "path": "Air-BnB-DataAnalysis.ipynb",
+          "bytes": 517353,
+          "estimatedLines": 10778
+        },
+        {
+          "path": "README.md",
+          "bytes": 3383,
+          "estimatedLines": 70
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/github-skilltree": {
+      "nameWithOwner": "Kertis4/github-skilltree",
+      "name": "github-skilltree",
+      "description": null,
+      "url": "https://github.com/Kertis4/github-skilltree",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 1,
+      "forks": 0,
+      "updatedAt": "2026-06-24T12:44:55Z",
+      "defaultBranch": "main",
+      "headSha": "fc165e7d83c4e82293a5c6e13976e65ff6013558",
+      "totalBytes": 149093,
+      "estimatedLines": 3106,
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "bytes": 94147,
+          "estimatedLines": 1961,
+          "share": 0.6314649245772773
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 45480,
+          "estimatedLines": 948,
+          "share": 0.30504450242466113
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 7916,
+          "estimatedLines": 165,
+          "share": 0.05309437733495201
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 959,
+          "estimatedLines": 20,
+          "share": 0.0064322268651110385
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 591,
+          "estimatedLines": 12,
+          "share": 0.003963968797998565
+        }
+      ],
+      "files": [
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 13715,
+          "estimatedLines": 286
+        },
+        {
+          "name": "CLAUDE.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 9500,
+          "estimatedLines": 198
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 3568,
+          "estimatedLines": 74
+        },
+        {
+          "name": "backend",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "frontend",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 298491,
+      "structure": {
+        "fileCount": 62,
+        "dirCount": 16,
+        "maxDepth": 4,
+        "topDirs": [
+          {
+            "name": "frontend",
+            "fileCount": 51
+          },
+          {
+            "name": "backend",
+            "fileCount": 8
+          },
+          {
+            "name": "(root)",
+            "fileCount": 3
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".tsx",
+          "fileCount": 25,
+          "bytes": 67423
+        },
+        {
+          "extension": ".ts",
+          "fileCount": 14,
+          "bytes": 27100
+        },
+        {
+          "extension": ".py",
+          "fileCount": 6,
+          "bytes": 45480
+        },
+        {
+          "extension": ".json",
+          "fileCount": 5,
+          "bytes": 107758
+        },
+        {
+          "extension": ".md",
+          "fileCount": 3,
+          "bytes": 25640
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 2,
+          "bytes": 3930
+        },
+        {
+          "extension": ".example",
+          "fileCount": 2,
+          "bytes": 1402
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 1,
+          "bytes": 770
+        },
+        {
+          "extension": ".js",
+          "fileCount": 1,
+          "bytes": 591
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 959
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 1,
+          "bytes": 9522
+        },
+        {
+          "extension": ".css",
+          "fileCount": 1,
+          "bytes": 7916
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "frontend/package-lock.json",
+          "bytes": 105547,
+          "estimatedLines": 2199
+        },
+        {
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "bytes": 19406,
+          "estimatedLines": 404
+        },
+        {
+          "path": "backend/app/blob.py",
+          "bytes": 18338,
+          "estimatedLines": 382
+        },
+        {
+          "path": "backend/app/main.py",
+          "bytes": 14378,
+          "estimatedLines": 300
+        },
+        {
+          "path": "README.md",
+          "bytes": 13715,
+          "estimatedLines": 286
+        },
+        {
+          "path": "frontend/public/favicon.svg",
+          "bytes": 9522,
+          "estimatedLines": 198
+        },
+        {
+          "path": "CLAUDE.md",
+          "bytes": 9500,
+          "estimatedLines": 198
+        },
+        {
+          "path": "frontend/src/index.css",
+          "bytes": 7916,
+          "estimatedLines": 165
+        },
+        {
+          "path": "backend/app/github_graphql.py",
+          "bytes": 7440,
+          "estimatedLines": 155
+        },
+        {
+          "path": "frontend/src/lib/auth.ts",
+          "bytes": 7172,
+          "estimatedLines": 149
+        }
+      ],
+      "configs": [
+        {
+          "path": "backend/requirements.txt",
+          "category": "package-manager"
+        },
+        {
+          "path": "frontend/package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "frontend/tsconfig.json",
+          "category": "build"
+        },
+        {
+          "path": "frontend/vite.config.ts",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 4,
+        "configCount": 4
+      }
+    },
+    "Kertis4/Robo-Rugby": {
+      "nameWithOwner": "Kertis4/Robo-Rugby",
+      "name": "Robo-Rugby",
+      "description": "The repository for my teams contribution to UCD's 2025 Robo-Rugby Competition",
+      "url": "https://github.com/Kertis4/Robo-Rugby",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-04-09T16:58:05Z",
+      "defaultBranch": "main",
+      "headSha": "d695cb47a0679d50e9aa916c7c96566acca8f21f",
+      "totalBytes": 118326,
+      "estimatedLines": 2465,
+      "primaryLanguage": {
+        "name": "C++",
+        "color": "#f34b7d"
+      },
+      "languages": [
+        {
+          "name": "C++",
+          "color": "#f34b7d",
+          "bytes": 118326,
+          "estimatedLines": 2465,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "Rules.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 11852,
+          "estimatedLines": 247
+        },
+        {
+          "name": "Rock,Paper.Scissors.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 9318,
+          "estimatedLines": 194
+        },
+        {
+          "name": "PI-Controller.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 5369,
+          "estimatedLines": 112
+        },
+        {
+          "name": "Charge-down.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 5230,
+          "estimatedLines": 109
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 3973,
+          "estimatedLines": 83
+        },
+        {
+          "name": "bitmapFinal.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 2356,
+          "estimatedLines": 49
+        },
+        {
+          "name": "Bitmap_V2.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 2171,
+          "estimatedLines": 45
+        },
+        {
+          "name": "Bitmap_V1.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 2099,
+          "estimatedLines": 44
+        },
+        {
+          "name": "Distance.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 1940,
+          "estimatedLines": 40
+        },
+        {
+          "name": "Bitmap_fix.ino",
+          "extension": ".ino",
+          "type": "blob",
+          "bytes": 1287,
+          "estimatedLines": 27
+        },
+        {
+          "name": "2-4-25 lab Daragh",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "Main_Code_timing",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 134151,
+      "structure": {
+        "fileCount": 19,
+        "dirCount": 13,
+        "maxDepth": 3,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 10
+          },
+          {
+            "name": "2-4-25 lab Daragh",
+            "fileCount": 8
+          },
+          {
+            "name": "Main_Code_timing",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".ino",
+          "fileCount": 17,
+          "bytes": 118326
+        },
+        {
+          "extension": ".md",
+          "fileCount": 2,
+          "bytes": 15825
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "2-4-25 lab Daragh/Inertial Navigation/float_Inertial-Navigation/float_Inertial-Navigation.ino",
+          "bytes": 15066,
+          "estimatedLines": 314
+        },
+        {
+          "path": "2-4-25 lab Daragh/Inertial Navigation/Int_Inertial_Navigation/Int_Inertial_Navigation.ino",
+          "bytes": 14920,
+          "estimatedLines": 311
+        },
+        {
+          "path": "2-4-25 lab Daragh/Wheel_Counter/Wheel_Counter/Wheel_Counter.ino",
+          "bytes": 12824,
+          "estimatedLines": 267
+        },
+        {
+          "path": "2-4-25 lab Daragh/Straight Line/int_Straight_Line/maybe.ino",
+          "bytes": 11924,
+          "estimatedLines": 248
+        },
+        {
+          "path": "Main_Code_timing/Main_Code_timing.ino",
+          "bytes": 11877,
+          "estimatedLines": 247
+        },
+        {
+          "path": "Rules.md",
+          "bytes": 11852,
+          "estimatedLines": 247
+        },
+        {
+          "path": "Rock,Paper.Scissors.ino",
+          "bytes": 9318,
+          "estimatedLines": 194
+        },
+        {
+          "path": "2-4-25 lab Daragh/Line Reader/int_Line_Reader/int_Line_Reader.ino",
+          "bytes": 8682,
+          "estimatedLines": 181
+        },
+        {
+          "path": "2-4-25 lab Daragh/Straight Line/int_Straight_Line/int_Straight_Line.ino",
+          "bytes": 5918,
+          "estimatedLines": 123
+        },
+        {
+          "path": "PI-Controller.ino",
+          "bytes": 5369,
+          "estimatedLines": 112
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      }
+    },
+    "layli43/Hackathlone-astro-nuts": {
+      "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+      "name": "Hackathlone-astro-nuts",
+      "description": null,
+      "url": "https://github.com/layli43/Hackathlone-astro-nuts",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 1,
+      "updatedAt": "2025-10-08T13:20:59Z",
+      "defaultBranch": "main",
+      "headSha": "ba5de749a747ba0141ac82b1a0184a1d544a8ec6",
+      "totalBytes": 106114,
+      "estimatedLines": 2211,
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "bytes": 70521,
+          "estimatedLines": 1469,
+          "share": 0.6645777183029572
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 26938,
+          "estimatedLines": 561,
+          "share": 0.2538590572403264
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 7576,
+          "estimatedLines": 158,
+          "share": 0.07139491490284035
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 716,
+          "estimatedLines": 15,
+          "share": 0.006747460278568332
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 363,
+          "estimatedLines": 8,
+          "share": 0.003420849275307688
+        }
+      ],
+      "files": [
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 1558,
+          "estimatedLines": 32
+        },
+        {
+          "name": "readme.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 225,
+          "estimatedLines": 5
+        },
+        {
+          "name": "Hackathlone-Backend-Astro-Nuts",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "Hackathlone-Frontend-Astro-Nuts",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 830920,
+      "structure": {
+        "fileCount": 33,
+        "dirCount": 5,
+        "maxDepth": 3,
+        "topDirs": [
+          {
+            "name": "Hackathlone-Frontend-Astro-Nuts",
+            "fileCount": 22
+          },
+          {
+            "name": "Hackathlone-Backend-Astro-Nuts",
+            "fileCount": 9
+          },
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".json",
+          "fileCount": 5,
+          "bytes": 463154
+        },
+        {
+          "extension": ".md",
+          "fileCount": 4,
+          "bytes": 5371
+        },
+        {
+          "extension": ".mjs",
+          "fileCount": 4,
+          "bytes": 7315
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 3,
+          "bytes": 2000
+        },
+        {
+          "extension": ".py",
+          "fileCount": 3,
+          "bytes": 26938
+        },
+        {
+          "extension": ".js",
+          "fileCount": 2,
+          "bytes": 261
+        },
+        {
+          "extension": ".css",
+          "fileCount": 2,
+          "bytes": 716
+        },
+        {
+          "extension": ".tsx",
+          "fileCount": 2,
+          "bytes": 68667
+        },
+        {
+          "extension": ".ts",
+          "fileCount": 2,
+          "bytes": 1854
+        },
+        {
+          "extension": ".rar",
+          "fileCount": 1,
+          "bytes": 10839
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 1,
+          "bytes": 45
+        },
+        {
+          "extension": ".zip",
+          "fileCount": 1,
+          "bytes": 11296
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 363
+        },
+        {
+          "extension": ".yaml",
+          "fileCount": 1,
+          "bytes": 230604
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 1,
+          "bytes": 1497
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/package-lock.json",
+          "bytes": 459829,
+          "estimatedLines": 9580
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/pnpm-lock.yaml",
+          "bytes": 230604,
+          "estimatedLines": 4804
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+          "bytes": 68472,
+          "estimatedLines": 1426
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+          "bytes": 18221,
+          "estimatedLines": 380
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/frontTest.zip",
+          "bytes": 11296,
+          "estimatedLines": 235
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/Hackathlone-Backend-Astro-Nuts.rar",
+          "bytes": 10839,
+          "estimatedLines": 226
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/database.py",
+          "bytes": 4489,
+          "estimatedLines": 94
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/README.md",
+          "bytes": 4455,
+          "estimatedLines": 93
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/normalize.py",
+          "bytes": 4228,
+          "estimatedLines": 88
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/eslint.config.mjs",
+          "bytes": 3489,
+          "estimatedLines": 73
+        }
+      ],
+      "configs": [
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/.prettierrc.mjs",
+          "category": "lint"
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/tsconfig.json",
+          "category": "build"
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/vite.config.ts",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "Hackathlone-Backend-Astro-Nuts/README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 5,
+        "configCount": 4
+      }
+    },
+    "Kertis4/Hackathlone-Frontend-Astro-Nuts": {
+      "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+      "name": "Hackathlone-Frontend-Astro-Nuts",
+      "description": null,
+      "url": "https://github.com/Kertis4/Hackathlone-Frontend-Astro-Nuts",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-10-05T11:01:41Z",
+      "defaultBranch": "master",
+      "headSha": "c5b57c3afb445e3b0cfe17f3e204b2b5e9df2a39",
+      "totalBytes": 79478,
+      "estimatedLines": 1656,
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "languages": [
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "bytes": 70823,
+          "estimatedLines": 1475,
+          "share": 0.891101940159541
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 7576,
+          "estimatedLines": 158,
+          "share": 0.09532197589269986
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 716,
+          "estimatedLines": 15,
+          "share": 0.009008782304537104
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 363,
+          "estimatedLines": 8,
+          "share": 0.0045673016432220236
+        }
+      ],
+      "files": [
+        {
+          "name": "package-lock.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 459829,
+          "estimatedLines": 9580
+        },
+        {
+          "name": "pnpm-lock.yaml",
+          "extension": ".yaml",
+          "type": "blob",
+          "bytes": 230604,
+          "estimatedLines": 4804
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 4455,
+          "estimatedLines": 93
+        },
+        {
+          "name": "eslint.config.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 3489,
+          "estimatedLines": 73
+        },
+        {
+          "name": "stylelint.config.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 3377,
+          "estimatedLines": 70
+        },
+        {
+          "name": "package.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 1657,
+          "estimatedLines": 35
+        },
+        {
+          "name": "tsconfig.app.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 822,
+          "estimatedLines": 17
+        },
+        {
+          "name": "tsconfig.node.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 735,
+          "estimatedLines": 15
+        },
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 363,
+          "estimatedLines": 8
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 277,
+          "estimatedLines": 6
+        },
+        {
+          "name": ".prettierrc.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 234,
+          "estimatedLines": 5
+        },
+        {
+          "name": "postcss.config.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 215,
+          "estimatedLines": 4
+        },
+        {
+          "name": "tailwind.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 181,
+          "estimatedLines": 4
+        },
+        {
+          "name": "vite.config.ts",
+          "extension": ".ts",
+          "type": "blob",
+          "bytes": 161,
+          "estimatedLines": 3
+        },
+        {
+          "name": "tsconfig.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 111,
+          "estimatedLines": 2
+        },
+        {
+          "name": "postcss.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 80,
+          "estimatedLines": 2
+        },
+        {
+          "name": "public",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "src",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 779465,
+      "structure": {
+        "fileCount": 22,
+        "dirCount": 3,
+        "maxDepth": 2,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 16
+          },
+          {
+            "name": "src",
+            "fileCount": 5
+          },
+          {
+            "name": "public",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".json",
+          "fileCount": 5,
+          "bytes": 463154
+        },
+        {
+          "extension": ".mjs",
+          "fileCount": 4,
+          "bytes": 7315
+        },
+        {
+          "extension": ".js",
+          "fileCount": 2,
+          "bytes": 261
+        },
+        {
+          "extension": ".css",
+          "fileCount": 2,
+          "bytes": 716
+        },
+        {
+          "extension": ".tsx",
+          "fileCount": 2,
+          "bytes": 68969
+        },
+        {
+          "extension": ".ts",
+          "fileCount": 2,
+          "bytes": 1854
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 1,
+          "bytes": 277
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 4455
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 363
+        },
+        {
+          "extension": ".yaml",
+          "fileCount": 1,
+          "bytes": 230604
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 1,
+          "bytes": 1497
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "package-lock.json",
+          "bytes": 459829,
+          "estimatedLines": 9580
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "bytes": 230604,
+          "estimatedLines": 4804
+        },
+        {
+          "path": "src/App.tsx",
+          "bytes": 68774,
+          "estimatedLines": 1433
+        },
+        {
+          "path": "README.md",
+          "bytes": 4455,
+          "estimatedLines": 93
+        },
+        {
+          "path": "eslint.config.mjs",
+          "bytes": 3489,
+          "estimatedLines": 73
+        },
+        {
+          "path": "stylelint.config.mjs",
+          "bytes": 3377,
+          "estimatedLines": 70
+        },
+        {
+          "path": "src/api/asteroid.ts",
+          "bytes": 1693,
+          "estimatedLines": 35
+        },
+        {
+          "path": "package.json",
+          "bytes": 1657,
+          "estimatedLines": 35
+        },
+        {
+          "path": "public/vite.svg",
+          "bytes": 1497,
+          "estimatedLines": 31
+        },
+        {
+          "path": "tsconfig.app.json",
+          "bytes": 822,
+          "estimatedLines": 17
+        }
+      ],
+      "configs": [
+        {
+          "path": ".prettierrc.mjs",
+          "category": "lint"
+        },
+        {
+          "path": "package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "tsconfig.json",
+          "category": "build"
+        },
+        {
+          "path": "vite.config.ts",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 4
+      }
+    },
+    "Kertis4/Puzzle-Solver-Comparison": {
+      "nameWithOwner": "Kertis4/Puzzle-Solver-Comparison",
+      "name": "Puzzle-Solver-Comparison",
+      "description": null,
+      "url": "https://github.com/Kertis4/Puzzle-Solver-Comparison",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-04-17T21:59:16Z",
+      "defaultBranch": "main",
+      "headSha": "e6a60c6bf40efe212cbc46f80a64e06b015bbe8b",
+      "totalBytes": 74555,
+      "estimatedLines": 1553,
+      "primaryLanguage": {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B"
+      },
+      "languages": [
+        {
+          "name": "Jupyter Notebook",
+          "color": "#DA5B0B",
+          "bytes": 74555,
+          "estimatedLines": 1553,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "Puzzle Solver Comparison.ipynb",
+          "extension": ".ipynb",
+          "type": "blob",
+          "bytes": 74555,
+          "estimatedLines": 1553
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 1489,
+          "estimatedLines": 31
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 76044,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".ipynb",
+          "fileCount": 1,
+          "bytes": 74555
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 1489
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Puzzle Solver Comparison.ipynb",
+          "bytes": 74555,
+          "estimatedLines": 1553
+        },
+        {
+          "path": "README.md",
+          "bytes": 1489,
+          "estimatedLines": 31
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Clash-Royale-Deck-Maker": {
+      "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+      "name": "Clash-Royale-Deck-Maker",
+      "description": null,
+      "url": "https://github.com/Kertis4/Clash-Royale-Deck-Maker",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 1,
+      "forks": 0,
+      "updatedAt": "2025-07-10T11:05:02Z",
+      "defaultBranch": "main",
+      "headSha": "5b051ec139e5b7fc919a6090d3b37f902aabfe05",
+      "totalBytes": 49728,
+      "estimatedLines": 1036,
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 25475,
+          "estimatedLines": 531,
+          "share": 0.5122868404118404
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 20037,
+          "estimatedLines": 417,
+          "share": 0.4029319498069498
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 2792,
+          "estimatedLines": 58,
+          "share": 0.05614543114543115
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "bytes": 1131,
+          "estimatedLines": 24,
+          "share": 0.02274372586872587
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 235,
+          "estimatedLines": 5,
+          "share": 0.0047257078507078505
+        },
+        {
+          "name": "Procfile",
+          "color": "#3B2F63",
+          "bytes": 58,
+          "estimatedLines": 1,
+          "share": 0.0011663449163449163
+        }
+      ],
+      "files": [
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 4307,
+          "estimatedLines": 90
+        },
+        {
+          "name": "Dockerfile",
+          "extension": null,
+          "type": "blob",
+          "bytes": 1131,
+          "estimatedLines": 24
+        },
+        {
+          "name": "nginx.conf",
+          "extension": ".conf",
+          "type": "blob",
+          "bytes": 366,
+          "estimatedLines": 8
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 344,
+          "estimatedLines": 7
+        },
+        {
+          "name": ".dockerignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 78,
+          "estimatedLines": 2
+        },
+        {
+          "name": "Procfile",
+          "extension": null,
+          "type": "blob",
+          "bytes": 58,
+          "estimatedLines": 1
+        },
+        {
+          "name": "meta.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 2,
+          "estimatedLines": 0
+        },
+        {
+          "name": "backend",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "frontend",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 250758,
+      "structure": {
+        "fileCount": 35,
+        "dirCount": 6,
+        "maxDepth": 3,
+        "topDirs": [
+          {
+            "name": "frontend",
+            "fileCount": 20
+          },
+          {
+            "name": "backend",
+            "fileCount": 8
+          },
+          {
+            "name": "(root)",
+            "fileCount": 7
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".jsx",
+          "fileCount": 7,
+          "bytes": 24215
+        },
+        {
+          "extension": ".py",
+          "fileCount": 6,
+          "bytes": 20037
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 5,
+          "bytes": 1864
+        },
+        {
+          "extension": ".js",
+          "fileCount": 4,
+          "bytes": 1260
+        },
+        {
+          "extension": ".json",
+          "fileCount": 3,
+          "bytes": 143013
+        },
+        {
+          "extension": ".md",
+          "fileCount": 2,
+          "bytes": 5163
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 2,
+          "bytes": 5623
+        },
+        {
+          "extension": ".css",
+          "fileCount": 2,
+          "bytes": 2792
+        },
+        {
+          "extension": ".db",
+          "fileCount": 1,
+          "bytes": 45056
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 1,
+          "bytes": 1134
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 235
+        },
+        {
+          "extension": ".conf",
+          "fileCount": 1,
+          "bytes": 366
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "frontend/package-lock.json",
+          "bytes": 142286,
+          "estimatedLines": 2964
+        },
+        {
+          "path": "backend/instance/site.db",
+          "bytes": 45056,
+          "estimatedLines": 939
+        },
+        {
+          "path": "backend/app.py",
+          "bytes": 11235,
+          "estimatedLines": 234
+        },
+        {
+          "path": "frontend/src/PlayerInfoFetcher.jsx",
+          "bytes": 6918,
+          "estimatedLines": 144
+        },
+        {
+          "path": "frontend/src/Dashboard.jsx",
+          "bytes": 6846,
+          "estimatedLines": 143
+        },
+        {
+          "path": "backend/metaCrawler.py",
+          "bytes": 4978,
+          "estimatedLines": 104
+        },
+        {
+          "path": "README.md",
+          "bytes": 4307,
+          "estimatedLines": 90
+        },
+        {
+          "path": "frontend/src/Register.jsx",
+          "bytes": 4262,
+          "estimatedLines": 89
+        },
+        {
+          "path": "frontend/src/assets/react.svg",
+          "bytes": 4126,
+          "estimatedLines": 86
+        },
+        {
+          "path": "frontend/src/SignIn.jsx",
+          "bytes": 3779,
+          "estimatedLines": 79
+        }
+      ],
+      "configs": [
+        {
+          "path": "Dockerfile",
+          "category": "docker"
+        },
+        {
+          "path": "backend/requirements.txt",
+          "category": "package-manager"
+        },
+        {
+          "path": "frontend/package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "frontend/vite.config.js",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 3,
+        "configCount": 4
+      }
+    },
+    "Kertis4/Mobile-frontend-test-UCDF": {
+      "nameWithOwner": "Kertis4/Mobile-frontend-test-UCDF",
+      "name": "Mobile-frontend-test-UCDF",
+      "description": "Mobile frontend test UCDF",
+      "url": "https://github.com/Kertis4/Mobile-frontend-test-UCDF",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-07T10:54:46Z",
+      "defaultBranch": "main",
+      "headSha": "bab63f629694f0fb406630c198c3e02748a5fdfa",
+      "totalBytes": 45658,
+      "estimatedLines": 951,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 38010,
+          "estimatedLines": 792,
+          "share": 0.832493757939463
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 7648,
+          "estimatedLines": 159,
+          "share": 0.16750624206053705
+        }
+      ],
+      "files": [
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 23862,
+          "estimatedLines": 497
+        },
+        {
+          "name": "report-mobile.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 14148,
+          "estimatedLines": 295
+        },
+        {
+          "name": "script.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 7648,
+          "estimatedLines": 159
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 45658,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 3
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".html",
+          "fileCount": 2,
+          "bytes": 38010
+        },
+        {
+          "extension": ".js",
+          "fileCount": 1,
+          "bytes": 7648
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "index.html",
+          "bytes": 23862,
+          "estimatedLines": 497
+        },
+        {
+          "path": "report-mobile.html",
+          "bytes": 14148,
+          "estimatedLines": 295
+        },
+        {
+          "path": "script.js",
+          "bytes": 7648,
+          "estimatedLines": 159
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Knowledge-Link": {
+      "nameWithOwner": "Kertis4/Knowledge-Link",
+      "name": "Knowledge-Link",
+      "description": "A Report generator for Germany's Municipal Data",
+      "url": "https://github.com/Kertis4/Knowledge-Link",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-03-15T01:54:54Z",
+      "defaultBranch": "main",
+      "headSha": "9c36a0be5d996e53dfd86082663f3076b4ca12ab",
+      "totalBytes": 42509,
+      "estimatedLines": 886,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 29042,
+          "estimatedLines": 605,
+          "share": 0.683196499564798
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 6569,
+          "estimatedLines": 137,
+          "share": 0.15453198146274907
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 6487,
+          "estimatedLines": 135,
+          "share": 0.1526029781928533
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "bytes": 411,
+          "estimatedLines": 9,
+          "share": 0.009668540779599614
+        }
+      ],
+      "files": [
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 2257,
+          "estimatedLines": 47
+        },
+        {
+          "name": "Dockerfile",
+          "extension": null,
+          "type": "blob",
+          "bytes": 411,
+          "estimatedLines": 9
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 12,
+          "estimatedLines": 0
+        },
+        {
+          "name": "app",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "byteme-main",
+          "extension": null,
+          "type": "blob",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "frontend",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 68030,
+      "structure": {
+        "fileCount": 16,
+        "dirCount": 2,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "app",
+            "fileCount": 10
+          },
+          {
+            "name": "(root)",
+            "fileCount": 4
+          },
+          {
+            "name": "frontend",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".py",
+          "fileCount": 4,
+          "bytes": 6569
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 4,
+          "bytes": 2395
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 3,
+          "bytes": 423
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 2257
+        },
+        {
+          "extension": ".ini",
+          "fileCount": 1,
+          "bytes": 221
+        },
+        {
+          "extension": ".pdf",
+          "fileCount": 1,
+          "bytes": 20636
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 29042
+        },
+        {
+          "extension": ".js",
+          "fileCount": 1,
+          "bytes": 6487
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "frontend/index.html",
+          "bytes": 29042,
+          "estimatedLines": 605
+        },
+        {
+          "path": "app/report.pdf",
+          "bytes": 20636,
+          "estimatedLines": 430
+        },
+        {
+          "path": "frontend/script.js",
+          "bytes": 6487,
+          "estimatedLines": 135
+        },
+        {
+          "path": "app/app.py",
+          "bytes": 3599,
+          "estimatedLines": 75
+        },
+        {
+          "path": "README.md",
+          "bytes": 2257,
+          "estimatedLines": 47
+        },
+        {
+          "path": "app/plot_script.py",
+          "bytes": 2007,
+          "estimatedLines": 42
+        },
+        {
+          "path": "app/forecast_indicators.txt",
+          "bytes": 1827,
+          "estimatedLines": 38
+        },
+        {
+          "path": "app/export_indicators.py",
+          "bytes": 650,
+          "estimatedLines": 14
+        },
+        {
+          "path": "Dockerfile",
+          "bytes": 411,
+          "estimatedLines": 9
+        },
+        {
+          "path": "app/download_data.py",
+          "bytes": 313,
+          "estimatedLines": 7
+        }
+      ],
+      "configs": [
+        {
+          "path": "Dockerfile",
+          "category": "docker"
+        },
+        {
+          "path": "app/requirements.txt",
+          "category": "package-manager"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 5,
+        "configCount": 2
+      }
+    },
+    "Kertis4/Langton-Ant-Portfolio": {
+      "nameWithOwner": "Kertis4/Langton-Ant-Portfolio",
+      "name": "Langton-Ant-Portfolio",
+      "description": "My portfolio website using the Langton Ant as I think it looks cool",
+      "url": "https://github.com/Kertis4/Langton-Ant-Portfolio",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-11-14T16:48:34Z",
+      "defaultBranch": "master",
+      "headSha": "e3d7b5252605b2591b95f4044335d9c807fa515d",
+      "totalBytes": 42346,
+      "estimatedLines": 882,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 42346,
+          "estimatedLines": 882,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 42346,
+          "estimatedLines": 882
+        },
+        {
+          "name": "project-images",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 3379511,
+      "structure": {
+        "fileCount": 7,
+        "dirCount": 1,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "project-images",
+            "fileCount": 6
+          },
+          {
+            "name": "(root)",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".png",
+          "fileCount": 6,
+          "bytes": 3337165
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 42346
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "project-images/HeroPageUI.png",
+          "bytes": 2318909,
+          "estimatedLines": 48311
+        },
+        {
+          "path": "project-images/ClashRoyaleDashboard.png",
+          "bytes": 366410,
+          "estimatedLines": 7634
+        },
+        {
+          "path": "project-images/AsteroidTracker3d.png",
+          "bytes": 251226,
+          "estimatedLines": 5234
+        },
+        {
+          "path": "project-images/clashRoyaleBuiltDeck.png",
+          "bytes": 199261,
+          "estimatedLines": 4151
+        },
+        {
+          "path": "project-images/spotify-automator.png",
+          "bytes": 151156,
+          "estimatedLines": 3149
+        },
+        {
+          "path": "project-images/ReportGeneratorUI.png",
+          "bytes": 50203,
+          "estimatedLines": 1046
+        },
+        {
+          "path": "index.html",
+          "bytes": 42346,
+          "estimatedLines": 882
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/netsoc-site": {
+      "nameWithOwner": "Kertis4/netsoc-site",
+      "name": "netsoc-site",
+      "description": "2024 update of the NetSoc website and blog",
+      "url": "https://github.com/Kertis4/netsoc-site",
+      "isFork": true,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-01-25T20:07:11Z",
+      "defaultBranch": "main",
+      "headSha": "9d8402038ba891b502993fe6de6610adbb7a106e",
+      "totalBytes": 36247,
+      "estimatedLines": 755,
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      },
+      "languages": [
+        {
+          "name": "Astro",
+          "color": "#ff5a03",
+          "bytes": 32234,
+          "estimatedLines": 672,
+          "share": 0.8892873893011836
+        },
+        {
+          "name": "TypeScript",
+          "color": "#3178c6",
+          "bytes": 2307,
+          "estimatedLines": 48,
+          "share": 0.06364664661903054
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 828,
+          "estimatedLines": 17,
+          "share": 0.02284326978784451
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 493,
+          "estimatedLines": 10,
+          "share": 0.013601125610395342
+        },
+        {
+          "name": "Shell",
+          "color": "#89e051",
+          "bytes": 277,
+          "estimatedLines": 6,
+          "share": 0.007642011752696775
+        },
+        {
+          "name": "Dockerfile",
+          "color": "#384d54",
+          "bytes": 108,
+          "estimatedLines": 2,
+          "share": 0.002979556928849284
+        }
+      ],
+      "files": [
+        {
+          "name": "package-lock.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 257379,
+          "estimatedLines": 5362
+        },
+        {
+          "name": "package.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 619,
+          "estimatedLines": 13
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 575,
+          "estimatedLines": 12
+        },
+        {
+          "name": "tailwind.config.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 377,
+          "estimatedLines": 8
+        },
+        {
+          "name": "build.sh",
+          "extension": ".sh",
+          "type": "blob",
+          "bytes": 277,
+          "estimatedLines": 6
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 264,
+          "estimatedLines": 6
+        },
+        {
+          "name": ".prettierrc.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 238,
+          "estimatedLines": 5
+        },
+        {
+          "name": "astro.config.mjs",
+          "extension": ".mjs",
+          "type": "blob",
+          "bytes": 213,
+          "estimatedLines": 4
+        },
+        {
+          "name": "Dockerfile",
+          "extension": null,
+          "type": "blob",
+          "bytes": 108,
+          "estimatedLines": 2
+        },
+        {
+          "name": "tsconfig.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 42,
+          "estimatedLines": 1
+        },
+        {
+          "name": ".vscode",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "public",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "src",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 499456,
+      "structure": {
+        "fileCount": 37,
+        "dirCount": 13,
+        "maxDepth": 3,
+        "topDirs": [
+          {
+            "name": "src",
+            "fileCount": 17
+          },
+          {
+            "name": "(root)",
+            "fileCount": 10
+          },
+          {
+            "name": "public",
+            "fileCount": 8
+          },
+          {
+            "name": ".vscode",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".astro",
+          "fileCount": 12,
+          "bytes": 32234
+        },
+        {
+          "extension": ".json",
+          "fileCount": 5,
+          "bytes": 258334
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 5,
+          "bytes": 23495
+        },
+        {
+          "extension": ".ts",
+          "fileCount": 4,
+          "bytes": 2502
+        },
+        {
+          "extension": ".mjs",
+          "fileCount": 3,
+          "bytes": 828
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 2,
+          "bytes": 372
+        },
+        {
+          "extension": ".png",
+          "fileCount": 2,
+          "bytes": 63214
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 575
+        },
+        {
+          "extension": ".sh",
+          "fileCount": 1,
+          "bytes": 277
+        },
+        {
+          "extension": ".ttf",
+          "fileCount": 1,
+          "bytes": 117132
+        },
+        {
+          "extension": ".css",
+          "fileCount": 1,
+          "bytes": 493
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "package-lock.json",
+          "bytes": 257379,
+          "estimatedLines": 5362
+        },
+        {
+          "path": "public/fonts/RubikMonoOne-Regular.ttf",
+          "bytes": 117132,
+          "estimatedLines": 2440
+        },
+        {
+          "path": "public/favicon.png",
+          "bytes": 48016,
+          "estimatedLines": 1000
+        },
+        {
+          "path": "public/cgol-header.png",
+          "bytes": 15198,
+          "estimatedLines": 317
+        },
+        {
+          "path": "src/components/Header.astro",
+          "bytes": 13329,
+          "estimatedLines": 278
+        },
+        {
+          "path": "public/sponsor-logos/KPMG.svg",
+          "bytes": 8661,
+          "estimatedLines": 180
+        },
+        {
+          "path": "public/sponsor-logos/SIG.svg",
+          "bytes": 7536,
+          "estimatedLines": 157
+        },
+        {
+          "path": "src/components/EventCarousel.astro",
+          "bytes": 4429,
+          "estimatedLines": 92
+        },
+        {
+          "path": "src/pages/index.astro",
+          "bytes": 4349,
+          "estimatedLines": 91
+        },
+        {
+          "path": "public/sponsor-logos/Hubspot.svg",
+          "bytes": 2836,
+          "estimatedLines": 59
+        }
+      ],
+      "configs": [
+        {
+          "path": ".prettierrc.mjs",
+          "category": "lint"
+        },
+        {
+          "path": "Dockerfile",
+          "category": "docker"
+        },
+        {
+          "path": "package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "tsconfig.json",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 4
+      }
+    },
+    "Kertis4/Resume": {
+      "nameWithOwner": "Kertis4/Resume",
+      "name": "Resume",
+      "description": null,
+      "url": "https://github.com/Kertis4/Resume",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-17T20:59:49Z",
+      "defaultBranch": "main",
+      "headSha": "712e102e9517c699e1ad2770dcf0956fb4e1ca37",
+      "totalBytes": 36116,
+      "estimatedLines": 752,
+      "primaryLanguage": {
+        "name": "TeX",
+        "color": "#3D6117"
+      },
+      "languages": [
+        {
+          "name": "TeX",
+          "color": "#3D6117",
+          "bytes": 36116,
+          "estimatedLines": 752,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "Eoin Curtis CV.pdf",
+          "extension": ".pdf",
+          "type": "blob",
+          "bytes": 44918,
+          "estimatedLines": 936
+        },
+        {
+          "name": "awesome-cv.cls",
+          "extension": ".cls",
+          "type": "blob",
+          "bytes": 26699,
+          "estimatedLines": 556
+        },
+        {
+          "name": "resume.tex",
+          "extension": ".tex",
+          "type": "blob",
+          "bytes": 3652,
+          "estimatedLines": 76
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 550,
+          "estimatedLines": 11
+        },
+        {
+          "name": "resume",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 81584,
+      "structure": {
+        "fileCount": 9,
+        "dirCount": 1,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "resume",
+            "fileCount": 5
+          },
+          {
+            "name": "(root)",
+            "fileCount": 4
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".tex",
+          "fileCount": 6,
+          "bytes": 9417
+        },
+        {
+          "extension": ".pdf",
+          "fileCount": 1,
+          "bytes": 44918
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 550
+        },
+        {
+          "extension": ".cls",
+          "fileCount": 1,
+          "bytes": 26699
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Eoin Curtis CV.pdf",
+          "bytes": 44918,
+          "estimatedLines": 936
+        },
+        {
+          "path": "awesome-cv.cls",
+          "bytes": 26699,
+          "estimatedLines": 556
+        },
+        {
+          "path": "resume.tex",
+          "bytes": 3652,
+          "estimatedLines": 76
+        },
+        {
+          "path": "resume/experience.tex",
+          "bytes": 1976,
+          "estimatedLines": 41
+        },
+        {
+          "path": "resume/projects.tex",
+          "bytes": 1341,
+          "estimatedLines": 28
+        },
+        {
+          "path": "resume/education.tex",
+          "bytes": 886,
+          "estimatedLines": 18
+        },
+        {
+          "path": "resume/skills.tex",
+          "bytes": 876,
+          "estimatedLines": 18
+        },
+        {
+          "path": "resume/summary.tex",
+          "bytes": 686,
+          "estimatedLines": 14
+        },
+        {
+          "path": "README.md",
+          "bytes": 550,
+          "estimatedLines": 11
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/UCD-festival-Frontend": {
+      "nameWithOwner": "Kertis4/UCD-festival-Frontend",
+      "name": "UCD-festival-Frontend",
+      "description": "Frontend for ucd festival",
+      "url": "https://github.com/Kertis4/UCD-festival-Frontend",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-03T15:45:46Z",
+      "defaultBranch": "main",
+      "headSha": "88d98f20fb102c099cb8e5f1ca47ab44b03c6472",
+      "totalBytes": 31766,
+      "estimatedLines": 662,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 24814,
+          "estimatedLines": 517,
+          "share": 0.7811496568658314
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 6952,
+          "estimatedLines": 145,
+          "share": 0.2188503431341686
+        }
+      ],
+      "files": [
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 24814,
+          "estimatedLines": 517
+        },
+        {
+          "name": "script.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 6952,
+          "estimatedLines": 145
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 50,
+          "estimatedLines": 1
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 31816,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 3
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 50
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 24814
+        },
+        {
+          "extension": ".js",
+          "fileCount": 1,
+          "bytes": 6952
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "index.html",
+          "bytes": 24814,
+          "estimatedLines": 517
+        },
+        {
+          "path": "script.js",
+          "bytes": 6952,
+          "estimatedLines": 145
+        },
+        {
+          "path": "README.md",
+          "bytes": 50,
+          "estimatedLines": 1
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Hackathlone-Backend-Astro-Nuts": {
+      "nameWithOwner": "Kertis4/Hackathlone-Backend-Astro-Nuts",
+      "name": "Hackathlone-Backend-Astro-Nuts",
+      "description": null,
+      "url": "https://github.com/Kertis4/Hackathlone-Backend-Astro-Nuts",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 1,
+      "updatedAt": "2025-10-05T11:00:27Z",
+      "defaultBranch": "main",
+      "headSha": "e2af2cfb85fec35b9db8ac3e30a506fde21e9fcd",
+      "totalBytes": 26938,
+      "estimatedLines": 561,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 26938,
+          "estimatedLines": 561,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "main.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 18221,
+          "estimatedLines": 380
+        },
+        {
+          "name": "frontTest.zip",
+          "extension": ".zip",
+          "type": "blob",
+          "bytes": 11296,
+          "estimatedLines": 235
+        },
+        {
+          "name": "Hackathlone-Backend-Astro-Nuts.rar",
+          "extension": ".rar",
+          "type": "blob",
+          "bytes": 10839,
+          "estimatedLines": 226
+        },
+        {
+          "name": "database.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 4489,
+          "estimatedLines": 94
+        },
+        {
+          "name": "normalize.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 4228,
+          "estimatedLines": 88
+        },
+        {
+          "name": "normalize.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 659,
+          "estimatedLines": 14
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 165,
+          "estimatedLines": 3
+        },
+        {
+          "name": "Requirments.txt",
+          "extension": ".txt",
+          "type": "blob",
+          "bytes": 45,
+          "estimatedLines": 1
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 32,
+          "estimatedLines": 1
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 49974,
+      "structure": {
+        "fileCount": 9,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 9
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".py",
+          "fileCount": 3,
+          "bytes": 26938
+        },
+        {
+          "extension": ".md",
+          "fileCount": 2,
+          "bytes": 691
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 1,
+          "bytes": 165
+        },
+        {
+          "extension": ".rar",
+          "fileCount": 1,
+          "bytes": 10839
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 1,
+          "bytes": 45
+        },
+        {
+          "extension": ".zip",
+          "fileCount": 1,
+          "bytes": 11296
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "main.py",
+          "bytes": 18221,
+          "estimatedLines": 380
+        },
+        {
+          "path": "frontTest.zip",
+          "bytes": 11296,
+          "estimatedLines": 235
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts.rar",
+          "bytes": 10839,
+          "estimatedLines": 226
+        },
+        {
+          "path": "database.py",
+          "bytes": 4489,
+          "estimatedLines": 94
+        },
+        {
+          "path": "normalize.py",
+          "bytes": 4228,
+          "estimatedLines": 88
+        },
+        {
+          "path": "normalize.md",
+          "bytes": 659,
+          "estimatedLines": 14
+        },
+        {
+          "path": ".gitignore",
+          "bytes": 165,
+          "estimatedLines": 3
+        },
+        {
+          "path": "Requirments.txt",
+          "bytes": 45,
+          "estimatedLines": 1
+        },
+        {
+          "path": "README.md",
+          "bytes": 32,
+          "estimatedLines": 1
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 3,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Connections-Clone": {
+      "nameWithOwner": "Kertis4/Connections-Clone",
+      "name": "Connections-Clone",
+      "description": "A connections Clone for an anniversary gift",
+      "url": "https://github.com/Kertis4/Connections-Clone",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-08-04T19:01:04Z",
+      "defaultBranch": "main",
+      "headSha": "9025af34d6571854f6bfa8075e3f488b50736a29",
+      "totalBytes": 21717,
+      "estimatedLines": 452,
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "languages": [
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 20644,
+          "estimatedLines": 430,
+          "share": 0.9505917023529954
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 714,
+          "estimatedLines": 15,
+          "share": 0.032877469263710456
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 359,
+          "estimatedLines": 7,
+          "share": 0.016530828383294192
+        }
+      ],
+      "files": [
+        {
+          "name": "package-lock.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 140791,
+          "estimatedLines": 2933
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 974,
+          "estimatedLines": 20
+        },
+        {
+          "name": "eslint.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 844,
+          "estimatedLines": 18
+        },
+        {
+          "name": "package.json",
+          "extension": ".json",
+          "type": "blob",
+          "bytes": 693,
+          "estimatedLines": 14
+        },
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 359,
+          "estimatedLines": 7
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 253,
+          "estimatedLines": 5
+        },
+        {
+          "name": "vite.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 161,
+          "estimatedLines": 3
+        },
+        {
+          "name": "tailwind.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 154,
+          "estimatedLines": 3
+        },
+        {
+          "name": "postcss.config.js",
+          "extension": ".js",
+          "type": "blob",
+          "bytes": 80,
+          "estimatedLines": 2
+        },
+        {
+          "name": ".vite",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "public",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "src",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 3238294,
+      "structure": {
+        "fileCount": 17,
+        "dirCount": 5,
+        "maxDepth": 2,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 9
+          },
+          {
+            "name": "src",
+            "fileCount": 4
+          },
+          {
+            "name": ".vite",
+            "fileCount": 2
+          },
+          {
+            "name": "public",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".json",
+          "fileCount": 4,
+          "bytes": 141653
+        },
+        {
+          "extension": ".js",
+          "fileCount": 4,
+          "bytes": 1239
+        },
+        {
+          "extension": ".png",
+          "fileCount": 2,
+          "bytes": 3069571
+        },
+        {
+          "extension": ".jsx",
+          "fileCount": 2,
+          "bytes": 19405
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 1,
+          "bytes": 253
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 974
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 359
+        },
+        {
+          "extension": ".svg",
+          "fileCount": 1,
+          "bytes": 4126
+        },
+        {
+          "extension": ".css",
+          "fileCount": 1,
+          "bytes": 714
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "public/Connected.png",
+          "bytes": 2158267,
+          "estimatedLines": 44964
+        },
+        {
+          "path": "public/heart.png",
+          "bytes": 911304,
+          "estimatedLines": 18986
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 140791,
+          "estimatedLines": 2933
+        },
+        {
+          "path": "src/App.jsx",
+          "bytes": 19176,
+          "estimatedLines": 400
+        },
+        {
+          "path": "src/assets/react.svg",
+          "bytes": 4126,
+          "estimatedLines": 86
+        },
+        {
+          "path": "README.md",
+          "bytes": 974,
+          "estimatedLines": 20
+        },
+        {
+          "path": "eslint.config.js",
+          "bytes": 844,
+          "estimatedLines": 18
+        },
+        {
+          "path": "src/index.css",
+          "bytes": 714,
+          "estimatedLines": 15
+        },
+        {
+          "path": "package.json",
+          "bytes": 693,
+          "estimatedLines": 14
+        },
+        {
+          "path": "index.html",
+          "bytes": 359,
+          "estimatedLines": 7
+        }
+      ],
+      "configs": [
+        {
+          "path": ".vite/deps/package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "package.json",
+          "category": "package-manager"
+        },
+        {
+          "path": "vite.config.js",
+          "category": "build"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 3
+      }
+    },
+    "Kertis4/Trigram-Language-Model": {
+      "nameWithOwner": "Kertis4/Trigram-Language-Model",
+      "name": "Trigram-Language-Model",
+      "description": "An academic Assignment I fell in love with, creating a Trigram Language Model (TLM)",
+      "url": "https://github.com/Kertis4/Trigram-Language-Model",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-03-26T19:12:13Z",
+      "defaultBranch": "main",
+      "headSha": "c5a3d4057da1267ebc1103a65e28ea30078488b7",
+      "totalBytes": 16242,
+      "estimatedLines": 338,
+      "primaryLanguage": {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B"
+      },
+      "languages": [
+        {
+          "name": "Jupyter Notebook",
+          "color": "#DA5B0B",
+          "bytes": 16242,
+          "estimatedLines": 338,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "TLM.ipynb",
+          "extension": ".ipynb",
+          "type": "blob",
+          "bytes": 16242,
+          "estimatedLines": 338
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 720,
+          "estimatedLines": 15
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 16962,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 720
+        },
+        {
+          "extension": ".ipynb",
+          "fileCount": 1,
+          "bytes": 16242
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "TLM.ipynb",
+          "bytes": 16242,
+          "estimatedLines": 338
+        },
+        {
+          "path": "README.md",
+          "bytes": 720,
+          "estimatedLines": 15
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Eoins-Website": {
+      "nameWithOwner": "Kertis4/Eoins-Website",
+      "name": "Eoins-Website",
+      "description": null,
+      "url": "https://github.com/Kertis4/Eoins-Website",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-02-04T17:55:43Z",
+      "defaultBranch": "master",
+      "headSha": "d749936d0b57e84df709325410fbd5a25f04d042",
+      "totalBytes": 6083,
+      "estimatedLines": 127,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 6083,
+          "estimatedLines": 127,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 6223,
+          "estimatedLines": 130
+        },
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 6083,
+          "estimatedLines": 127
+        },
+        {
+          "name": ".gitattributes",
+          "extension": null,
+          "type": "blob",
+          "bytes": 2518,
+          "estimatedLines": 52
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 14824,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 3
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": "(none)",
+          "fileCount": 2,
+          "bytes": 8741
+        },
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 6083
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": ".gitignore",
+          "bytes": 6223,
+          "estimatedLines": 130
+        },
+        {
+          "path": "index.html",
+          "bytes": 6083,
+          "estimatedLines": 127
+        },
+        {
+          "path": ".gitattributes",
+          "bytes": 2518,
+          "estimatedLines": 52
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Ostep-homework": {
+      "nameWithOwner": "Kertis4/Ostep-homework",
+      "name": "Ostep-homework",
+      "description": "Coding Homework for ostep",
+      "url": "https://github.com/Kertis4/Ostep-homework",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-03-28T22:48:26Z",
+      "defaultBranch": "main",
+      "headSha": "53948472c405e29eec9fdfa2bb97380d0850c932",
+      "totalBytes": 5843,
+      "estimatedLines": 122,
+      "primaryLanguage": {
+        "name": "C",
+        "color": "#555555"
+      },
+      "languages": [
+        {
+          "name": "C",
+          "color": "#555555",
+          "bytes": 5843,
+          "estimatedLines": 122,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "Process-API",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "limited-direct-execution",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 166968,
+      "structure": {
+        "fileCount": 22,
+        "dirCount": 2,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "Process-API",
+            "fileCount": 17
+          },
+          {
+            "name": "limited-direct-execution",
+            "fileCount": 5
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": "(none)",
+          "fileCount": 10,
+          "bytes": 161096
+        },
+        {
+          "extension": ".c",
+          "fileCount": 10,
+          "bytes": 5843
+        },
+        {
+          "extension": ".txt",
+          "fileCount": 2,
+          "bytes": 29
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "limited-direct-execution/context-switch",
+          "bytes": 16240,
+          "estimatedLines": 338
+        },
+        {
+          "path": "Process-API/hw8",
+          "bytes": 16216,
+          "estimatedLines": 338
+        },
+        {
+          "path": "limited-direct-execution/syscall",
+          "bytes": 16200,
+          "estimatedLines": 338
+        },
+        {
+          "path": "Process-API/hw4",
+          "bytes": 16096,
+          "estimatedLines": 335
+        },
+        {
+          "path": "Process-API/hw2",
+          "bytes": 16088,
+          "estimatedLines": 335
+        },
+        {
+          "path": "Process-API/hw5",
+          "bytes": 16088,
+          "estimatedLines": 335
+        },
+        {
+          "path": "Process-API/hw6",
+          "bytes": 16088,
+          "estimatedLines": 335
+        },
+        {
+          "path": "Process-API/hw3",
+          "bytes": 16040,
+          "estimatedLines": 334
+        },
+        {
+          "path": "Process-API/hw7",
+          "bytes": 16040,
+          "estimatedLines": 334
+        },
+        {
+          "path": "Process-API/hw1",
+          "bytes": 16000,
+          "estimatedLines": 333
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      }
+    },
+    "Kertis4/spotify-last-50": {
+      "nameWithOwner": "Kertis4/spotify-last-50",
+      "name": "spotify-last-50",
+      "description": null,
+      "url": "https://github.com/Kertis4/spotify-last-50",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-11-14T16:29:02Z",
+      "defaultBranch": "main",
+      "headSha": "c05e00cd2158024980bc47338439eaefa1867d30",
+      "totalBytes": 4537,
+      "estimatedLines": 95,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 4537,
+          "estimatedLines": 95,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "update_playlist.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 3828,
+          "estimatedLines": 80
+        },
+        {
+          "name": "main.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 709,
+          "estimatedLines": 15
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 4537,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".py",
+          "fileCount": 2,
+          "bytes": 4537
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "update_playlist.py",
+          "bytes": 3828,
+          "estimatedLines": 80
+        },
+        {
+          "path": "main.py",
+          "bytes": 709,
+          "estimatedLines": 15
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/terraria-auto-fisher": {
+      "nameWithOwner": "Kertis4/terraria-auto-fisher",
+      "name": "terraria-auto-fisher",
+      "description": "A simple Auto Fishing Script for terraria with changeable times for different fishing powers",
+      "url": "https://github.com/Kertis4/terraria-auto-fisher",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-02-22T16:42:13Z",
+      "defaultBranch": "main",
+      "headSha": "dfc27e371814737b82fab64cf7857eafbabaaa6d",
+      "totalBytes": 3261,
+      "estimatedLines": 68,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 3261,
+          "estimatedLines": 68,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "fishing.exe",
+          "extension": ".exe",
+          "type": "blob",
+          "bytes": 19651407,
+          "estimatedLines": 409404
+        },
+        {
+          "name": "fishing.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 3261,
+          "estimatedLines": 68
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 1207,
+          "estimatedLines": 25
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 19655875,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 3
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 1207
+        },
+        {
+          "extension": ".exe",
+          "fileCount": 1,
+          "bytes": 19651407
+        },
+        {
+          "extension": ".py",
+          "fileCount": 1,
+          "bytes": 3261
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "fishing.exe",
+          "bytes": 19651407,
+          "estimatedLines": 409404
+        },
+        {
+          "path": "fishing.py",
+          "bytes": 3261,
+          "estimatedLines": 68
+        },
+        {
+          "path": "README.md",
+          "bytes": 1207,
+          "estimatedLines": 25
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Brainfuck-Interpreters": {
+      "nameWithOwner": "Kertis4/Brainfuck-Interpreters",
+      "name": "Brainfuck-Interpreters",
+      "description": null,
+      "url": "https://github.com/Kertis4/Brainfuck-Interpreters",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-03-14T12:23:05Z",
+      "defaultBranch": "master",
+      "headSha": "c957228526741def650a4a1d765ad4b540998bc4",
+      "totalBytes": 3180,
+      "estimatedLines": 66,
+      "primaryLanguage": {
+        "name": "C",
+        "color": "#555555"
+      },
+      "languages": [
+        {
+          "name": "C",
+          "color": "#555555",
+          "bytes": 1604,
+          "estimatedLines": 33,
+          "share": 0.5044025157232704
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 1344,
+          "estimatedLines": 28,
+          "share": 0.4226415094339623
+        },
+        {
+          "name": "Brainfuck",
+          "color": "#2F2530",
+          "bytes": 232,
+          "estimatedLines": 5,
+          "share": 0.0729559748427673
+        }
+      ],
+      "files": [
+        {
+          "name": "bfi",
+          "extension": null,
+          "type": "blob",
+          "bytes": 16328,
+          "estimatedLines": 340
+        },
+        {
+          "name": "main",
+          "extension": null,
+          "type": "blob",
+          "bytes": 16168,
+          "estimatedLines": 337
+        },
+        {
+          "name": "bfi.c",
+          "extension": ".c",
+          "type": "blob",
+          "bytes": 1604,
+          "estimatedLines": 33
+        },
+        {
+          "name": "bfip.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 1344,
+          "estimatedLines": 28
+        },
+        {
+          "name": "main.bf",
+          "extension": ".bf",
+          "type": "blob",
+          "bytes": 168,
+          "estimatedLines": 4
+        },
+        {
+          "name": "nested.bf",
+          "extension": ".bf",
+          "type": "blob",
+          "bytes": 64,
+          "estimatedLines": 1
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 35676,
+      "structure": {
+        "fileCount": 6,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 6
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": "(none)",
+          "fileCount": 2,
+          "bytes": 32496
+        },
+        {
+          "extension": ".bf",
+          "fileCount": 2,
+          "bytes": 232
+        },
+        {
+          "extension": ".c",
+          "fileCount": 1,
+          "bytes": 1604
+        },
+        {
+          "extension": ".py",
+          "fileCount": 1,
+          "bytes": 1344
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "bfi",
+          "bytes": 16328,
+          "estimatedLines": 340
+        },
+        {
+          "path": "main",
+          "bytes": 16168,
+          "estimatedLines": 337
+        },
+        {
+          "path": "bfi.c",
+          "bytes": 1604,
+          "estimatedLines": 33
+        },
+        {
+          "path": "bfip.py",
+          "bytes": 1344,
+          "estimatedLines": 28
+        },
+        {
+          "path": "main.bf",
+          "bytes": 168,
+          "estimatedLines": 4
+        },
+        {
+          "path": "nested.bf",
+          "bytes": 64,
+          "estimatedLines": 1
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/To-do-list": {
+      "nameWithOwner": "Kertis4/To-do-list",
+      "name": "To-do-list",
+      "description": "A to do list powered by Flask",
+      "url": "https://github.com/Kertis4/To-do-list",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-03-16T22:25:45Z",
+      "defaultBranch": "main",
+      "headSha": "dbdb19fc3a909ecb60bda7a3eecb746a30a342a8",
+      "totalBytes": 2795,
+      "estimatedLines": 58,
+      "primaryLanguage": {
+        "name": "CSS",
+        "color": "#663399"
+      },
+      "languages": [
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 1578,
+          "estimatedLines": 33,
+          "share": 0.5645796064400715
+        },
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 662,
+          "estimatedLines": 14,
+          "share": 0.23685152057245082
+        },
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 555,
+          "estimatedLines": 12,
+          "share": 0.19856887298747763
+        }
+      ],
+      "files": [
+        {
+          "name": "app.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 662,
+          "estimatedLines": 14
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 139,
+          "estimatedLines": 3
+        },
+        {
+          "name": "static",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "templates",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 2934,
+      "structure": {
+        "fileCount": 5,
+        "dirCount": 3,
+        "maxDepth": 2,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          },
+          {
+            "name": "templates",
+            "fileCount": 2
+          },
+          {
+            "name": "static",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".html",
+          "fileCount": 2,
+          "bytes": 555
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 139
+        },
+        {
+          "extension": ".py",
+          "fileCount": 1,
+          "bytes": 662
+        },
+        {
+          "extension": ".css",
+          "fileCount": 1,
+          "bytes": 1578
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "static/css/main.css",
+          "bytes": 1578,
+          "estimatedLines": 33
+        },
+        {
+          "path": "app.py",
+          "bytes": 662,
+          "estimatedLines": 14
+        },
+        {
+          "path": "templates/base.html",
+          "bytes": 396,
+          "estimatedLines": 8
+        },
+        {
+          "path": "templates/index.html",
+          "bytes": 159,
+          "estimatedLines": 3
+        },
+        {
+          "path": "README.md",
+          "bytes": 139,
+          "estimatedLines": 3
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Portfolio": {
+      "nameWithOwner": "Kertis4/Portfolio",
+      "name": "Portfolio",
+      "description": null,
+      "url": "https://github.com/Kertis4/Portfolio",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-02-20T00:02:17Z",
+      "defaultBranch": "main",
+      "headSha": "4eba489510ade1084f94add515de642e0add0c24",
+      "totalBytes": 1721,
+      "estimatedLines": 36,
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      },
+      "languages": [
+        {
+          "name": "HTML",
+          "color": "#e34c26",
+          "bytes": 1721,
+          "estimatedLines": 36,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "index.html",
+          "extension": ".html",
+          "type": "blob",
+          "bytes": 1721,
+          "estimatedLines": 36
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 1721,
+      "structure": {
+        "fileCount": 1,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".html",
+          "fileCount": 1,
+          "bytes": 1721
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "index.html",
+          "bytes": 1721,
+          "estimatedLines": 36
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/morgans": {
+      "nameWithOwner": "Kertis4/morgans",
+      "name": "morgans",
+      "description": "News aggregator for a trading bot",
+      "url": "https://github.com/Kertis4/morgans",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-03-23T18:16:22Z",
+      "defaultBranch": "main",
+      "headSha": "fa7da4052607083841ea3ce64d5af548fda695ee",
+      "totalBytes": 981,
+      "estimatedLines": 20,
+      "primaryLanguage": {
+        "name": "Go",
+        "color": "#00ADD8"
+      },
+      "languages": [
+        {
+          "name": "Go",
+          "color": "#00ADD8",
+          "bytes": 981,
+          "estimatedLines": 20,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "go.sum",
+          "extension": ".sum",
+          "type": "blob",
+          "bytes": 36791,
+          "estimatedLines": 766
+        },
+        {
+          "name": "main.go",
+          "extension": ".go",
+          "type": "blob",
+          "bytes": 906,
+          "estimatedLines": 19
+        },
+        {
+          "name": "go.mod",
+          "extension": ".mod",
+          "type": "blob",
+          "bytes": 439,
+          "estimatedLines": 9
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 63,
+          "estimatedLines": 1
+        },
+        {
+          "name": ".gitignore",
+          "extension": null,
+          "type": "blob",
+          "bytes": 16,
+          "estimatedLines": 0
+        },
+        {
+          "name": "internal",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 38290,
+      "structure": {
+        "fileCount": 6,
+        "dirCount": 2,
+        "maxDepth": 2,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 5
+          },
+          {
+            "name": "internal",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".go",
+          "fileCount": 2,
+          "bytes": 981
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 1,
+          "bytes": 16
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 63
+        },
+        {
+          "extension": ".mod",
+          "fileCount": 1,
+          "bytes": 439
+        },
+        {
+          "extension": ".sum",
+          "fileCount": 1,
+          "bytes": 36791
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "go.sum",
+          "bytes": 36791,
+          "estimatedLines": 766
+        },
+        {
+          "path": "main.go",
+          "bytes": 906,
+          "estimatedLines": 19
+        },
+        {
+          "path": "go.mod",
+          "bytes": 439,
+          "estimatedLines": 9
+        },
+        {
+          "path": "internal/fetcher/apiHandler.go",
+          "bytes": 75,
+          "estimatedLines": 2
+        },
+        {
+          "path": "README.md",
+          "bytes": 63,
+          "estimatedLines": 1
+        },
+        {
+          "path": ".gitignore",
+          "bytes": 16,
+          "estimatedLines": 0
+        }
+      ],
+      "configs": [
+        {
+          "path": "go.mod",
+          "category": "package-manager"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 1
+      }
+    },
+    "Kertis4/DSA-practice": {
+      "nameWithOwner": "Kertis4/DSA-practice",
+      "name": "DSA-practice",
+      "description": null,
+      "url": "https://github.com/Kertis4/DSA-practice",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-15T15:25:49Z",
+      "defaultBranch": "main",
+      "headSha": "72ed11c99b651041dc327e9887c63a47281c9aa8",
+      "totalBytes": 691,
+      "estimatedLines": 14,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 691,
+          "estimatedLines": 14,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 473,
+          "estimatedLines": 10
+        },
+        {
+          "name": "Strings",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "arrays",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 1164,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 2,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 1
+          },
+          {
+            "name": "Strings",
+            "fileCount": 1
+          },
+          {
+            "name": "arrays",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".py",
+          "fileCount": 2,
+          "bytes": 691
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 473
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Strings/Roman-to-integer.py",
+          "bytes": 525,
+          "estimatedLines": 11
+        },
+        {
+          "path": "README.md",
+          "bytes": 473,
+          "estimatedLines": 10
+        },
+        {
+          "path": "arrays/Contains-Duplicate.py",
+          "bytes": 166,
+          "estimatedLines": 3
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/C-Data-Structures": {
+      "nameWithOwner": "Kertis4/C-Data-Structures",
+      "name": "C-Data-Structures",
+      "description": "Implementing Data Structures In C to understand how they work",
+      "url": "https://github.com/Kertis4/C-Data-Structures",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-03-29T19:45:13Z",
+      "defaultBranch": "main",
+      "headSha": "591727e2c171b0a233d9c4ba61c212cf6774207c",
+      "totalBytes": 621,
+      "estimatedLines": 13,
+      "primaryLanguage": {
+        "name": "C",
+        "color": "#555555"
+      },
+      "languages": [
+        {
+          "name": "C",
+          "color": "#555555",
+          "bytes": 621,
+          "estimatedLines": 13,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "hashmap",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        },
+        {
+          "name": "linked-list",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 16677,
+      "structure": {
+        "fileCount": 3,
+        "dirCount": 2,
+        "maxDepth": 1,
+        "topDirs": [
+          {
+            "name": "linked-list",
+            "fileCount": 2
+          },
+          {
+            "name": "hashmap",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".c",
+          "fileCount": 2,
+          "bytes": 621
+        },
+        {
+          "extension": "(none)",
+          "fileCount": 1,
+          "bytes": 16056
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "linked-list/main",
+          "bytes": 16056,
+          "estimatedLines": 334
+        },
+        {
+          "path": "linked-list/main.c",
+          "bytes": 563,
+          "estimatedLines": 12
+        },
+        {
+          "path": "hashmap/main.c",
+          "bytes": 58,
+          "estimatedLines": 1
+        }
+      ],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Message-censor": {
+      "nameWithOwner": "Kertis4/Message-censor",
+      "name": "Message-censor",
+      "description": null,
+      "url": "https://github.com/Kertis4/Message-censor",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-09-06T22:39:00Z",
+      "defaultBranch": "main",
+      "headSha": "13109921430ca5b82d88c5d015006acd6959a6a6",
+      "totalBytes": 454,
+      "estimatedLines": 9,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "languages": [
+        {
+          "name": "Python",
+          "color": "#3572A5",
+          "bytes": 454,
+          "estimatedLines": 9,
+          "share": 1
+        }
+      ],
+      "files": [
+        {
+          "name": "censor-message.py",
+          "extension": ".py",
+          "type": "blob",
+          "bytes": 454,
+          "estimatedLines": 9
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 158,
+          "estimatedLines": 3
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 612,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 158
+        },
+        {
+          "extension": ".py",
+          "fileCount": 1,
+          "bytes": 454
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "censor-message.py",
+          "bytes": 454,
+          "estimatedLines": 9
+        },
+        {
+          "path": "README.md",
+          "bytes": 158,
+          "estimatedLines": 3
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Kertis4": {
+      "nameWithOwner": "Kertis4/Kertis4",
+      "name": "Kertis4",
+      "description": null,
+      "url": "https://github.com/Kertis4/Kertis4",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-01-19T18:58:18Z",
+      "defaultBranch": "main",
+      "headSha": "117fda46486ec3ed8955ce6c53dea458098bbb10",
+      "totalBytes": 0,
+      "estimatedLines": 0,
+      "primaryLanguage": null,
+      "languages": [],
+      "files": [
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 1841,
+          "estimatedLines": 38
+        },
+        {
+          "name": ".github",
+          "extension": null,
+          "type": "tree",
+          "bytes": 0,
+          "estimatedLines": 0
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 3305,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 2,
+        "maxDepth": 2,
+        "topDirs": [
+          {
+            "name": ".github",
+            "fileCount": 1
+          },
+          {
+            "name": "(root)",
+            "fileCount": 1
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".yml",
+          "fileCount": 1,
+          "bytes": 1464
+        },
+        {
+          "extension": ".md",
+          "fileCount": 1,
+          "bytes": 1841
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "README.md",
+          "bytes": 1841,
+          "estimatedLines": 38
+        },
+        {
+          "path": ".github/workflows/snake.yml",
+          "bytes": 1464,
+          "estimatedLines": 30
+        }
+      ],
+      "configs": [
+        {
+          "path": ".github/workflows/snake.yml",
+          "category": "ci"
+        }
+      ],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": true,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 1
+      }
+    },
+    "Kertis4/new-resume": {
+      "nameWithOwner": "Kertis4/new-resume",
+      "name": "new-resume",
+      "description": "Where I keep my (Mostly) up to date resume",
+      "url": "https://github.com/Kertis4/new-resume",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2026-01-19T11:49:11Z",
+      "defaultBranch": null,
+      "headSha": null,
+      "totalBytes": 0,
+      "estimatedLines": 0,
+      "primaryLanguage": null,
+      "languages": [],
+      "files": [],
+      "treeTruncated": false,
+      "treeBytes": 0,
+      "structure": {
+        "fileCount": 0,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": []
+      },
+      "extensions": [],
+      "largestFiles": [],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Mender": {
+      "nameWithOwner": "Kertis4/Mender",
+      "name": "Mender",
+      "description": null,
+      "url": "https://github.com/Kertis4/Mender",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-11-02T02:43:10Z",
+      "defaultBranch": null,
+      "headSha": null,
+      "totalBytes": 0,
+      "estimatedLines": 0,
+      "primaryLanguage": null,
+      "languages": [],
+      "files": [],
+      "treeTruncated": false,
+      "treeBytes": 0,
+      "structure": {
+        "fileCount": 0,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": []
+      },
+      "extensions": [],
+      "largestFiles": [],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Data-Analysis-Guide": {
+      "nameWithOwner": "Kertis4/Data-Analysis-Guide",
+      "name": "Data-Analysis-Guide",
+      "description": null,
+      "url": "https://github.com/Kertis4/Data-Analysis-Guide",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-25T18:58:17Z",
+      "defaultBranch": "main",
+      "headSha": "7702ae87ad879f146e14fc716d547b68eb7bbbc7",
+      "totalBytes": 0,
+      "estimatedLines": 0,
+      "primaryLanguage": null,
+      "languages": [],
+      "files": [
+        {
+          "name": "Getting-Started.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 1830,
+          "estimatedLines": 38
+        },
+        {
+          "name": "README.md",
+          "extension": ".md",
+          "type": "blob",
+          "bytes": 161,
+          "estimatedLines": 3
+        }
+      ],
+      "treeTruncated": false,
+      "treeBytes": 1991,
+      "structure": {
+        "fileCount": 2,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": [
+          {
+            "name": "(root)",
+            "fileCount": 2
+          }
+        ]
+      },
+      "extensions": [
+        {
+          "extension": ".md",
+          "fileCount": 2,
+          "bytes": 1991
+        }
+      ],
+      "largestFiles": [
+        {
+          "path": "Getting-Started.md",
+          "bytes": 1830,
+          "estimatedLines": 38
+        },
+        {
+          "path": "README.md",
+          "bytes": 161,
+          "estimatedLines": 3
+        }
+      ],
+      "configs": [],
+      "readme": {
+        "path": "README.md"
+      },
+      "signals": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      }
+    },
+    "Kertis4/Tic-Tac-Toe": {
+      "nameWithOwner": "Kertis4/Tic-Tac-Toe",
+      "name": "Tic-Tac-Toe",
+      "description": "Learning the React Basics",
+      "url": "https://github.com/Kertis4/Tic-Tac-Toe",
+      "isFork": false,
+      "isArchived": false,
+      "stars": 0,
+      "forks": 0,
+      "updatedAt": "2025-06-09T20:12:42Z",
+      "defaultBranch": null,
+      "headSha": null,
+      "totalBytes": 0,
+      "estimatedLines": 0,
+      "primaryLanguage": null,
+      "languages": [],
+      "files": [],
+      "treeTruncated": false,
+      "treeBytes": 0,
+      "structure": {
+        "fileCount": 0,
+        "dirCount": 0,
+        "maxDepth": 0,
+        "topDirs": []
+      },
+      "extensions": [],
+      "largestFiles": [],
+      "configs": [],
+      "readme": null,
+      "signals": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      }
+    }
+  }
+}
