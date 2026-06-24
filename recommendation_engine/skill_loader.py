@@ -41,3 +41,8 @@ def load_and_index_canonical_skills(
 ) -> list[CanonicalSkill]:
     canonical_skills: list[CanonicalSkill] = load_canonical_skills(file_path)
     return build_canonical_index(canonical_skills)
+
+
+if __name__ == "__main__":
+    c_skills: List[IndexedCanonicalSkill] = load_and_index_canonical_skills("recommendation_engine/canonical_skills/skills.json")
+

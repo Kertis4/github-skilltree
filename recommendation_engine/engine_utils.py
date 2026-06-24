@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple, Any, Optional, TypedDict
+from typing import List, Dict, Tuple, Any, Optional, TypedDict, Set
 
 class UserSkill(TypedDict):
     name: str
