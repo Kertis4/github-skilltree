@@ -1,5 +1,6 @@
 from typing import List, Dict, Any
-
+from repo_aggregator import *
+from recommendation_engine.skill_mapper import map_user_skills_to_canonical_skills
 # Step 1
 from repo_loader import (
     load_repo_data,
@@ -25,36 +26,29 @@ from repo_aggregator import (
     build_user_skills
 )
 
-
-def build_user_skill_set(
+def build_user_skill_tree_set(
     file_path: str,
+    canonical_skills: list[CanonicalSkill],
     endpoint_url: str,
     api_key: str,
     model: str
-) -> List[Dict[str, float]]:
+) -> list[SkillTreeSkill]:
+    
     """
-    End-to-end pipeline: JSON → UserSkill[]
+    End-to-end pipeline:
+    repo JSON -> repo skill scores -> canonical skills -> SkillTreeSkill[]
 
-    Steps:
-        1. Load JSON
-        2. Extract repo insights
-        3. Filter present skills
-        4. Build repo contexts
-        5. LLM scoring per repo
-        6. Attach metadata
-        7. Aggregate strengths
-        8. Normalize + format
-
-    Output:
-        [
-          {"name": "async", "strength": 0.8},
-          ...
-        ]
+    Final output contains only canonical skills.
     """
+
+    # Prepare canonical skills
+    canonical_index: list[IndexedCanonicalSkill] = build_canonical_index(
+        canonical_skills
+    )
 
     # Step 1
-    data = load_repo_data(file_path)
-    repo_insights = extract_repo_insights(data)
+    data: dict[str, Any] = load_repo_data(file_path)
+    repo_insights: dict[str, dict[str, Any]] = extract_repo_insights(data)
 
     # Step 2
     repo_skill_map = extract_present_skills(repo_insights)
@@ -64,25 +58,47 @@ def build_user_skill_set(
 
     # Step 4
     repo_outputs = compute_all_repo_scores(
-        repo_contexts,
-        endpoint_url,
-        api_key,
-        model
+        repo_contexts=repo_contexts,
+        endpoint_url=endpoint_url,
+        api_key=api_key,
+        model=model
     )
 
     # Step 5
     metadata_outputs = collect_repo_outputs_with_metadata(
-        repo_contexts,
-        repo_outputs
+        repo_contexts=repo_contexts,
+        repo_outputs=repo_outputs
     )
 
     # Step 6
-    aggregated = aggregate_with_metadata(metadata_outputs)
+    aggregated_strengths: dict[str, float] = aggregate_with_metadata(
+        metadata_outputs
+    )
 
     # Step 7
-    normalized = normalize_strengths(aggregated)
+    normalized_strengths: dict[str, float] = normalize_strengths(
+        aggregated_strengths
+    )
 
-    # Step 8
-    user_skills = build_user_skills(normalized)
+    # Convert repo skill ids into UserSkill-like input for canonical mapping
+    raw_user_skills = [
+        {
+            "name": skill_id,
+            "strength": strength
+        }
+        for skill_id, strength in normalized_strengths.items()
+    ]
 
-    return user_skills
+    # Map to canonical skills only
+    canonical_strengths, _mapping_notes = map_user_skills_to_canonical_skills(
+        user_skills=raw_user_skills,
+        canonical_index=canonical_index
+    )
+
+    # Final output for skill tree
+    skill_tree_skills = build_skill_tree_skills(
+        canonical_strengths=canonical_strengths,
+        canonical_index=canonical_index
+    )
+
+    return skill_tree_skills

@@ -90,9 +90,18 @@ def score_user_skill_against_canonical(
     score: float = 0.0
     match_type: Optional[str] = None
 
+    skill_id: str = canonical_skill["id_norm"]
     name: str = canonical_skill["name_norm"]
     aliases: List[str] = canonical_skill["aliases"]
     keywords: List[str] = canonical_skill["keywords"]
+
+    
+    if user_text == skill_id:
+        return {
+            "skill": canonical_skill,
+            "score": 1.0,
+            "match_type": "exact_id"
+        } 
 
     # Exact name match
     if user_text == name:

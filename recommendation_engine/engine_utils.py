@@ -15,6 +15,7 @@ class CanonicalSkill(TypedDict, total=False):
 
 class IndexedCanonicalSkill(TypedDict):
     id: str
+    id_norm: str
     name: str
     name_norm: str
     aliases: List[str]
@@ -49,6 +50,7 @@ def build_canonical_index(
     for skill in canonical_skills:
         entry: IndexedCanonicalSkill = {
             "id": skill["id"],
+            "id_norm": normalise_text(skill["id"]),
             "name": skill["name"],
             "name_norm": normalise_text(skill["name"]),
             "aliases": [normalise_text(a) for a in skill.get("aliases", [])],

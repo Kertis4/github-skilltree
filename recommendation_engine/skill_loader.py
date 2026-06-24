@@ -38,7 +38,7 @@ def parse_canonical_skill(raw_skill: dict[str, Any]) -> CanonicalSkill:
 
 def load_and_index_canonical_skills(
     file_path: str
-) -> list[CanonicalSkill]:
+) -> list[IndexedCanonicalSkill]:
     canonical_skills: list[CanonicalSkill] = load_canonical_skills(file_path)
     return build_canonical_index(canonical_skills)
 

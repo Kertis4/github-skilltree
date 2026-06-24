@@ -1,4 +1,15 @@
-from typing import List, Dict
+from typing import List, Dict, TypedDict
+from recommendation_engine.engine_utils import *
+
+
+class UserSkill(dict):
+    name: str
+    strength: float
+
+class SkillTreeSkill(TypedDict):
+    name: str
+    strength: float
+    prerequisites: list[str]
 
 
 # 6. -- Aggregate across repos --
@@ -70,38 +81,58 @@ def normalize_strengths(
 
 # 8. -- Convert to UserSkills (recommendation engine class) format --
 
-class UserSkill(dict):
-    name: str
-    strength: float
 
-
-def build_user_skills(
-    normalized_strengths: Dict[str, float]
-) -> List[UserSkill]:
+def build_skill_lookup(
+    canonical_index: list[IndexedCanonicalSkill]
+) -> dict[str, IndexedCanonicalSkill]:
     """
-    Converts aggregated strengths into UserSkill format.
+    Builds lookup from canonical skill id to canonical skill.
+    """
+
+    return {skill["id"]: skill for skill in canonical_index}
+
+
+# 9. -- Convert to SkillTreeSkill --
+
+def build_skill_tree_skills(
+    canonical_strengths: dict[str, float],
+    canonical_index: list[IndexedCanonicalSkill]
+) -> list[SkillTreeSkill]:
+    """
+    Converts to SkillTreeSkill format.
 
     Input:
         {
-          "async": 0.8,
-          "error-handling": 0.6
+          "backend_apis": 0.7,
+          "testing": 0.4
         }
 
     Output:
         [
-          {"name": "async", "strength": 0.8},
-          {"name": "error-handling", "strength": 0.6}
+          {
+            "name": "backend_apis",
+            "strength": 0.7,
+            "prerequisites": ["python", "http"]
+          }
         ]
     """
 
-    user_skills: List[UserSkill] = []
+    skill_lookup: dict[str, IndexedCanonicalSkill] = build_skill_lookup(
+        canonical_index
+    )
 
-    for skill_id, strength in normalized_strengths.items():
-        user_skills.append({
-            "name": skill_id,
-            "strength": strength
+    skill_tree_skills: list[SkillTreeSkill] = []
+
+    for skill_id, strength in canonical_strengths.items():
+        canonical_skill = skill_lookup.get(skill_id)
+
+        if canonical_skill is None:
+            continue
+
+        skill_tree_skills.append({
+            "name": canonical_skill["id"],
+            "strength": strength,
+            "prerequisites": canonical_skill["prerequisites"]
         })
 
-    return user_skills
-
-
+    return skill_tree_skills
