@@ -44,7 +44,58 @@ export interface RepoFile {
   estimatedLines: number
 }
 
-/** Per-repository analysis produced by the backend GraphQL stage. */
+/** Cheap, deterministic structural summary derived from the file tree. */
+export interface RepoStructure {
+  fileCount: number
+  dirCount: number
+  maxDepth: number
+  topDirs: { name: string; fileCount: number }[]
+}
+
+/** A detected config / manifest file: where it is and what kind it is. */
+export interface ConfigFile {
+  path: string
+  /** One of: package-manager | docker | build | lint | ci | iac. */
+  category: string
+}
+
+/** One bucket of a repo's file-type fingerprint (an extension and its tally). */
+export interface ExtensionStat {
+  /** Lowercased extension including the dot (e.g. `.ts`), or `(none)`. */
+  extension: string
+  fileCount: number
+  bytes: number
+}
+
+/** A large file in the repo — a candidate for later source sampling. */
+export interface LargestFile {
+  path: string
+  bytes: number
+  estimatedLines: number
+}
+
+/**
+ * Flat, deterministic per-repo signals (no LLM, no file contents). These are
+ * cheap facts the UI and the analysis workers can trust directly.
+ */
+export interface RepoSignals {
+  hasReadme: boolean
+  hasLicense: boolean
+  hasTests: boolean
+  /** Number of files that look like tests (by path/name convention). */
+  testFileCount: number
+  hasCi: boolean
+  hasDocker: boolean
+  hasIac: boolean
+  hasLint: boolean
+  hasPackageManager: boolean
+  /** Count of `.md`/`.rst`/`.adoc`/`.txt` documentation files. */
+  docFileCount: number
+  /** Number of detected manifest/config files (== `configs.length`). */
+  configCount: number
+}
+
+/** Per-repository digest: the GraphQL stats plus ingestion enrichments. */
 export interface RepoAnalysis {
   nameWithOwner: string
   name: string
@@ -56,11 +107,27 @@ export interface RepoAnalysis {
   forks: number
   updatedAt: string
   defaultBranch: string | null
+  /** Commit SHA of the default branch HEAD (the analyzed snapshot). */
+  headSha: string | null
   totalBytes: number
   estimatedLines: number
   primaryLanguage: { name: string; color: string | null } | null
   languages: LanguageStat[]
   files: RepoFile[]
+  // ── ingestion-blob enrichments (deterministic, no LLM) ──
+  /** True when GitHub truncated a very large tree (the full tree stays server-side). */
+  treeTruncated: boolean
+  /** Summed bytes of ALL files in the tree (incl. non-code), not just languages. */
+  treeBytes: number
+  structure: RepoStructure
+  /** File-type fingerprint: extensions ranked by file count (top 15). */
+  extensions: ExtensionStat[]
+  /** Largest files across the whole repo (top 10 by byte size). */
+  largestFiles: LargestFile[]
+  configs: ConfigFile[]
+  readme: { path: string } | null
+  /** Deterministic skill / quality signals. */
+  signals: RepoSignals
 }
 
 /** Aggregate totals across every analyzed repo. */
@@ -71,11 +138,26 @@ export interface AnalysisTotals {
   languages: LanguageStat[]
 }
 
-/** The full payload the backend hands back after a successful sign-in. */
+/** Pipeline config carried in the blob — what the workers should look for. */
+export interface AnalysisConfig {
+  /** Fixed skill taxonomy the workers map evidence onto. */
+  taxonomy: string[]
+  perRepoTokenBudget: number
+  maxFilesPerRepo: number
+  modelId: string
+}
+
+/**
+ * The full analysis **blob** the backend hands back after a successful sign-in.
+ * `repos` is keyed by `nameWithOwner` so a worker can pull one repo off and own
+ * it end-to-end (insertion order is most-code-first).
+ */
 export interface Analysis {
+  jobId: string
   user: { login: string; name: string | null }
+  config: AnalysisConfig
   totals: AnalysisTotals
-  repos: RepoAnalysis[]
+  repos: Record<string, RepoAnalysis>
 }
 
 /** The message the backend popup posts back to us on completion. */
