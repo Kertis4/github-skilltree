@@ -6,7 +6,7 @@
  * Supports hover details, expand/collapse interactions, and smooth transitions.
  */
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
 import type { Skill } from '@/types/api'
 import { calculateTreeLayout, generateConnectorPath } from '@/lib/skillTreeLayout'
@@ -73,6 +73,17 @@ export function SkillTreeViz({
   height = 700,
   className,
 }: SkillTreeVizProps) {
+  const svgRef = useRef<SVGSVGElement | null>(null)
+  const [zoom, setZoom] = useState(1)
+  const [panX, setPanX] = useState(0)
+  const [panY, setPanY] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState<{ x: number; y: number } | null>(null)
+
+  const MIN_ZOOM = 0.65
+  const MAX_ZOOM = 1.4
+  const ZOOM_STEP = 0.1
+
   // Compute initial expanded set: all skills that have children
   const initialExpanded = useMemo(() => {
     const parentIds = new Set<string>()
@@ -127,6 +138,39 @@ export function SkillTreeViz({
 
   const hoveredSkill = hoveredSkillId ? skillsById.get(hoveredSkillId) : null
   const hoveredPos = hoveredSkillId ? positionMap.get(hoveredSkillId) : null
+  const viewBoxState = useMemo(() => {
+    const viewWidth = width / zoom
+    const viewHeight = height / zoom
+    const centerOffsetX = (width - viewWidth) / 2
+    const centerOffsetY = (height - viewHeight) / 2
+
+    return {
+      x: centerOffsetX + panX,
+      y: centerOffsetY + panY,
+      width: viewWidth,
+      height: viewHeight,
+      value: `${centerOffsetX + panX} ${centerOffsetY + panY} ${viewWidth} ${viewHeight}`,
+    }
+  }, [width, height, zoom, panX, panY])
+
+  const hoveredViewportPos = useMemo(() => {
+    if (!hoveredPos) return null
+
+    const svgEl = svgRef.current
+    if (!svgEl) return hoveredPos
+
+    const rect = svgEl.getBoundingClientRect()
+
+    // Map node coordinates from world space to the visible zoomed viewBox,
+    // then into viewport pixels.
+    const normalizedX = (hoveredPos.x - viewBoxState.x) / viewBoxState.width
+    const normalizedY = (hoveredPos.y - viewBoxState.y) / viewBoxState.height
+
+    return {
+      x: rect.left + normalizedX * rect.width,
+      y: rect.top + normalizedY * rect.height,
+    }
+  }, [hoveredPos, hoveredSkillId, viewBoxState])
 
   return (
     <div
@@ -135,16 +179,67 @@ export function SkillTreeViz({
         className
       )}
     >
+      <div className="absolute right-3 top-3 z-20 flex items-center gap-2 rounded-md border border-term-border-bright bg-term-bg/80 px-2 py-1 text-xs text-term-muted backdrop-blur-sm">
+        <button
+          type="button"
+          aria-label="Zoom out skill tree"
+          onClick={() => setZoom((z) => Math.max(MIN_ZOOM, Number((z - ZOOM_STEP).toFixed(2))))}
+          className="rounded border border-term-border px-2 py-0.5 transition-colors hover:border-accent hover:text-accent"
+        >
+          -
+        </button>
+        <button
+          type="button"
+          aria-label="Reset zoom"
+          onClick={() => setZoom(1)}
+          className="rounded border border-term-border px-2 py-0.5 transition-colors hover:border-accent hover:text-accent"
+        >
+          {Math.round(zoom * 100)}%
+        </button>
+        <button
+          type="button"
+          aria-label="Zoom in skill tree"
+          onClick={() => setZoom((z) => Math.min(MAX_ZOOM, Number((z + ZOOM_STEP).toFixed(2))))}
+          className="rounded border border-term-border px-2 py-0.5 transition-colors hover:border-accent hover:text-accent"
+        >
+          +
+        </button>
+      </div>
+
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-fade opacity-10" />
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
       <div aria-hidden className="pointer-events-none absolute left-12 top-8 h-36 w-36 rounded-full bg-accent/6 blur-3xl" />
 
       {/* SVG Canvas */}
       <svg
-        viewBox={`0 0 ${width} ${height}`}
-        className="relative z-10 w-full h-auto"
+        ref={svgRef}
+        viewBox={viewBoxState.value}
+        className="relative z-10 w-full h-auto cursor-grab active:cursor-grabbing"
         role="group"
         aria-label="Interactive skill tree"
+        onMouseDown={(e) => {
+          setIsDragging(true)
+          setDragStart({ x: e.clientX, y: e.clientY })
+        }}
+        onMouseMove={(e) => {
+          if (!isDragging || !dragStart) return
+          const deltaX = e.clientX - dragStart.x
+          const deltaY = e.clientY - dragStart.y
+          // Convert pixel delta to world space delta (account for zoom)
+          const worldDeltaX = -deltaX / zoom
+          const worldDeltaY = -deltaY / zoom
+          setPanX((px) => px + worldDeltaX)
+          setPanY((py) => py + worldDeltaY)
+          setDragStart({ x: e.clientX, y: e.clientY })
+        }}
+        onMouseUp={() => {
+          setIsDragging(false)
+          setDragStart(null)
+        }}
+        onMouseLeave={() => {
+          setIsDragging(false)
+          setDragStart(null)
+        }}
       >
         {/* Connector lines between parent/child skills */}
         <defs>
@@ -333,11 +428,11 @@ export function SkillTreeViz({
       </svg>
 
       {/* Hover detail card */}
-      {hoveredSkill && hoveredPos && (
+      {hoveredSkill && hoveredViewportPos && (
         <SkillNodeDetail
           skill={hoveredSkill}
           isVisible={!!hoveredSkill}
-          position={hoveredPos}
+          position={hoveredViewportPos}
         />
       )}
     </div>
