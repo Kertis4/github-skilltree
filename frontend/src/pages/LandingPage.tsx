@@ -13,7 +13,7 @@ import { Footer } from '@/components/landing/Footer'
  *   2. page content         — nav / hero / sections / footer
  *   3. CRT scanline overlay  — non-interactive, sits on top
  */
-export function LandingPage() {
+export function LandingPage({ onStartLogin }: { onStartLogin?: () => boolean }) {
   const scrollToLogin = () =>
     document.getElementById('login')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
@@ -31,7 +31,7 @@ export function LandingPage() {
       <div className="relative z-10">
         <Navbar onLogin={scrollToLogin} />
         <main>
-          <Hero onPressStart={scrollToLogin} />
+          <Hero onPressStart={scrollToLogin} onStartLogin={onStartLogin} />
           <SkillTreeSection />
           <AboutStrip />
           <FeatureGrid />

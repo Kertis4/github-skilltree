@@ -54,3 +54,14 @@ pnpm-debug.log*
 # ───────────────────────────────────────────────────────────────────────────────
 Thumbs.db
 *.suo
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Python (backend) — venv/.env are already covered by the .* rule above
+# ──────────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

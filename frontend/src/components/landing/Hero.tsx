@@ -12,6 +12,8 @@ import { useScroll } from '@/hooks/useScroll'
 interface HeroProps {
   /** Invoked by the primary CTA — scrolls to / focuses the login console. */
   onPressStart?: () => void
+  /** Starts the GitHub OAuth popup. Returns false if the popup was blocked. */
+  onStartLogin?: () => boolean
 }
 
 /**
@@ -27,7 +29,7 @@ const MOTES = [
   { char: '✦', left: '45%', top: '84%', size: 14, scroll: 0.27, color: 'var(--accent)' },
 ]
 
-export function Hero({ onPressStart }: HeroProps) {
+export function Hero({ onPressStart, onStartLogin }: HeroProps) {
   const reduced = useReducedMotion()
   const scrollY = useScroll()
   const title = useInView<HTMLHeadingElement>()
@@ -139,7 +141,7 @@ export function Hero({ onPressStart }: HeroProps) {
 
       {/* Right: login console */}
       <Reveal from="right" delay={180}>
-        <LoginPanel id="login" />
+        <LoginPanel id="login" onStartLogin={onStartLogin} />
       </Reveal>
     </section>
   )

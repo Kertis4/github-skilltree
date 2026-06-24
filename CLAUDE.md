@@ -59,14 +59,22 @@ legitimate dotfile? Add a matching `!` allowlist line**, or it stays ignored.
 github-skilltree/
 ├─ README.md            # canonical plan — source of truth
 ├─ CLAUDE.md            # this file
-├─ .gitignore           # repo-wide: ignores .env + keys/certs
+├─ .gitignore           # repo-wide: ignores .env + keys/certs + Python artifacts
+├─ backend/             # FastAPI — server-side GitHub OAuth (holds the client secret)
+│  ├─ .env.example      # safe template — GITHUB_CLIENT_ID/SECRET, redirect, origin
+│  ├─ requirements.txt  # frozen deps (pip freeze)
+│  └─ app/
+│     ├─ main.py          # FastAPI app + /health, /auth/github/{login,callback}
+│     ├─ config.py        # pydantic-settings (reads backend/.env)
+│     ├─ github_oauth.py  # authorize URL, code→token exchange
+│     └─ github_graphql.py # GraphQL repo analysis (languages → estimated LOC)
 └─ frontend/            # Vite + React 19 + TypeScript 6 + Tailwind v4
-   ├─ .env.example      # safe template — VITE_GITHUB_CLIENT_ID, VITE_API_BASE_URL
+   ├─ .env.example      # safe template — VITE_API_BASE_URL (backend holds OAuth creds)
    ├─ .gitignore        # also ignores .env*
    └─ src/
       ├─ components/{ui,terminal,effects,landing,game}
       ├─ hooks/  lib/  config/  data/  pages/
-      └─ App.tsx → pages/LandingPage.tsx
+      └─ App.tsx → LandingPage (sign in) | DashboardPage (analysis)
 ```
 
 ---
@@ -86,6 +94,62 @@ npm run lint
 
 ---
 
+## Backend — GitHub OAuth (FastAPI)
+
+The `backend/` service runs the **server-side half** of GitHub OAuth so the OAuth
+*client secret never reaches the browser*. Flow (popup + `postMessage`, stores nothing):
+
+1. Frontend opens `GET /auth/github/login` in a popup.
+2. Backend sets an httpOnly `state` cookie (CSRF defense) and redirects to GitHub.
+3. GitHub returns to `GET /auth/github/callback`; the backend exchanges the `code` for a
+   token (using the secret), runs the **GraphQL repo analysis** (see below), **prints a
+   per-repo summary to its console**, then discards the token.
+4. The callback page `postMessage`s the analysis to the frontend origin (never `*`) and
+   closes. The frontend, already showing a loading **dashboard** page, renders it.
+
+Nothing is persisted — no tokens, no credential cookies, no repo data. The analysis is
+public-repo data only and lives in browser memory for the session.
+
+**Endpoints:** `GET /health` · `GET /auth/github/login` · `GET /auth/github/callback`.
+
+### Run (Windows PowerShell, from `backend/`)
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+python -m venv .venv                 # first time only
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt      # first time only
+uvicorn app.main:app --reload --port 8000   # → http://localhost:8000
+```
+
+> **ARM64 Windows note:** use **plain** `uvicorn` (not `uvicorn[standard]`) — the
+> `httptools` extra has no ARM64 wheel and fails to build from source.
+
+### Configure OAuth (to go live)
+
+`GET /auth/github/login` returns **503** until credentials exist. Create a GitHub OAuth
+app (Settings → Developer settings → OAuth Apps) with callback
+`http://localhost:8000/auth/github/callback`, then copy `backend/.env.example` →
+`backend/.env` and fill in `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET`. The secret stays
+**only** in `backend/.env` (git-ignored) — never in a `VITE_*` var or any tracked file.
+Scopes are minimal and **public-only** (`read:user public_repo`).
+
+> The server reads `backend/.env` **once at startup**. After editing `.env`, restart
+> uvicorn (or rely on `--reload`) or `/health` will still report `oauth_configured:false`.
+
+### Repo analysis (data pipeline — stage 1)
+
+After sign-in the callback calls `analyze_user_repositories(token)` in
+[`github_graphql.py`](backend/app/github_graphql.py). One paginated **GraphQL** query
+pulls every public repo with its per-language byte sizes (GitHub's own whole-repo measure)
+and top-level file entries. Bytes become a clearly-labelled **estimated** line count
+(`bytes / 48`, `BYTES_PER_LINE`) — true per-file counting is a deliberate later stage. The
+call returns `{ user, totals, repos }` (all **camelCase**, consumed by the frontend
+as-is) and prints a per-repo line to the server console. Keep estimates honestly labelled
+"est." in any UI.
+
+---
+
 ## Conventions (frontend)
 
 - **TypeScript is strict.** `verbatimModuleSyntax` is on → type-only imports **must** be
@@ -100,6 +164,10 @@ npm run lint
 - **Motion is reduced-motion-safe.** Scroll reveals use the `useInView` hook + the
   `Reveal` wrapper (which re-hide when scrolled away); background drift uses `useScroll`.
   Every effect no-ops under `prefers-reduced-motion` — preserve that when adding motion.
+- **No router.** `App.tsx` switches between the landing and dashboard views from the
+  `useGitHubAuth` hook (state + `#/dashboard` hash sync, back-button aware). Clicking
+  *Authenticate* navigates to the dashboard's loading state immediately; the OAuth
+  `postMessage` then fills in the analysis.
 - Match existing patterns. Don't add dependencies, refactor, or "improve" code beyond
   what the task needs.
 
