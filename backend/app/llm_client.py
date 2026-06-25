@@ -22,15 +22,49 @@ from typing import Any
 from .config import get_settings
 
 
+def _v1_base_url(endpoint: str) -> str:
+    """Build the ``/openai/v1/`` base URL for the Azure AI Foundry surface.
+
+    Accepts either a resource root (``https://<res>.services.ai.azure.com``) or a
+    Foundry *Project* endpoint (``.../api/projects/<name>``). The v1 chat surface
+    lives at ``<resource-root>/openai/v1/`` in both cases, so any trailing path
+    (e.g. ``/api/projects/...``) is stripped before appending.
+    """
+    root = endpoint.rstrip("/")
+    marker = ".services.ai.azure.com"
+    if marker in root:
+        root = root[: root.index(marker) + len(marker)]
+    return root + "/openai/v1/"
+
+
 @lru_cache
 def _client():  # type: ignore[no-untyped-def]
-    """Lazily build a cached AsyncAzureOpenAI client (imports the SDK on first use)."""
+    """Lazily build a cached async client (imports the SDK on first use).
+
+    Two Azure surfaces exist; we pick automatically by endpoint so the configured
+    ``AZURE_OPENAI_ENDPOINT`` is used as-is:
+    * ``*.services.ai.azure.com`` (Azure AI Foundry / Project endpoint) -> the
+      unversioned ``/openai/v1/`` surface via the plain ``AsyncOpenAI`` client
+      (these resources reject the dated ``api-version`` values).
+    * classic ``*.openai.azure.com`` -> ``AsyncAzureOpenAI`` with the dated
+      ``api_version``.
+    """
+    settings = get_settings()
+    endpoint = settings.azure_openai_endpoint
+
+    if ".services.ai.azure.com" in endpoint:
+        from openai import AsyncOpenAI  # imported lazily so dry-run needs no SDK
+
+        return AsyncOpenAI(
+            api_key=settings.azure_openai_api_key,
+            base_url=_v1_base_url(endpoint),
+        )
+
     from openai import AsyncAzureOpenAI  # imported lazily so dry-run needs no SDK
 
-    settings = get_settings()
     return AsyncAzureOpenAI(
         api_key=settings.azure_openai_api_key,
-        azure_endpoint=settings.azure_openai_endpoint,
+        azure_endpoint=endpoint,
         api_version=settings.azure_openai_api_version,
     )
 
