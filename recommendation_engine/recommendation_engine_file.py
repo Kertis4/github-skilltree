@@ -194,3 +194,79 @@ def select_top_recommendations(
     return ranked_skills[:top_k]
 
 
+# 7-9. -- Rank recommendations (filter + rank + select top K) --
+
+def rank_recommendations(
+    candidate_skills: Set[str],
+    prompt_scores: Dict[str, float],
+    prerequisite_depths: Dict[str, int],
+    candidate_strengths: Dict[str, float],
+    skill_lookup: Dict[str, IndexedCanonicalSkill],
+    top_k: int = 5,
+    strong_threshold: float = 0.75,
+    weak_threshold: float = 0.4
+) -> List[Dict]:
+    """
+    Filters out skills the user is already strong at, ranks the remaining
+    candidates, attaches reason codes, and returns the top K.
+
+    Output dicts:
+        {
+          "skill_id": str,
+          "skill_name": str,
+          "score": float,
+          "current_strength": float,
+          "reason_codes": List[str]
+        }
+    """
+
+    # 7. Filter out skills the user is already strong at
+    filtered: Set[str] = filter_strong_skills(
+        candidate_skills,
+        candidate_strengths,
+        strong_threshold
+    )
+
+    results: List[Dict] = []
+
+    for skill_id in filtered:
+        strength = candidate_strengths.get(skill_id, 0.0)
+        relevance = prompt_scores.get(skill_id, 0.0)
+
+        if skill_id in prerequisite_depths:
+            depth = prerequisite_depths[skill_id]
+            prereq_importance = 1 / depth
+        else:
+            prereq_importance = 0.0
+
+        weakness = 1 - strength
+
+        score = (
+            0.5 * relevance +
+            0.3 * prereq_importance +
+            0.2 * weakness
+        )
+
+        reason_codes: List[str] = []
+        if relevance > 0.0:
+            reason_codes.append("target")
+        if skill_id in prerequisite_depths:
+            reason_codes.append("prerequisite")
+        if strength < weak_threshold:
+            reason_codes.append("weak")
+
+        results.append({
+            "skill_id": skill_id,
+            "skill_name": skill_lookup[skill_id]["name"],
+            "score": round(score, 3),
+            "current_strength": round(strength, 3),
+            "reason_codes": reason_codes
+        })
+
+    results.sort(key=lambda x: -x["score"])
+
+    # 9. Select top K
+    return select_top_recommendations(results, top_k)
+
+
+

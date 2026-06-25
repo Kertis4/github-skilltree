@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import urllib.error
 from typing import Any, Dict, List
 
 
@@ -85,8 +86,7 @@ def call_azure_foundry_chat_api(
     api_key: str,
     prompt: str,
     model: str,
-    temperature: float = 0.2,
-    max_tokens: int = 500
+    max_completion_tokens: int = 4000
 ) -> str:
     body: Dict[str, Any] = {
         "model": model,
@@ -100,8 +100,7 @@ def call_azure_foundry_chat_api(
                 "content": prompt
             }
         ],
-        "temperature": temperature,
-        "max_tokens": max_tokens
+        "max_completion_tokens": max_completion_tokens
     }
 
     request = urllib.request.Request(
@@ -114,8 +113,27 @@ def call_azure_foundry_chat_api(
         method="POST"
     )
 
-    with urllib.request.urlopen(request) as response:
-        response_body: Dict[str, Any] = json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=120) as response:
+            raw_response = response.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        error_body = exc.read().decode("utf-8", errors="replace")
+        raise ValueError(
+            f"Azure Foundry request failed: HTTP {exc.code} {exc.reason}.\n"
+            f"Response body:\n{error_body[:1000]}"
+        ) from exc
 
-    return response_body["choices"][0]["message"]["content"]
+    response_body: Dict[str, Any] = json.loads(raw_response)
+
+    choice = response_body["choices"][0]
+    content = choice["message"]["content"]
+
+    if not content or not content.strip():
+        finish_reason = choice.get("finish_reason")
+        raise ValueError(
+            f"Azure Foundry returned empty content (finish_reason={finish_reason!r}). "
+            f"For gpt-5 reasoning models, raise max_completion_tokens."
+        )
+
+    return content
 

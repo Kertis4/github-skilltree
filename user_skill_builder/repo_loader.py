@@ -18,6 +18,34 @@ def extract_repo_insights(
     return data.get("repoInsights", {})
 
 
+# 1b. -- Extract pre-aggregated skill strengths --
+
+def extract_aggregated_skill_strengths(
+    data: Dict[str, Any]
+) -> Dict[str, float]:
+    """
+    Reads the pre-aggregated `skillset` from an analyze output and returns
+    {skill_id: strength} where strength is the 0-100 `score` rescaled to 0.0-1.0.
+
+    Only skills that are present with a positive score are included.
+    """
+
+    skillset: Dict[str, Dict[str, Any]] = data.get("skillset", {})
+
+    strengths: Dict[str, float] = {}
+
+    for skill_id, skill_info in skillset.items():
+        if skill_info.get("present") is not True:
+            continue
+
+        score = skill_info.get("score", 0)
+
+        if score and score > 0:
+            strengths[skill_id] = score / 100.0
+
+    return strengths
+
+
 # 2. -- Filter repo-level skills
 
 def extract_present_skills(
