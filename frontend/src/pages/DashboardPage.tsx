@@ -13,12 +13,14 @@ import type {
   RepoAnalysis,
   Skill,
   SkillAnalysis,
+  XpProfile,
 } from '@/lib/auth'
 import { fetchRecommendations } from '@/lib/auth'
 import type { GitHubAuth } from '@/hooks/useGitHubAuth'
 import { SkillTreeViz } from '@/components/game/SkillTreeViz'
 import { SkillRadar } from '@/components/game/SkillRadar'
 import { PersonaPanel } from '@/components/game/PersonaPanel'
+import { XPBar } from '@/components/game/XPBar'
 import { projectSkillTree, skillTreeSummary, listTracks } from '@/lib/skillGraph'
 import { computeRadar } from '@/lib/radar'
 
@@ -518,6 +520,45 @@ function SkillTreePanel({
 // ── focal hero: overall score + radar ───────────────────────────────────────
 
 /**
+ * The RPG level badge + animated XP meter. `xp.xpIntoLevel / span` fills the bar
+ * within the current level; at max level the bar is shown full.
+ */
+export function LevelXpStrip({ xp }: { xp: XpProfile }) {
+  const span = xp.isMax ? 1 : Math.max((xp.nextLevelXp ?? 0) - xp.currentLevelXp, 1)
+  const into = xp.isMax ? 1 : xp.xpIntoLevel
+
+  return (
+    <div className="mb-5 flex items-center gap-4 rounded-lg border border-accent/30 bg-term-bg/40 p-3 sm:p-4">
+      {/* level badge */}
+      <div className="flex shrink-0 flex-col items-center justify-center px-1">
+        <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-term-dim">
+          level
+        </span>
+        <span
+          className="font-display text-4xl leading-none text-accent"
+          style={{ textShadow: '0 0 18px var(--accent)' }}
+        >
+          {xp.level}
+        </span>
+      </div>
+
+      {/* xp bar + labels */}
+      <div className="min-w-0 flex-1">
+        <div className="mb-1.5 flex items-baseline justify-between gap-2 font-mono text-xs">
+          <span className="text-term-fg">{fmtInt(xp.totalXp)} XP</span>
+          <span className="text-term-muted">
+            {xp.isMax
+              ? 'MAX LEVEL'
+              : `${fmtInt(xp.xpToNextLevel)} XP to level ${xp.level + 1}`}
+          </span>
+        </div>
+        <XPBar value={into} max={span} />
+      </div>
+    </div>
+  )
+}
+
+/**
  * The headline read on a user's profile: the overall score beside the radar /
  * spider chart. The radar's four axes are folded from the taxonomy domains by
  * `computeRadar`, so it stays in lock-step with the skill tree's colouring.
@@ -554,6 +595,9 @@ function ProfileHero({ skills }: { skills: SkillAnalysis }) {
           </span>
         </div>
       </div>
+
+      {/* RPG level + XP meter, derived from the per-skill strength totals */}
+      {skills.xp && <LevelXpStrip xp={skills.xp} />}
 
       <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,17rem)_1fr]">
         {/* overall score + top skills */}

@@ -290,6 +290,32 @@ export interface PersonaProfile {
 }
 
 /**
+ * The account-level XP + level breakdown, derived deterministically from the
+ * per-skill `strength` values (sum of strengths = `totalXp`). Drives the RPG XP
+ * bar and level badge. All numbers are non-negative integers except `progress`.
+ */
+export interface XpProfile {
+  /** Sum of every skill's XP — a non-negative integer. */
+  totalXp: number
+  /** Current level, 1..max (100). */
+  level: number
+  /** True once the level ceiling is reached (`nextLevelXp` is then null). */
+  isMax: boolean
+  /** Total XP floor of the current level. */
+  currentLevelXp: number
+  /** Total XP floor of the next level, or null at max level. */
+  nextLevelXp: number | null
+  /** XP earned inside the current level. */
+  xpIntoLevel: number
+  /** XP still needed to reach the next level (0 at max). */
+  xpToNextLevel: number
+  /** Fraction 0..1 through the current level. */
+  progress: number
+  /** Per-skill XP contribution (non-negative integers). */
+  skillXp: Record<string, number>
+}
+
+/**
  * The collated skill profile produced by the analysis pipeline. `skillset` holds
  * one aggregated record per taxonomy skill; `topSkills`/`gaps` are convenience
  * orderings over it.
@@ -313,6 +339,8 @@ export interface SkillAnalysis {
   recommendations?: Recommendation[]
   /** The coding-personality distribution ("Spotify-Wrapped" personas). */
   personas?: PersonaProfile
+  /** Account-level XP + level breakdown (drives the RPG XP bar). */
+  xp?: XpProfile
 }
 
 /** The message the backend popup posts back to us on completion. */
