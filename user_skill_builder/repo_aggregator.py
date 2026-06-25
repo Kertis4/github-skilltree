@@ -1,15 +1,10 @@
 from typing import List, Dict, TypedDict
-from recommendation_engine.engine_utils import *
+from builder_utils import (
+    CanonicalSkill,
+    IndexedCanonicalSkill,
+    SkillTreeSkill
+)
 
-
-class UserSkill(dict):
-    name: str
-    strength: float
-
-class SkillTreeSkill(TypedDict):
-    name: str
-    strength: float
-    prerequisites: list[str]
 
 
 # 6. -- Aggregate across repos --

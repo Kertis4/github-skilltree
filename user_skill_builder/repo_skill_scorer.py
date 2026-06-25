@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 import json
 import urllib.request
+import urllib.error
 
 # 4. -- LLM call (per repo) --
 
@@ -46,8 +47,7 @@ def call_azure_foundry(
                 "content": prompt
             }
         ],
-        "temperature": 0.2,
-        "max_tokens": 400
+        "max_completion_tokens": 4000
     }
 
     request = urllib.request.Request(
@@ -60,12 +60,62 @@ def call_azure_foundry(
         method="POST"
     )
 
-    with urllib.request.urlopen(request) as response:
-        response_body = json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            raw_response = response.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        error_body = exc.read().decode("utf-8", errors="replace")
+        raise ValueError(
+            f"Azure Foundry request failed: HTTP {exc.code} {exc.reason}.\n"
+            f"Response body:\n{error_body[:1000]}"
+        ) from exc
 
-    content = response_body["choices"][0]["message"]["content"]
+    try:
+        response_body = json.loads(raw_response)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"Azure Foundry returned a non-JSON response (status OK). "
+            f"Check that endpoint_url points at the chat/completions path. "
+            f"Raw response:\n{raw_response[:1000]}"
+        ) from exc
 
-    return json.loads(content)
+    choice = response_body["choices"][0]
+    content = choice["message"]["content"]
+
+    if not content or not content.strip():
+        finish_reason = choice.get("finish_reason")
+        raise ValueError(
+            f"Azure Foundry returned empty content (finish_reason={finish_reason!r}). "
+            f"For gpt-5 reasoning models this usually means max_completion_tokens "
+            f"was exhausted by reasoning tokens \u2014 raise the limit."
+        )
+
+    return _parse_model_json(content)
+
+
+def _parse_model_json(content: str) -> Dict[str, float]:
+    """
+    Parse the model's reply into a JSON object, tolerating markdown code
+    fences (```json ... ```) and surrounding prose that the model may add.
+    """
+    text = content.strip()
+
+    # Strip a leading/trailing markdown code fence if present.
+    if text.startswith("```"):
+        text = text.split("\n", 1)[-1]      # drop the opening ``` / ```json line
+        if text.endswith("```"):
+            text = text[: text.rfind("```")]
+        text = text.strip()
+
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        # Fall back to extracting the outermost {...} block.
+        start = text.find("{")
+        end = text.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            return json.loads(text[start : end + 1])
+        raise
 
 
 def compute_all_repo_scores(
@@ -77,7 +127,9 @@ def compute_all_repo_scores(
     
     outputs: List[Dict[str, float]] = []
 
-    for repo_context in repo_contexts:
+    total = len(repo_contexts)
+    for i, repo_context in enumerate(repo_contexts, start=1):
+        print(f"[{i}/{total}] Scoring repo: {repo_context['repo_name']}", flush=True)
         prompt = build_repo_scoring_prompt(repo_context)
 
         repo_scores = call_azure_foundry(

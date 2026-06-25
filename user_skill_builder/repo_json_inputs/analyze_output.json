@@ -1,0 +1,4951 @@
+{
+  "jobId": "6c4b74dfaeca496eb2c671da7641910e",
+  "user": {
+    "login": "Kertis4",
+    "name": "Eoin Curtis"
+  },
+  "generatedAt": "2026-06-24T15:03:40.188899+00:00",
+  "contract": {
+    "mapModelId": "gpt-4.1-mini",
+    "taxonomy": [
+      "docker",
+      "ci",
+      "iac",
+      "testing",
+      "typing",
+      "documentation",
+      "architecture",
+      "oop",
+      "functional",
+      "async",
+      "error-handling"
+    ],
+    "version": "reduce.v1"
+  },
+  "stats": {
+    "reposAnalyzed": 32,
+    "llmCalls": 7,
+    "dryRun": false
+  },
+  "totals": {
+    "repoCount": 32,
+    "totalBytes": 1424353,
+    "estimatedLines": 29674,
+    "languages": [
+      {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B",
+        "bytes": 608150,
+        "estimatedLines": 12670,
+        "share": 0.42696578727323914
+      },
+      {
+        "name": "TypeScript",
+        "color": "#3178c6",
+        "bytes": 237798,
+        "estimatedLines": 4954,
+        "share": 0.16695159135410956
+      },
+      {
+        "name": "HTML",
+        "color": "#e34c26",
+        "bytes": 144850,
+        "estimatedLines": 3018,
+        "share": 0.10169529603967556
+      },
+      {
+        "name": "Python",
+        "color": "#3572A5",
+        "bytes": 136911,
+        "estimatedLines": 2852,
+        "share": 0.09612153728745614
+      },
+      {
+        "name": "C++",
+        "color": "#f34b7d",
+        "bytes": 118326,
+        "estimatedLines": 2465,
+        "share": 0.08307350776106766
+      },
+      {
+        "name": "JavaScript",
+        "color": "#f1e05a",
+        "bytes": 83777,
+        "estimatedLines": 1745,
+        "share": 0.05881758243918467
+      },
+      {
+        "name": "TeX",
+        "color": "#3D6117",
+        "bytes": 36116,
+        "estimatedLines": 752,
+        "share": 0.025356073950769227
+      },
+      {
+        "name": "Astro",
+        "color": "#ff5a03",
+        "bytes": 32234,
+        "estimatedLines": 672,
+        "share": 0.022630625975442884
+      },
+      {
+        "name": "CSS",
+        "color": "#663399",
+        "bytes": 14925,
+        "estimatedLines": 311,
+        "share": 0.010478441790763947
+      },
+      {
+        "name": "C",
+        "color": "#555555",
+        "bytes": 8068,
+        "estimatedLines": 168,
+        "share": 0.005664326188802916
+      },
+      {
+        "name": "Dockerfile",
+        "color": "#384d54",
+        "bytes": 1650,
+        "estimatedLines": 34,
+        "share": 0.0011584207004864664
+      },
+      {
+        "name": "Go",
+        "color": "#00ADD8",
+        "bytes": 981,
+        "estimatedLines": 20,
+        "share": 0.0006887337619255901
+      },
+      {
+        "name": "Shell",
+        "color": "#89e051",
+        "bytes": 277,
+        "estimatedLines": 6,
+        "share": 0.00019447426305136436
+      },
+      {
+        "name": "Brainfuck",
+        "color": "#2F2530",
+        "bytes": 232,
+        "estimatedLines": 5,
+        "share": 0.0001628809712199153
+      },
+      {
+        "name": "Procfile",
+        "color": "#3B2F63",
+        "bytes": 58,
+        "estimatedLines": 1,
+        "share": 4.0720242804978824e-05
+      }
+    ]
+  },
+  "repoInsights": {
+    "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis": {
+      "nameWithOwner": "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 10778,
+      "updatedAt": "2025-04-19T20:14:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/github-skilltree": {
+      "nameWithOwner": "Kertis4/github-skilltree",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 3106,
+      "updatedAt": "2026-06-24T12:44:55Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "bytes": 19406,
+          "truncated": true
+        },
+        {
+          "path": "backend/app/blob.py",
+          "bytes": 18338,
+          "truncated": true
+        },
+        {
+          "path": "backend/app/main.py",
+          "bytes": 14378,
+          "truncated": true
+        },
+        {
+          "path": "backend/app/github_graphql.py",
+          "bytes": 7440,
+          "truncated": false
+        },
+        {
+          "path": "frontend/src/lib/auth.ts",
+          "bytes": 7172,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "frontend/tsconfig.json",
+              "observation": "TypeScript config"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 4 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "62 files / 16 dirs / depth 4 / 3 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "frontend/src/pages/DashboardPage.tsx",
+              "observation": "No classes or interfaces, only functional React components and functions."
+            },
+            {
+              "path": "backend/app/blob.py",
+              "observation": "No class definitions or object-oriented constructs visible."
+            }
+          ],
+          "rationale": "No classes, inheritance, or interfaces are visible in the provided TypeScript or Python excerpts; code is mostly functional and procedural."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.8,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/src/pages/DashboardPage.tsx",
+              "observation": "Functional React components and use of array map for rendering lists."
+            }
+          ],
+          "rationale": "The frontend TypeScript code uses functional React components and array methods like map; some pure functions are defined for formatting and rendering UI elements."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "backend/app/main.py",
+              "observation": "try/except around token exchange and analysis blob building with error logging and user-friendly error messages."
+            },
+            {
+              "path": "frontend/src/pages/DashboardPage.tsx",
+              "observation": "Conditional rendering of ErrorView component on error status with retry and back handlers."
+            }
+          ],
+          "rationale": "The backend Python code uses try/except blocks to catch HTTP and value errors during OAuth token exchange and analysis blob building, and returns error messages gracefully; the frontend also conditionally renders error views based on status."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "backend/app/main.py",
+              "observation": "async def github_callback and async generator _run_and_stream using await for HTTP calls."
+            },
+            {
+              "path": "backend/app/github_graphql.py",
+              "observation": "async def analyze_user_repositories with async HTTP client and await."
+            }
+          ],
+          "rationale": "The backend Python code uses async/await for HTTP requests and streaming responses; the frontend React code uses hooks like useEffect and useState but no explicit async shown in excerpts."
+        }
+      ],
+      "summary": "The repository demonstrates intermediate use of asynchronous programming with async/await in the backend, basic functional programming patterns in the frontend, and robust error handling in the backend; it does not show object-oriented programming in the provided excerpts.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 4,
+        "configCount": 4
+      },
+      "error": null
+    },
+    "Kertis4/Robo-Rugby": {
+      "nameWithOwner": "Kertis4/Robo-Rugby",
+      "primaryLanguage": "C++",
+      "estimatedLines": 2465,
+      "updatedAt": "2025-04-09T16:58:05Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(repo)",
+              "observation": "1 test file(s)"
+            }
+          ],
+          "rationale": "1 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(languages)",
+              "observation": "statically-typed primary language: C++"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 2 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "19 files / 13 dirs / depth 3 / 3 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "layli43/Hackathlone-astro-nuts": {
+      "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 2211,
+      "updatedAt": "2025-10-08T13:20:59Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+          "bytes": 68472,
+          "truncated": true
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+          "bytes": 18221,
+          "truncated": true
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/database.py",
+          "bytes": 4489,
+          "truncated": false
+        },
+        {
+          "path": "Hackathlone-Backend-Astro-Nuts/normalize.py",
+          "bytes": 4228,
+          "truncated": false
+        },
+        {
+          "path": "Hackathlone-Frontend-Astro-Nuts/eslint.config.mjs",
+          "bytes": 3489,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(repo)",
+              "observation": "1 test file(s)"
+            }
+          ],
+          "rationale": "1 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "Hackathlone-Frontend-Astro-Nuts/tsconfig.json",
+              "observation": "TypeScript config"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 5 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "33 files / 5 dirs / depth 3 / 3 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+              "observation": "Use of TypeScript interfaces but no classes or inheritance."
+            },
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+              "observation": "No class definitions, only functions and procedural code."
+            }
+          ],
+          "rationale": "No classes or inheritance are visible in the provided excerpts; only interfaces and functions are used."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+              "observation": "Pure functions for calculations and data transformations."
+            },
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+              "observation": "Use of list comprehensions and functional style in data processing for visualization."
+            }
+          ],
+          "rationale": "The code uses pure functions, higher-order functions like map/filter (e.g., sum with generator expressions), and immutable data structures in both TypeScript and Python."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.8,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/database.py",
+              "observation": "Checks for 'near_earth_objects' key in API response and exits on error."
+            },
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/normalize.py",
+              "observation": "Returns None if database query returns no rows, handling missing data."
+            }
+          ],
+          "rationale": "The backend code checks for API errors and handles missing data gracefully, e.g., checking for keys in JSON responses and returning None if no data found."
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+              "observation": "No async functions or await expressions."
+            },
+            {
+              "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+              "observation": "No asynchronous constructs like async/await or promises shown."
+            }
+          ],
+          "rationale": "No async/await, promises, or concurrency primitives are visible in the provided excerpts."
+        }
+      ],
+      "summary": "The repository demonstrates intermediate functional programming and error handling in Python backend code, uses TypeScript interfaces and functional constructs in the frontend, but does not show object-oriented or asynchronous programming in the provided excerpts.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 5,
+        "configCount": 4
+      },
+      "error": null
+    },
+    "Kertis4/Hackathlone-Frontend-Astro-Nuts": {
+      "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 1656,
+      "updatedAt": "2025-10-05T11:01:41Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "src/App.tsx",
+          "bytes": 68774,
+          "truncated": true
+        },
+        {
+          "path": "eslint.config.mjs",
+          "bytes": 3489,
+          "truncated": false
+        },
+        {
+          "path": "stylelint.config.mjs",
+          "bytes": 3377,
+          "truncated": false
+        },
+        {
+          "path": "src/api/asteroid.ts",
+          "bytes": 1693,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "tsconfig.json",
+              "observation": "TypeScript config"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "src/App.tsx",
+              "observation": "No class or inheritance usage, only TypeScript interfaces for data typing."
+            },
+            {
+              "path": "src/api/asteroid.ts",
+              "observation": "No class or object-oriented constructs, only interfaces and functions."
+            }
+          ],
+          "rationale": "No classes, inheritance, or interfaces are defined in the provided excerpts; only interfaces for typing are used."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "src/App.tsx",
+              "observation": "Multiple pure functions like calculateImpactEnergy, calculateTorinoScale, and generateRiskZones that transform data."
+            }
+          ],
+          "rationale": "The code uses pure functions for calculations and data transformations, and uses array methods like push and map-like constructs, showing functional style."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "src/api/asteroid.ts",
+              "observation": "try/catch block with AxiosError type checking and different error responses handled."
+            }
+          ],
+          "rationale": "The API call function uses try/catch with detailed error type checking and returns structured error messages."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "src/api/asteroid.ts",
+              "observation": "Async function getAsteroidsData uses await for axios.get call."
+            }
+          ],
+          "rationale": "The code uses async/await syntax for asynchronous API calls with axios."
+        }
+      ],
+      "summary": "The repository demonstrates intermediate functional programming and async handling with clear error handling, but lacks evidence of object-oriented design.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 4
+      },
+      "error": null
+    },
+    "Kertis4/Puzzle-Solver-Comparison": {
+      "nameWithOwner": "Kertis4/Puzzle-Solver-Comparison",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 1553,
+      "updatedAt": "2025-04-17T21:59:16Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no readable source excerpt"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Clash-Royale-Deck-Maker": {
+      "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+      "primaryLanguage": "JavaScript",
+      "estimatedLines": 1036,
+      "updatedAt": "2025-07-10T11:05:02Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "backend/app.py",
+          "bytes": 11235,
+          "truncated": true
+        },
+        {
+          "path": "frontend/src/PlayerInfoFetcher.jsx",
+          "bytes": 6918,
+          "truncated": false
+        },
+        {
+          "path": "frontend/src/Dashboard.jsx",
+          "bytes": 6846,
+          "truncated": false
+        },
+        {
+          "path": "backend/metaCrawler.py",
+          "bytes": 4978,
+          "truncated": false
+        },
+        {
+          "path": "frontend/src/Register.jsx",
+          "bytes": 4262,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "Dockerfile",
+              "observation": "container definition"
+            }
+          ],
+          "rationale": "Dockerfile present"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 3 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "35 files / 6 dirs / depth 3 / 3 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "backend/app.py",
+              "observation": "Use of User class with methods like register and check_password."
+            },
+            {
+              "path": "backend/metaCrawler.py",
+              "observation": "Use of CardMeta class and database ORM queries."
+            },
+            {
+              "path": "frontend/src/PlayerInfoFetcher.jsx",
+              "observation": "React functional components with state and props usage."
+            }
+          ],
+          "rationale": "The backend Python code uses classes such as User and CardMeta, and methods like User.register and user.check_password indicate encapsulation and object-oriented design; the frontend React components use state and props which align with component-based OOP."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.7,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/src/PlayerInfoFetcher.jsx",
+              "observation": "Use of array reduce to calculate average elixir cost."
+            },
+            {
+              "path": "backend/app.py",
+              "observation": "Definition of pure functions like convert_level and format_card."
+            }
+          ],
+          "rationale": "The code uses some functional programming idioms such as map, reduce, and filter in JavaScript, and some pure functions in Python like convert_level and format_card, but the overall style is mostly imperative."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "backend/app.py",
+              "observation": "try/except block in get_player_info route to catch exceptions and return error JSON."
+            },
+            {
+              "path": "backend/app.py",
+              "observation": "Input validation for required fields in API routes like register and login."
+            },
+            {
+              "path": "frontend/src/PlayerInfoFetcher.jsx",
+              "observation": "try/catch around async fetch calls with error state updates."
+            },
+            {
+              "path": "frontend/src/Register.jsx",
+              "observation": "Error handling for fetch failures and form validation."
+            }
+          ],
+          "rationale": "The backend Python code uses try/except blocks to catch exceptions and return JSON error responses, and input validation is performed on API endpoints; the frontend React code also handles errors from fetch calls and displays error messages."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.8,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/src/PlayerInfoFetcher.jsx",
+              "observation": "async functions with await fetch calls for API requests."
+            },
+            {
+              "path": "frontend/src/Register.jsx",
+              "observation": "async function handleSubmit with await fetch for registration."
+            },
+            {
+              "path": "backend/metaCrawler.py",
+              "observation": "Retry logic with time.sleep in api_get function for HTTP requests."
+            }
+          ],
+          "rationale": "The frontend React components use async/await syntax for asynchronous HTTP requests; the backend Python code uses synchronous requests but includes retry logic with sleeps for robustness, indicating some concurrency awareness but no async/await or coroutines."
+        }
+      ],
+      "summary": "The repository demonstrates a primarily imperative and object-oriented style with some functional programming elements, robust error handling in backend Python code, and asynchronous programming in frontend React components using async/await.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 3,
+        "configCount": 4
+      },
+      "error": null
+    },
+    "Kertis4/Mobile-frontend-test-UCDF": {
+      "nameWithOwner": "Kertis4/Mobile-frontend-test-UCDF",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 951,
+      "updatedAt": "2025-06-07T10:54:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "script.js",
+          "bytes": 7648,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "No class or object-oriented constructs; only functions and event listeners."
+            }
+          ],
+          "rationale": "No classes, inheritance, or object-oriented constructs are present in the JavaScript code."
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "llm",
+          "confidence": 0.7,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "Use of forEach to iterate over arrays and arrow functions in event listeners."
+            }
+          ],
+          "rationale": "Some use of higher-order functions like forEach and arrow functions, but no advanced functional programming idioms like immutability or pure functions are evident."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "try/catch used in async function loadIndicators to catch fetch errors."
+            },
+            {
+              "path": "script.js",
+              "observation": "Input validation with alerts before making API calls in download button handler."
+            }
+          ],
+          "rationale": "There is a try/catch block around an async fetch call to handle errors, and some input validation with alerts before proceeding."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "async function loadIndicators uses await fetch to get data from API."
+            }
+          ],
+          "rationale": "The code uses async/await syntax to fetch data from an API asynchronously."
+        }
+      ],
+      "summary": "The code demonstrates basic DOM manipulation and event handling with some use of async/await for API calls, but lacks object-oriented or advanced functional programming patterns and robust error handling.",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Knowledge-Link": {
+      "nameWithOwner": "Kertis4/Knowledge-Link",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 886,
+      "updatedAt": "2025-03-15T01:54:54Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "frontend/script.js",
+          "bytes": 6487,
+          "truncated": false
+        },
+        {
+          "path": "app/app.py",
+          "bytes": 3599,
+          "truncated": false
+        },
+        {
+          "path": "app/plot_script.py",
+          "bytes": 2007,
+          "truncated": false
+        },
+        {
+          "path": "app/export_indicators.py",
+          "bytes": 650,
+          "truncated": false
+        },
+        {
+          "path": "app/download_data.py",
+          "bytes": 313,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "Dockerfile",
+              "observation": "container definition"
+            }
+          ],
+          "rationale": "Dockerfile present"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 5 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "frontend/script.js",
+              "observation": "No class or object-oriented constructs; only functions are defined."
+            },
+            {
+              "path": "app/app.py",
+              "observation": "No class definitions or object-oriented design patterns visible."
+            }
+          ],
+          "rationale": "No classes, inheritance, or object-oriented constructs are visible in the provided excerpts."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/script.js",
+              "observation": "Use of forEach with arrow functions to populate dropdown options."
+            }
+          ],
+          "rationale": "The JavaScript code uses array methods like forEach and arrow functions, indicating some functional style usage."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/script.js",
+              "observation": "try/catch blocks around fetch calls and error logging in async functions."
+            }
+          ],
+          "rationale": "The JavaScript code uses try/catch blocks to handle errors during async fetch calls and input validation with alerts."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "frontend/script.js",
+              "observation": "async functions with await for fetch calls and event listener using async."
+            }
+          ],
+          "rationale": "The JavaScript code uses async/await syntax for asynchronous API calls and event handlers."
+        }
+      ],
+      "summary": "The repository demonstrates basic to intermediate use of asynchronous JavaScript for API calls, functional programming with array methods, and error handling, but lacks object-oriented design and advanced concurrency constructs.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 5,
+        "configCount": 2
+      },
+      "error": null
+    },
+    "Kertis4/Langton-Ant-Portfolio": {
+      "nameWithOwner": "Kertis4/Langton-Ant-Portfolio",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 882,
+      "updatedAt": "2025-11-14T16:48:34Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/netsoc-site": {
+      "nameWithOwner": "Kertis4/netsoc-site",
+      "primaryLanguage": "Astro",
+      "estimatedLines": 755,
+      "updatedAt": "2026-01-25T20:07:11Z",
+      "isFork": true,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "Dockerfile",
+              "observation": "container definition"
+            }
+          ],
+          "rationale": "Dockerfile present"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "tsconfig.json",
+              "observation": "TypeScript config"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "37 files / 13 dirs / depth 3 / 4 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": true,
+        "hasIac": false,
+        "hasLint": true,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 4
+      },
+      "error": null
+    },
+    "Kertis4/Resume": {
+      "nameWithOwner": "Kertis4/Resume",
+      "primaryLanguage": "TeX",
+      "estimatedLines": 752,
+      "updatedAt": "2025-06-17T20:59:49Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/UCD-festival-Frontend": {
+      "nameWithOwner": "Kertis4/UCD-festival-Frontend",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 662,
+      "updatedAt": "2025-06-03T15:45:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "llmSkipped": false,
+      "filesExamined": [
+        {
+          "path": "script.js",
+          "bytes": 6952,
+          "truncated": false
+        }
+      ],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "llm",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "All functions are defined as standalone functions without classes or prototypes."
+            }
+          ],
+          "rationale": "No classes, inheritance, or object-oriented constructs are present in the JavaScript code."
+        },
+        {
+          "skillId": "functional",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.9,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "Use of forEach to iterate over arrays and arrow functions for callbacks."
+            }
+          ],
+          "rationale": "The code uses functional array methods such as forEach and arrow functions, but does not show advanced functional programming concepts like pure functions or immutability."
+        },
+        {
+          "skillId": "error-handling",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "try/catch blocks in async functions to handle fetch errors and input validation with alert messages."
+            }
+          ],
+          "rationale": "The code includes try/catch blocks around asynchronous fetch calls and input validation with alerts, but error handling is straightforward and not deeply robust."
+        },
+        {
+          "skillId": "async",
+          "present": true,
+          "source": "llm",
+          "confidence": 0.95,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "script.js",
+              "observation": "async functions and await used for fetching data and handling button click events."
+            }
+          ],
+          "rationale": "The code uses async/await syntax for asynchronous fetch calls and event handlers, but does not demonstrate advanced concurrency or parallelism."
+        }
+      ],
+      "summary": "The code demonstrates basic asynchronous programming with async/await and error handling, uses functional array methods like forEach, but does not employ object-oriented design patterns.",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Hackathlone-Backend-Astro-Nuts": {
+      "nameWithOwner": "Kertis4/Hackathlone-Backend-Astro-Nuts",
+      "primaryLanguage": "Python",
+      "estimatedLines": 561,
+      "updatedAt": "2025-10-05T11:00:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(repo)",
+              "observation": "1 test file(s)"
+            }
+          ],
+          "rationale": "1 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 3 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": true,
+        "testFileCount": 1,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 3,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Connections-Clone": {
+      "nameWithOwner": "Kertis4/Connections-Clone",
+      "primaryLanguage": "JavaScript",
+      "estimatedLines": 452,
+      "updatedAt": "2025-08-04T19:01:04Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(structure)",
+              "observation": "17 files / 5 dirs / depth 2 / 4 top-level modules"
+            }
+          ],
+          "rationale": "multi-module layered layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 3
+      },
+      "error": null
+    },
+    "Kertis4/Trigram-Language-Model": {
+      "nameWithOwner": "Kertis4/Trigram-Language-Model",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 338,
+      "updatedAt": "2025-03-26T19:12:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Eoins-Website": {
+      "nameWithOwner": "Kertis4/Eoins-Website",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 127,
+      "updatedAt": "2025-02-04T17:55:43Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Ostep-homework": {
+      "nameWithOwner": "Kertis4/Ostep-homework",
+      "primaryLanguage": "C",
+      "estimatedLines": 122,
+      "updatedAt": "2026-03-28T22:48:26Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [],
+          "rationale": "README=False, license=False, 2 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/spotify-last-50": {
+      "nameWithOwner": "Kertis4/spotify-last-50",
+      "primaryLanguage": "Python",
+      "estimatedLines": 95,
+      "updatedAt": "2025-11-14T16:29:02Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/terraria-auto-fisher": {
+      "nameWithOwner": "Kertis4/terraria-auto-fisher",
+      "primaryLanguage": "Python",
+      "estimatedLines": 68,
+      "updatedAt": "2026-02-22T16:42:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Brainfuck-Interpreters": {
+      "nameWithOwner": "Kertis4/Brainfuck-Interpreters",
+      "primaryLanguage": "C",
+      "estimatedLines": 66,
+      "updatedAt": "2026-03-14T12:23:05Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/To-do-list": {
+      "nameWithOwner": "Kertis4/To-do-list",
+      "primaryLanguage": "CSS",
+      "estimatedLines": 58,
+      "updatedAt": "2025-03-16T22:25:45Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Portfolio": {
+      "nameWithOwner": "Kertis4/Portfolio",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 36,
+      "updatedAt": "2025-02-20T00:02:17Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/morgans": {
+      "nameWithOwner": "Kertis4/morgans",
+      "primaryLanguage": "Go",
+      "estimatedLines": 20,
+      "updatedAt": "2026-03-23T18:16:22Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "(languages)",
+              "observation": "statically-typed primary language: Go"
+            }
+          ],
+          "rationale": "type-checker/config and/or statically-typed primary language"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": true,
+        "docFileCount": 1,
+        "configCount": 1
+      },
+      "error": null
+    },
+    "Kertis4/DSA-practice": {
+      "nameWithOwner": "Kertis4/DSA-practice",
+      "primaryLanguage": "Python",
+      "estimatedLines": 14,
+      "updatedAt": "2025-06-15T15:25:49Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/C-Data-Structures": {
+      "nameWithOwner": "Kertis4/C-Data-Structures",
+      "primaryLanguage": "C",
+      "estimatedLines": 13,
+      "updatedAt": "2026-03-29T19:45:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Message-censor": {
+      "nameWithOwner": "Kertis4/Message-censor",
+      "primaryLanguage": "Python",
+      "estimatedLines": 9,
+      "updatedAt": "2025-09-06T22:39:00Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Kertis4": {
+      "nameWithOwner": "Kertis4/Kertis4",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2026-01-19T18:58:18Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": ".github/workflows/snake.yml",
+              "observation": "CI pipeline"
+            }
+          ],
+          "rationale": "1 CI config(s) detected"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "basic",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 1 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": true,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 1,
+        "configCount": 1
+      },
+      "error": null
+    },
+    "Kertis4/new-resume": {
+      "nameWithOwner": "Kertis4/new-resume",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2026-01-19T11:49:11Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Mender": {
+      "nameWithOwner": "Kertis4/Mender",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-11-02T02:43:10Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Data-Analysis-Guide": {
+      "nameWithOwner": "Kertis4/Data-Analysis-Guide",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-06-25T18:58:17Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": true,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "intermediate",
+          "evidence": [
+            {
+              "path": "README.md",
+              "observation": "README"
+            }
+          ],
+          "rationale": "README=True, license=False, 2 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": true,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 2,
+        "configCount": 0
+      },
+      "error": null
+    },
+    "Kertis4/Tic-Tac-Toe": {
+      "nameWithOwner": "Kertis4/Tic-Tac-Toe",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-06-09T20:12:42Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "llmSkipped": true,
+      "filesExamined": [],
+      "skills": [
+        {
+          "skillId": "docker",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no container files detected"
+        },
+        {
+          "skillId": "ci",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no CI config"
+        },
+        {
+          "skillId": "iac",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no IaC files"
+        },
+        {
+          "skillId": "testing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "0 test file(s) by path convention"
+        },
+        {
+          "skillId": "typing",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "no static-typing signal"
+        },
+        {
+          "skillId": "documentation",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "README=False, license=False, 0 doc file(s)"
+        },
+        {
+          "skillId": "architecture",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 1.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "flat / single-module layout"
+        },
+        {
+          "skillId": "oop",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "functional",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "async",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        },
+        {
+          "skillId": "error-handling",
+          "present": false,
+          "source": "heuristic",
+          "confidence": 0.0,
+          "level": "none",
+          "evidence": [],
+          "rationale": "heuristic-only (no LLM call)"
+        }
+      ],
+      "summary": "",
+      "signalsEcho": {
+        "hasReadme": false,
+        "hasLicense": false,
+        "hasTests": false,
+        "testFileCount": 0,
+        "hasCi": false,
+        "hasDocker": false,
+        "hasIac": false,
+        "hasLint": false,
+        "hasPackageManager": false,
+        "docFileCount": 0,
+        "configCount": 0
+      },
+      "error": null
+    }
+  },
+  "taxonomyRollup": {
+    "docker": {
+      "skillId": "docker",
+      "category": "hard",
+      "reposPresent": 3,
+      "repoSpread": [
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/netsoc-site"
+      ],
+      "relevantLines": 2677,
+      "recencyBonus": 1.0,
+      "avgConfidence": 1.0,
+      "maxLevel": "basic",
+      "strength": 23.68
+    },
+    "ci": {
+      "skillId": "ci",
+      "category": "hard",
+      "reposPresent": 1,
+      "repoSpread": [
+        "Kertis4/Kertis4"
+      ],
+      "relevantLines": 0,
+      "recencyBonus": 1.0,
+      "avgConfidence": 1.0,
+      "maxLevel": "basic",
+      "strength": 0.0
+    },
+    "iac": {
+      "skillId": "iac",
+      "category": "hard",
+      "reposPresent": 0,
+      "repoSpread": [],
+      "relevantLines": 0,
+      "recencyBonus": 1.0,
+      "avgConfidence": 0.0,
+      "maxLevel": "none",
+      "strength": 0.0
+    },
+    "testing": {
+      "skillId": "testing",
+      "category": "hard",
+      "reposPresent": 3,
+      "repoSpread": [
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Backend-Astro-Nuts"
+      ],
+      "relevantLines": 5237,
+      "recencyBonus": 1.0,
+      "avgConfidence": 1.0,
+      "maxLevel": "basic",
+      "strength": 25.69
+    },
+    "typing": {
+      "skillId": "typing",
+      "category": "hard",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/netsoc-site",
+        "Kertis4/morgans"
+      ],
+      "relevantLines": 10213,
+      "recencyBonus": 1.25,
+      "avgConfidence": 1.0,
+      "maxLevel": "intermediate",
+      "strength": 69.24
+    },
+    "documentation": {
+      "skillId": "documentation",
+      "category": "hard",
+      "reposPresent": 22,
+      "repoSpread": [
+        "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Puzzle-Solver-Comparison",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/netsoc-site",
+        "Kertis4/Resume",
+        "Kertis4/UCD-festival-Frontend",
+        "Kertis4/Hackathlone-Backend-Astro-Nuts",
+        "Kertis4/Connections-Clone",
+        "Kertis4/Trigram-Language-Model",
+        "Kertis4/Ostep-homework",
+        "Kertis4/terraria-auto-fisher",
+        "Kertis4/To-do-list",
+        "Kertis4/morgans",
+        "Kertis4/DSA-practice",
+        "Kertis4/Message-censor",
+        "Kertis4/Kertis4",
+        "Kertis4/Data-Analysis-Guide"
+      ],
+      "relevantLines": 27502,
+      "recencyBonus": 1.25,
+      "avgConfidence": 1.0,
+      "maxLevel": "intermediate",
+      "strength": 281.11
+    },
+    "architecture": {
+      "skillId": "architecture",
+      "category": "hard",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/netsoc-site",
+        "Kertis4/Connections-Clone"
+      ],
+      "relevantLines": 10025,
+      "recencyBonus": 1.25,
+      "avgConfidence": 1.0,
+      "maxLevel": "intermediate",
+      "strength": 69.1
+    },
+    "oop": {
+      "skillId": "oop",
+      "category": "soft",
+      "reposPresent": 1,
+      "repoSpread": [
+        "Kertis4/Clash-Royale-Deck-Maker"
+      ],
+      "relevantLines": 1036,
+      "recencyBonus": 1.0,
+      "avgConfidence": 0.9,
+      "maxLevel": "intermediate",
+      "strength": 6.25
+    },
+    "functional": {
+      "skillId": "functional",
+      "category": "soft",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/UCD-festival-Frontend"
+      ],
+      "relevantLines": 9557,
+      "recencyBonus": 1.25,
+      "avgConfidence": 0.858,
+      "maxLevel": "intermediate",
+      "strength": 58.98
+    },
+    "async": {
+      "skillId": "async",
+      "category": "soft",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Mobile-frontend-test-UCDF",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/UCD-festival-Frontend"
+      ],
+      "relevantLines": 8297,
+      "recencyBonus": 1.25,
+      "avgConfidence": 0.942,
+      "maxLevel": "intermediate",
+      "strength": 63.75
+    },
+    "error-handling": {
+      "skillId": "error-handling",
+      "category": "soft",
+      "reposPresent": 7,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Mobile-frontend-test-UCDF",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/UCD-festival-Frontend"
+      ],
+      "relevantLines": 10508,
+      "recencyBonus": 1.25,
+      "avgConfidence": 0.914,
+      "maxLevel": "intermediate",
+      "strength": 74.06
+    }
+  }
+}

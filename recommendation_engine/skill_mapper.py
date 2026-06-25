@@ -4,7 +4,15 @@
 # user_skills - dictionary of user skills from json skill loader. Keys: id, name, strength
 # canonical_skills - list of canonical skills, their aliases and keywords
 
-from engine_utils import *
+import sys
+import os
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+
+sys.path.insert(0, PROJECT_ROOT)
+
+from recommendation_engine.engine_utils import *
 
 # --- User Skills -> Canonical Skills ---
 def map_user_skills_to_canonical_skills(

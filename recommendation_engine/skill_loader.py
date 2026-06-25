@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from engine_utils import *
+from recommendation_engine.engine_utils import *
 
 def load_canonical_skills(file_path: str) -> list[CanonicalSkill]:
     path: Path = Path(file_path)
