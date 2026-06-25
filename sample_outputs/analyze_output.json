@@ -1,0 +1,1325 @@
+{
+  "jobId": "6c4b74dfaeca496eb2c671da7641910e",
+  "user": {
+    "login": "Kertis4",
+    "name": "Eoin Curtis"
+  },
+  "generatedAt": "2026-06-24T15:21:10.802054+00:00",
+  "contract": {
+    "mapModelId": "gpt-4.1-mini",
+    "taxonomy": [
+      "docker",
+      "ci",
+      "iac",
+      "testing",
+      "typing",
+      "documentation",
+      "architecture",
+      "oop",
+      "functional",
+      "async",
+      "error-handling"
+    ],
+    "scoreModel": {
+      "scale": 90.0,
+      "formula": "score = 100 * (1 - exp(-strength / scale))",
+      "overall": "mean of per-skill scores"
+    },
+    "version": "reduce.v2"
+  },
+  "stats": {
+    "reposAnalyzed": 32,
+    "reposWithSource": 23,
+    "llmCalls": 7,
+    "dryRun": false
+  },
+  "overallScore": 37,
+  "topSkills": [
+    "documentation",
+    "async",
+    "typing",
+    "architecture",
+    "error-handling",
+    "functional",
+    "testing",
+    "docker",
+    "oop",
+    "ci"
+  ],
+  "gaps": [
+    "iac"
+  ],
+  "totals": {
+    "repoCount": 32,
+    "totalBytes": 1424353,
+    "estimatedLines": 29674,
+    "languages": [
+      {
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B",
+        "bytes": 608150,
+        "estimatedLines": 12670,
+        "share": 0.42696578727323914
+      },
+      {
+        "name": "TypeScript",
+        "color": "#3178c6",
+        "bytes": 237798,
+        "estimatedLines": 4954,
+        "share": 0.16695159135410956
+      },
+      {
+        "name": "HTML",
+        "color": "#e34c26",
+        "bytes": 144850,
+        "estimatedLines": 3018,
+        "share": 0.10169529603967556
+      },
+      {
+        "name": "Python",
+        "color": "#3572A5",
+        "bytes": 136911,
+        "estimatedLines": 2852,
+        "share": 0.09612153728745614
+      },
+      {
+        "name": "C++",
+        "color": "#f34b7d",
+        "bytes": 118326,
+        "estimatedLines": 2465,
+        "share": 0.08307350776106766
+      },
+      {
+        "name": "JavaScript",
+        "color": "#f1e05a",
+        "bytes": 83777,
+        "estimatedLines": 1745,
+        "share": 0.05881758243918467
+      },
+      {
+        "name": "TeX",
+        "color": "#3D6117",
+        "bytes": 36116,
+        "estimatedLines": 752,
+        "share": 0.025356073950769227
+      },
+      {
+        "name": "Astro",
+        "color": "#ff5a03",
+        "bytes": 32234,
+        "estimatedLines": 672,
+        "share": 0.022630625975442884
+      },
+      {
+        "name": "CSS",
+        "color": "#663399",
+        "bytes": 14925,
+        "estimatedLines": 311,
+        "share": 0.010478441790763947
+      },
+      {
+        "name": "C",
+        "color": "#555555",
+        "bytes": 8068,
+        "estimatedLines": 168,
+        "share": 0.005664326188802916
+      },
+      {
+        "name": "Dockerfile",
+        "color": "#384d54",
+        "bytes": 1650,
+        "estimatedLines": 34,
+        "share": 0.0011584207004864664
+      },
+      {
+        "name": "Go",
+        "color": "#00ADD8",
+        "bytes": 981,
+        "estimatedLines": 20,
+        "share": 0.0006887337619255901
+      },
+      {
+        "name": "Shell",
+        "color": "#89e051",
+        "bytes": 277,
+        "estimatedLines": 6,
+        "share": 0.00019447426305136436
+      },
+      {
+        "name": "Brainfuck",
+        "color": "#2F2530",
+        "bytes": 232,
+        "estimatedLines": 5,
+        "share": 0.0001628809712199153
+      },
+      {
+        "name": "Procfile",
+        "color": "#3B2F63",
+        "bytes": 58,
+        "estimatedLines": 1,
+        "share": 4.0720242804978824e-05
+      }
+    ]
+  },
+  "skillset": {
+    "docker": {
+      "skillId": "docker",
+      "category": "hard",
+      "present": true,
+      "score": 23,
+      "strength": 23.68,
+      "level": "basic",
+      "reposPresent": 3,
+      "repoSpread": [
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/netsoc-site"
+      ],
+      "relevantLines": 2677,
+      "recencyBonus": 1.0,
+      "lastPracticedAt": "2026-01-25T20:07:11+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "Dockerfile",
+          "observation": "container definition"
+        },
+        {
+          "repo": "Kertis4/Knowledge-Link",
+          "path": "Dockerfile",
+          "observation": "container definition"
+        },
+        {
+          "repo": "Kertis4/netsoc-site",
+          "path": "Dockerfile",
+          "observation": "container definition"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "basic",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Knowledge-Link",
+          "level": "basic",
+          "estimatedLines": 886,
+          "primaryLanguage": "HTML"
+        },
+        {
+          "nameWithOwner": "Kertis4/netsoc-site",
+          "level": "basic",
+          "estimatedLines": 755,
+          "primaryLanguage": "Astro"
+        }
+      ],
+      "rationales": [
+        "Dockerfile present",
+        "Dockerfile present",
+        "Dockerfile present"
+      ]
+    },
+    "ci": {
+      "skillId": "ci",
+      "category": "hard",
+      "present": true,
+      "score": 0,
+      "strength": 0.0,
+      "level": "basic",
+      "reposPresent": 1,
+      "repoSpread": [
+        "Kertis4/Kertis4"
+      ],
+      "relevantLines": 0,
+      "recencyBonus": 1.0,
+      "lastPracticedAt": "2026-01-19T18:58:18+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/Kertis4",
+          "path": ".github/workflows/snake.yml",
+          "observation": "CI pipeline"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/Kertis4",
+          "level": "basic",
+          "estimatedLines": 0,
+          "primaryLanguage": null
+        }
+      ],
+      "rationales": [
+        "1 CI config(s) detected"
+      ]
+    },
+    "iac": {
+      "skillId": "iac",
+      "category": "hard",
+      "present": false,
+      "score": 0,
+      "strength": 0.0,
+      "level": "none",
+      "reposPresent": 0,
+      "repoSpread": [],
+      "relevantLines": 0,
+      "recencyBonus": 1.0,
+      "lastPracticedAt": null,
+      "avgConfidence": 0.0,
+      "sources": [],
+      "evidence": [],
+      "exemplarRepos": [],
+      "rationales": []
+    },
+    "testing": {
+      "skillId": "testing",
+      "category": "hard",
+      "present": true,
+      "score": 25,
+      "strength": 25.69,
+      "level": "basic",
+      "reposPresent": 3,
+      "repoSpread": [
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Backend-Astro-Nuts"
+      ],
+      "relevantLines": 5237,
+      "recencyBonus": 1.0,
+      "lastPracticedAt": "2025-10-08T13:20:59+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/Robo-Rugby",
+          "path": "(repo)",
+          "observation": "1 test file(s)"
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "(repo)",
+          "observation": "1 test file(s)"
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Backend-Astro-Nuts",
+          "path": "(repo)",
+          "observation": "1 test file(s)"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/Robo-Rugby",
+          "level": "basic",
+          "estimatedLines": 2465,
+          "primaryLanguage": "C++"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "basic",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Backend-Astro-Nuts",
+          "level": "basic",
+          "estimatedLines": 561,
+          "primaryLanguage": "Python"
+        }
+      ],
+      "rationales": [
+        "1 test file(s) by path convention",
+        "1 test file(s) by path convention",
+        "1 test file(s) by path convention"
+      ]
+    },
+    "typing": {
+      "skillId": "typing",
+      "category": "hard",
+      "present": true,
+      "score": 54,
+      "strength": 69.24,
+      "level": "intermediate",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/netsoc-site",
+        "Kertis4/morgans"
+      ],
+      "relevantLines": 10213,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "frontend/tsconfig.json",
+          "observation": "TypeScript config"
+        },
+        {
+          "repo": "Kertis4/Robo-Rugby",
+          "path": "(languages)",
+          "observation": "statically-typed primary language: C++"
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Frontend-Astro-Nuts/tsconfig.json",
+          "observation": "TypeScript config"
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "path": "tsconfig.json",
+          "observation": "TypeScript config"
+        },
+        {
+          "repo": "Kertis4/netsoc-site",
+          "path": "tsconfig.json",
+          "observation": "TypeScript config"
+        },
+        {
+          "repo": "Kertis4/morgans",
+          "path": "(languages)",
+          "observation": "statically-typed primary language: Go"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "intermediate",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Robo-Rugby",
+          "level": "basic",
+          "estimatedLines": 2465,
+          "primaryLanguage": "C++"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "intermediate",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "level": "intermediate",
+          "estimatedLines": 1656,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/netsoc-site",
+          "level": "basic",
+          "estimatedLines": 755,
+          "primaryLanguage": "Astro"
+        }
+      ],
+      "rationales": [
+        "type-checker/config and/or statically-typed primary language",
+        "type-checker/config and/or statically-typed primary language",
+        "type-checker/config and/or statically-typed primary language",
+        "type-checker/config and/or statically-typed primary language",
+        "type-checker/config and/or statically-typed primary language"
+      ]
+    },
+    "documentation": {
+      "skillId": "documentation",
+      "category": "hard",
+      "present": true,
+      "score": 96,
+      "strength": 281.11,
+      "level": "intermediate",
+      "reposPresent": 22,
+      "repoSpread": [
+        "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Puzzle-Solver-Comparison",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/netsoc-site",
+        "Kertis4/Resume",
+        "Kertis4/UCD-festival-Frontend",
+        "Kertis4/Hackathlone-Backend-Astro-Nuts",
+        "Kertis4/Connections-Clone",
+        "Kertis4/Trigram-Language-Model",
+        "Kertis4/Ostep-homework",
+        "Kertis4/terraria-auto-fisher",
+        "Kertis4/To-do-list",
+        "Kertis4/morgans",
+        "Kertis4/DSA-practice",
+        "Kertis4/Message-censor",
+        "Kertis4/Kertis4",
+        "Kertis4/Data-Analysis-Guide"
+      ],
+      "relevantLines": 27502,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+          "path": "README.md",
+          "observation": "README"
+        },
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "README.md",
+          "observation": "README"
+        },
+        {
+          "repo": "Kertis4/Robo-Rugby",
+          "path": "README.md",
+          "observation": "README"
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Backend-Astro-Nuts/README.md",
+          "observation": "README"
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "path": "README.md",
+          "observation": "README"
+        },
+        {
+          "repo": "Kertis4/Puzzle-Solver-Comparison",
+          "path": "README.md",
+          "observation": "README"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+          "level": "basic",
+          "estimatedLines": 10778,
+          "primaryLanguage": "Jupyter Notebook"
+        },
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "intermediate",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Robo-Rugby",
+          "level": "intermediate",
+          "estimatedLines": 2465,
+          "primaryLanguage": "C++"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "intermediate",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "level": "basic",
+          "estimatedLines": 1656,
+          "primaryLanguage": "TypeScript"
+        }
+      ],
+      "rationales": [
+        "README=True, license=False, 1 doc file(s)",
+        "README=True, license=False, 4 doc file(s)",
+        "README=True, license=False, 2 doc file(s)",
+        "README=True, license=False, 5 doc file(s)",
+        "README=True, license=False, 1 doc file(s)"
+      ]
+    },
+    "architecture": {
+      "skillId": "architecture",
+      "category": "hard",
+      "present": true,
+      "score": 54,
+      "strength": 69.1,
+      "level": "intermediate",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Robo-Rugby",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/netsoc-site",
+        "Kertis4/Connections-Clone"
+      ],
+      "relevantLines": 10025,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 1.0,
+      "sources": [
+        "heuristic"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "(structure)",
+          "observation": "62 files / 16 dirs / depth 4 / 3 top-level modules"
+        },
+        {
+          "repo": "Kertis4/Robo-Rugby",
+          "path": "(structure)",
+          "observation": "19 files / 13 dirs / depth 3 / 3 top-level modules"
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "(structure)",
+          "observation": "33 files / 5 dirs / depth 3 / 3 top-level modules"
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "(structure)",
+          "observation": "35 files / 6 dirs / depth 3 / 3 top-level modules"
+        },
+        {
+          "repo": "Kertis4/netsoc-site",
+          "path": "(structure)",
+          "observation": "37 files / 13 dirs / depth 3 / 4 top-level modules"
+        },
+        {
+          "repo": "Kertis4/Connections-Clone",
+          "path": "(structure)",
+          "observation": "17 files / 5 dirs / depth 2 / 4 top-level modules"
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "intermediate",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Robo-Rugby",
+          "level": "intermediate",
+          "estimatedLines": 2465,
+          "primaryLanguage": "C++"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "basic",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "basic",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/netsoc-site",
+          "level": "intermediate",
+          "estimatedLines": 755,
+          "primaryLanguage": "Astro"
+        }
+      ],
+      "rationales": [
+        "multi-module layered layout",
+        "multi-module layered layout",
+        "multi-module layered layout",
+        "multi-module layered layout",
+        "multi-module layered layout"
+      ]
+    },
+    "oop": {
+      "skillId": "oop",
+      "category": "soft",
+      "present": true,
+      "score": 7,
+      "strength": 6.25,
+      "level": "intermediate",
+      "reposPresent": 1,
+      "repoSpread": [
+        "Kertis4/Clash-Royale-Deck-Maker"
+      ],
+      "relevantLines": 1036,
+      "recencyBonus": 1.0,
+      "lastPracticedAt": "2025-07-10T11:05:02+00:00",
+      "avgConfidence": 0.9,
+      "sources": [
+        "llm"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "backend/app.py",
+          "observation": "Use of User class with methods like register and check_password."
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "intermediate",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        }
+      ],
+      "rationales": [
+        "The backend uses classes such as User and CardMeta with methods like User.register and User.check_password, indicating object-oriented design with encapsulation and class methods."
+      ]
+    },
+    "functional": {
+      "skillId": "functional",
+      "category": "soft",
+      "present": true,
+      "score": 41,
+      "strength": 47.74,
+      "level": "intermediate",
+      "reposPresent": 5,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Knowledge-Link"
+      ],
+      "relevantLines": 8895,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 0.84,
+      "sources": [
+        "llm"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "observation": "Functional React components with hooks and array map for rendering lists."
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+          "observation": "Functions like calculateImpactEnergy and generateRiskZones are pure and use array methods."
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+          "observation": "Functions like create_matplotlib_chart_base64 use list comprehensions and functional style data processing."
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "path": "src/App.tsx",
+          "observation": "Multiple pure functions for calculations (e.g., calculateImpactEnergy, calculateTorinoScale) and data generation (generateRiskZones)."
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "frontend/src/PlayerInfoFetcher.jsx",
+          "observation": "Use of array reduce to calculate average elixir and map to render cards."
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "backend/app.py",
+          "observation": "Use of collections.Counter and list comprehensions in battle log processing."
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "basic",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "intermediate",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "level": "intermediate",
+          "estimatedLines": 1656,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "basic",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Knowledge-Link",
+          "level": "basic",
+          "estimatedLines": 886,
+          "primaryLanguage": "HTML"
+        }
+      ],
+      "rationales": [
+        "The frontend uses functional React components and hooks like useState and useEffect; some use of higher-order functions like map is visible.",
+        "The code uses pure functions, higher-order functions like map/filter, and immutable data patterns especially in TypeScript and Python code for data processing and transformation.",
+        "The code uses pure functions for calculations and data transformations, and employs array methods like push and map-like constructs in loops.",
+        "The code uses functional programming idioms such as map, reduce, and filter in the frontend React components and some functional style in Python like list comprehensions and Counter usage.",
+        "JavaScript code uses higher-order functions like forEach and arrow functions, but no advanced functional programming idioms or immutability are evident."
+      ]
+    },
+    "async": {
+      "skillId": "async",
+      "category": "soft",
+      "present": true,
+      "score": 55,
+      "strength": 72.36,
+      "level": "intermediate",
+      "reposPresent": 7,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "layli43/Hackathlone-astro-nuts",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Mobile-frontend-test-UCDF",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/UCD-festival-Frontend"
+      ],
+      "relevantLines": 10508,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 0.893,
+      "sources": [
+        "llm"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "backend/app/github_graphql.py",
+          "observation": "async def analyze_user_repositories uses async HTTP client and awaits."
+        },
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "backend/app/main.py",
+          "observation": "async def github_callback and async generator _run_and_stream with await calls."
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Backend-Astro-Nuts/main.py",
+          "observation": "FastAPI app setup implies asynchronous request handling."
+        },
+        {
+          "repo": "layli43/Hackathlone-astro-nuts",
+          "path": "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+          "observation": "React hooks usage suggests asynchronous data fetching though no explicit async/await shown."
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "path": "src/api/asteroid.ts",
+          "observation": "getAsteroidsData is an async function using await for axios API calls."
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "frontend/src/PlayerInfoFetcher.jsx",
+          "observation": "Async functions fetchPlayerInfo and buildDeck use async/await for fetch calls."
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "intermediate",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+          "level": "basic",
+          "estimatedLines": 2211,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "level": "intermediate",
+          "estimatedLines": 1656,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "basic",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Mobile-frontend-test-UCDF",
+          "level": "basic",
+          "estimatedLines": 951,
+          "primaryLanguage": "HTML"
+        }
+      ],
+      "rationales": [
+        "Backend Python code uses async/await for HTTP requests and streaming responses; frontend React code uses hooks but no explicit async code shown in excerpts.",
+        "The FastAPI backend likely handles asynchronous requests, and the frontend uses React hooks which often involve async operations, but no explicit async/await or concurrency primitives are shown in the excerpts.",
+        "The code uses async/await syntax for asynchronous API calls with axios.",
+        "The frontend React components use async/await for asynchronous HTTP requests to backend APIs, demonstrating asynchronous programming.",
+        "Use of async/await syntax for asynchronous API calls is demonstrated in the loadIndicators function."
+      ]
+    },
+    "error-handling": {
+      "skillId": "error-handling",
+      "category": "soft",
+      "present": true,
+      "score": 50,
+      "strength": 62.6,
+      "level": "intermediate",
+      "reposPresent": 6,
+      "repoSpread": [
+        "Kertis4/github-skilltree",
+        "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+        "Kertis4/Clash-Royale-Deck-Maker",
+        "Kertis4/Mobile-frontend-test-UCDF",
+        "Kertis4/Knowledge-Link",
+        "Kertis4/UCD-festival-Frontend"
+      ],
+      "relevantLines": 8297,
+      "recencyBonus": 1.25,
+      "lastPracticedAt": "2026-06-24T12:44:55+00:00",
+      "avgConfidence": 0.925,
+      "sources": [
+        "llm"
+      ],
+      "evidence": [
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "backend/app/main.py",
+          "observation": "try/except around token exchange and analysis blob building with logging and user-friendly error messages."
+        },
+        {
+          "repo": "Kertis4/github-skilltree",
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "observation": "Conditional rendering of error views with retry and back handlers."
+        },
+        {
+          "repo": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "path": "src/api/asteroid.ts",
+          "observation": "try/catch block with specific handling for response errors, request errors, and other errors in getAsteroidsData."
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "backend/app.py",
+          "observation": "Input validation and try-except in get_player_info route with JSON error responses."
+        },
+        {
+          "repo": "Kertis4/Clash-Royale-Deck-Maker",
+          "path": "backend/metaCrawler.py",
+          "observation": "Retries and exception handling in api_get function with logging and fallback."
+        },
+        {
+          "repo": "Kertis4/Mobile-frontend-test-UCDF",
+          "path": "script.js",
+          "observation": "try-catch around fetch in loadIndicators function and input validation with alert in download button handler."
+        }
+      ],
+      "exemplarRepos": [
+        {
+          "nameWithOwner": "Kertis4/github-skilltree",
+          "level": "intermediate",
+          "estimatedLines": 3106,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+          "level": "intermediate",
+          "estimatedLines": 1656,
+          "primaryLanguage": "TypeScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+          "level": "intermediate",
+          "estimatedLines": 1036,
+          "primaryLanguage": "JavaScript"
+        },
+        {
+          "nameWithOwner": "Kertis4/Mobile-frontend-test-UCDF",
+          "level": "basic",
+          "estimatedLines": 951,
+          "primaryLanguage": "HTML"
+        },
+        {
+          "nameWithOwner": "Kertis4/Knowledge-Link",
+          "level": "intermediate",
+          "estimatedLines": 886,
+          "primaryLanguage": "HTML"
+        }
+      ],
+      "rationales": [
+        "Backend code uses try/except blocks to catch HTTP and value errors, and the frontend handles error states with conditional rendering and retry callbacks.",
+        "The API call function uses try/catch with detailed error differentiation and returns structured error information.",
+        "The backend Flask app and metaCrawler.py include try-except blocks, input validation, and HTTP response status checks with appropriate error responses, demonstrating robust error handling.",
+        "Basic try-catch blocks are used around asynchronous fetch calls to handle errors, and some input validation with alerts is present.",
+        "JavaScript code uses try/catch blocks for async fetch calls and input validation with alerts; Python code uses try/except in plotting and raises errors for validation."
+      ]
+    }
+  },
+  "corpus": [
+    {
+      "nameWithOwner": "Kertis4/Airbnb-Dublin-Data-Insights-Listings-Reviews-Analysis",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 10778,
+      "updatedAt": "2025-04-19T20:14:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/github-skilltree",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 3106,
+      "updatedAt": "2026-06-24T12:44:55Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "frontend/src/pages/DashboardPage.tsx",
+        "backend/app/blob.py",
+        "backend/app/main.py",
+        "backend/app/github_graphql.py",
+        "frontend/src/lib/auth.ts"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Robo-Rugby",
+      "primaryLanguage": "C++",
+      "estimatedLines": 2465,
+      "updatedAt": "2025-04-09T16:58:05Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "layli43/Hackathlone-astro-nuts",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 2211,
+      "updatedAt": "2025-10-08T13:20:59Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "Hackathlone-Frontend-Astro-Nuts/src/App.tsx",
+        "Hackathlone-Backend-Astro-Nuts/main.py",
+        "Hackathlone-Backend-Astro-Nuts/database.py",
+        "Hackathlone-Backend-Astro-Nuts/normalize.py",
+        "Hackathlone-Frontend-Astro-Nuts/eslint.config.mjs"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Hackathlone-Frontend-Astro-Nuts",
+      "primaryLanguage": "TypeScript",
+      "estimatedLines": 1656,
+      "updatedAt": "2025-10-05T11:01:41Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "src/App.tsx",
+        "eslint.config.mjs",
+        "stylelint.config.mjs",
+        "src/api/asteroid.ts"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Puzzle-Solver-Comparison",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 1553,
+      "updatedAt": "2025-04-17T21:59:16Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Clash-Royale-Deck-Maker",
+      "primaryLanguage": "JavaScript",
+      "estimatedLines": 1036,
+      "updatedAt": "2025-07-10T11:05:02Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "backend/app.py",
+        "frontend/src/PlayerInfoFetcher.jsx",
+        "frontend/src/Dashboard.jsx",
+        "backend/metaCrawler.py",
+        "frontend/src/Register.jsx"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Mobile-frontend-test-UCDF",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 951,
+      "updatedAt": "2025-06-07T10:54:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "script.js"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Knowledge-Link",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 886,
+      "updatedAt": "2025-03-15T01:54:54Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "frontend/script.js",
+        "app/app.py",
+        "app/plot_script.py",
+        "app/export_indicators.py",
+        "app/download_data.py"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Langton-Ant-Portfolio",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 882,
+      "updatedAt": "2025-11-14T16:48:34Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/netsoc-site",
+      "primaryLanguage": "Astro",
+      "estimatedLines": 755,
+      "updatedAt": "2026-01-25T20:07:11Z",
+      "isFork": true,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Resume",
+      "primaryLanguage": "TeX",
+      "estimatedLines": 752,
+      "updatedAt": "2025-06-17T20:59:49Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/UCD-festival-Frontend",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 662,
+      "updatedAt": "2025-06-03T15:45:46Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": true,
+      "filesExamined": [
+        "script.js"
+      ]
+    },
+    {
+      "nameWithOwner": "Kertis4/Hackathlone-Backend-Astro-Nuts",
+      "primaryLanguage": "Python",
+      "estimatedLines": 561,
+      "updatedAt": "2025-10-05T11:00:27Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Connections-Clone",
+      "primaryLanguage": "JavaScript",
+      "estimatedLines": 452,
+      "updatedAt": "2025-08-04T19:01:04Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Trigram-Language-Model",
+      "primaryLanguage": "Jupyter Notebook",
+      "estimatedLines": 338,
+      "updatedAt": "2025-03-26T19:12:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Eoins-Website",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 127,
+      "updatedAt": "2025-02-04T17:55:43Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Ostep-homework",
+      "primaryLanguage": "C",
+      "estimatedLines": 122,
+      "updatedAt": "2026-03-28T22:48:26Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/spotify-last-50",
+      "primaryLanguage": "Python",
+      "estimatedLines": 95,
+      "updatedAt": "2025-11-14T16:29:02Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/terraria-auto-fisher",
+      "primaryLanguage": "Python",
+      "estimatedLines": 68,
+      "updatedAt": "2026-02-22T16:42:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Brainfuck-Interpreters",
+      "primaryLanguage": "C",
+      "estimatedLines": 66,
+      "updatedAt": "2026-03-14T12:23:05Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/To-do-list",
+      "primaryLanguage": "CSS",
+      "estimatedLines": 58,
+      "updatedAt": "2025-03-16T22:25:45Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Portfolio",
+      "primaryLanguage": "HTML",
+      "estimatedLines": 36,
+      "updatedAt": "2025-02-20T00:02:17Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/morgans",
+      "primaryLanguage": "Go",
+      "estimatedLines": 20,
+      "updatedAt": "2026-03-23T18:16:22Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/DSA-practice",
+      "primaryLanguage": "Python",
+      "estimatedLines": 14,
+      "updatedAt": "2025-06-15T15:25:49Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/C-Data-Structures",
+      "primaryLanguage": "C",
+      "estimatedLines": 13,
+      "updatedAt": "2026-03-29T19:45:13Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Message-censor",
+      "primaryLanguage": "Python",
+      "estimatedLines": 9,
+      "updatedAt": "2025-09-06T22:39:00Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Kertis4",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2026-01-19T18:58:18Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/new-resume",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2026-01-19T11:49:11Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Mender",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-11-02T02:43:10Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Data-Analysis-Guide",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-06-25T18:58:17Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    },
+    {
+      "nameWithOwner": "Kertis4/Tic-Tac-Toe",
+      "primaryLanguage": null,
+      "estimatedLines": 0,
+      "updatedAt": "2025-06-09T20:12:42Z",
+      "isFork": false,
+      "isArchived": false,
+      "llmUsed": false,
+      "filesExamined": []
+    }
+  ]
+}

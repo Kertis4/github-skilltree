@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { startGitHubLogin, onAuthMessage, type Analysis } from '@/lib/auth'
+import { startGitHubLogin, onAuthMessage, type Analysis, type SkillAnalysis } from '@/lib/auth'
 
 export type AuthStatus = 'idle' | 'loading' | 'done' | 'error'
 export type AuthView = 'landing' | 'dashboard'
@@ -11,6 +11,8 @@ export interface GitHubAuth {
   view: AuthView
   status: AuthStatus
   analysis: Analysis | null
+  /** The synthesized skill profile (null until analysis completes). */
+  skills: SkillAnalysis | null
   error: string | null
   /** Open the OAuth popup and switch to the dashboard. Returns false if the
    *  browser blocked the popup (in which case we stay on the landing page). */
@@ -31,6 +33,7 @@ export function useGitHubAuth(): GitHubAuth {
   const [view, setView] = useState<AuthView>('landing')
   const [status, setStatus] = useState<AuthStatus>('idle')
   const [analysis, setAnalysis] = useState<Analysis | null>(null)
+  const [skills, setSkills] = useState<SkillAnalysis | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Persistent listener for the popup's postMessage result.
@@ -38,10 +41,12 @@ export function useGitHubAuth(): GitHubAuth {
     return onAuthMessage((msg) => {
       if (msg.ok && msg.analysis) {
         setAnalysis(msg.analysis)
+        setSkills(msg.skills)
         setError(null)
         setStatus('done')
       } else {
         setAnalysis(null)
+        setSkills(null)
         setError(msg.error ?? 'GitHub sign-in failed.')
         setStatus('error')
       }
@@ -66,6 +71,7 @@ export function useGitHubAuth(): GitHubAuth {
     const popup = startGitHubLogin()
     if (!popup) return false
     setAnalysis(null)
+    setSkills(null)
     setError(null)
     setStatus('loading')
     setView('dashboard')
@@ -76,6 +82,7 @@ export function useGitHubAuth(): GitHubAuth {
   const reset = useCallback(() => {
     setStatus('idle')
     setAnalysis(null)
+    setSkills(null)
     setError(null)
     setView('landing')
     if (window.location.hash === DASHBOARD_HASH) {
@@ -83,5 +90,5 @@ export function useGitHubAuth(): GitHubAuth {
     }
   }, [])
 
-  return { view, status, analysis, error, start, reset }
+  return { view, status, analysis, skills, error, start, reset }
 }
