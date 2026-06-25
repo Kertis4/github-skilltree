@@ -10,6 +10,8 @@ Skill split
 -----------
 HARD skills (resolved here, ``source="heuristic"``, ``confidence=1.0``):
     docker, ci, iac, testing, typing, documentation, architecture
+LANGUAGE skills (resolved here from GitHub-linguist byte shares, deterministic):
+    javascript, typescript, python, html-css
 SOFT skills (the *gap set*, deferred to the LLM in ``worker.py``):
     oop, functional, async, error-handling
 
@@ -21,8 +23,28 @@ from __future__ import annotations
 
 # Canonical taxonomy for the analysis stage (matches the blob's config.taxonomy).
 HARD_SKILLS = ("docker", "ci", "iac", "testing", "typing", "documentation", "architecture")
+# Programming-language skills, resolved deterministically from GitHub-linguist byte
+# shares (no LLM, no file reads) - same provenance guarantees as the HARD skills.
+LANGUAGE_SKILLS = ("javascript", "typescript", "python", "html-css")
 SOFT_SKILLS = ("oop", "functional", "async", "error-handling")
-TAXONOMY = HARD_SKILLS + SOFT_SKILLS
+TAXONOMY = HARD_SKILLS + LANGUAGE_SKILLS + SOFT_SKILLS
+
+# GitHub-linguist language name (lower-cased) -> taxonomy language skill id. Several
+# linguist languages roll up into one skill: Jupyter notebooks are essentially
+# Python; HTML / CSS / preprocessors are one front-end markup skill.
+_LANGUAGE_SKILL_MAP = {
+    "javascript": "javascript",
+    "jsx": "javascript",
+    "typescript": "typescript",
+    "tsx": "typescript",
+    "python": "python",
+    "jupyter notebook": "python",
+    "html": "html-css",
+    "css": "html-css",
+    "scss": "html-css",
+    "sass": "html-css",
+    "less": "html-css",
+}
 
 # Languages where OO / functional / error-handling idioms are meaningful to look for.
 # Purely-markup / typesetting / data languages are excluded so we never spend an LLM
@@ -239,4 +261,54 @@ def detect_hard_skills(digest: dict) -> list[dict]:
         )
     )
 
+    return skills
+
+
+def _language_shares(digest: dict) -> dict[str, float]:
+    """Summed byte-share per taxonomy language skill id for this repo (0..1)."""
+    shares: dict[str, float] = {}
+    primary = ((digest.get("primaryLanguage") or {}).get("name") or "").lower()
+    for lang in digest.get("languages") or []:
+        name = (lang.get("name") or "").lower()
+        skill_id = _LANGUAGE_SKILL_MAP.get(name)
+        if not skill_id:
+            continue
+        share = float(lang.get("share") or 0.0)
+        # A primary language with no recorded share still counts as present.
+        if share <= 0 and name == primary:
+            share = 0.01
+        shares[skill_id] = shares.get(skill_id, 0.0) + share
+    return shares
+
+
+def detect_language_skills(digest: dict) -> list[dict]:
+    """Resolve programming-language skills deterministically from the repo's
+    GitHub-linguist language breakdown. Always returns one record per
+    LANGUAGE_SKILL (``present`` may be False). Level scales with byte share so a
+    repo dominated by a language reads as deeper command of it."""
+    shares = _language_shares(digest)
+    skills: list[dict] = []
+    for skill_id in LANGUAGE_SKILLS:
+        share = shares.get(skill_id, 0.0)
+        present = share >= 0.05
+        if not present:
+            level = "none"
+        elif share >= 0.5:
+            level = "advanced"
+        elif share >= 0.2:
+            level = "intermediate"
+        else:
+            level = "basic"
+        pct = round(share * 100)
+        skills.append(
+            _skill(
+                skill_id,
+                present,
+                level=level,
+                evidence=[{"path": "(languages)", "observation": f"{pct}% of repo code"}]
+                if present else [],
+                rationale=f"{pct}% of repo bytes by GitHub linguist"
+                if present else "not a significant language in this repo",
+            )
+        )
     return skills

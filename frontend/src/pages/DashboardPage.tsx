@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { cn } from '@/lib/cn'
 import { MatrixRain } from '@/components/effects/MatrixRain'
 import { Scanlines } from '@/components/effects/Scanlines'
@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/Button'
 import { Icon, type IconName } from '@/components/ui/icons'
 import type { Analysis, LanguageStat, RepoAnalysis, Skill, SkillAnalysis } from '@/lib/auth'
 import type { GitHubAuth } from '@/hooks/useGitHubAuth'
+import { SkillTreeViz } from '@/components/game/SkillTreeViz'
+import { projectSkillTree, skillTreeSummary } from '@/lib/skillGraph'
 
 // ── formatting helpers ─────────────────────────────────────────────────────
 const fmtInt = (n: number) => n.toLocaleString()
@@ -184,6 +186,9 @@ function AnalysisView({ analysis, skills }: { analysis: Analysis; skills: SkillA
       {/* synthesized skill profile — the headline result of the analysis pass */}
       {skills && <SkillsPanel skills={skills} />}
 
+      {/* the same skills projected onto the canonical skill graph */}
+      {skills && <SkillTreePanel skills={skills} />}
+
       {/* aggregate languages */}
       {totals.languages.length > 0 && (
         <section className="rounded-lg border border-term-border bg-term-surface/50 p-4">
@@ -215,6 +220,32 @@ function AnalysisView({ analysis, skills }: { analysis: Analysis; skills: SkillA
         analysis pipeline (lines estimated from byte size)
       </p>
     </div>
+  )
+}
+
+/**
+ * The detected skills projected onto the canonical skill graph and rendered as
+ * an interactive tree. Lit nodes were demonstrated in the user's repositories;
+ * dimmed nodes are adjacent skills (their prerequisites are met) to learn next.
+ */
+function SkillTreePanel({ skills }: { skills: SkillAnalysis }) {
+  const tree = useMemo(() => projectSkillTree(skills), [skills])
+  const summary = useMemo(() => skillTreeSummary(skills), [skills])
+
+  return (
+    <section className="rounded-lg border border-term-border bg-term-surface/50 p-4">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h2 className="font-mono text-sm text-term-fg">// skill tree</h2>
+        <span className="font-mono text-xs text-term-muted">
+          {summary.present}/{summary.total} demonstrated
+          <span className="text-term-dim"> · taxonomy v{summary.version}</span>
+        </span>
+      </div>
+      <SkillTreeViz skills={tree} width={1100} height={680} />
+      <p className="mt-2 text-center text-xs text-term-dim">
+        lit nodes are demonstrated in your repositories · dimmed nodes are adjacent skills to learn next
+      </p>
+    </section>
   )
 }
 

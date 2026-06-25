@@ -16,6 +16,23 @@ export interface Skill {
   parent_id?: string | null;
   evidence?: string[];
   description?: string;
+  /**
+   * Optional explicit node colour (any CSS colour). When set it overrides the
+   * `category`-derived colour — used to paint real taxonomy domains, which are
+   * finer-grained than the four legacy categories. Mock data omits it.
+   */
+  color?: string;
+  /**
+   * Optional "not yet demonstrated" flag. When true the node renders dimmed to
+   * read as a locked / next-to-learn skill. Mock data omits it (always active).
+   */
+  locked?: boolean;
+  /**
+   * Optional explicit layer/row in a dependency-layered layout (0 = root/top).
+   * When present on any node, the tree lays out by these levels instead of by
+   * parent-chain depth. Mock data omits it.
+   */
+  tier?: number;
 }
 
 /**

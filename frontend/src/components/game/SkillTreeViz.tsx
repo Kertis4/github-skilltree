@@ -67,6 +67,11 @@ function getSkillCategoryColor(skill: Skill): string {
   }
 }
 
+/** Node colour: explicit override (real taxonomy domains) else category-derived. */
+function resolveColor(skill: Skill): string {
+  return skill.color ?? getSkillCategoryColor(skill)
+}
+
 export function SkillTreeViz({
   skills,
   width = 900,
@@ -80,8 +85,8 @@ export function SkillTreeViz({
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState<{ x: number; y: number } | null>(null)
 
-  const MIN_ZOOM = 0.65
-  const MAX_ZOOM = 1.4
+  const MIN_ZOOM = 0.5
+  const MAX_ZOOM = 2.2
   const ZOOM_STEP = 0.1
 
   // Compute initial expanded set: all skills that have children
@@ -102,6 +107,18 @@ export function SkillTreeViz({
   // Build skill index
   const skillsById = useMemo(() => new Map(skills.map((s) => [s.id, s])), [skills])
 
+  // Dependency-layered mode: active when nodes carry an explicit `tier` (row).
+  const tierById = useMemo(
+    () =>
+      new Map(
+        skills
+          .filter((s) => typeof s.tier === 'number')
+          .map((s) => [s.id, s.tier as number])
+      ),
+    [skills]
+  )
+  const layered = tierById.size > 0
+
   // Filter visible skills based on expandedNodeIds
   const visibleSkills = useMemo(() => {
     return skills.filter((skill) => {
@@ -113,8 +130,15 @@ export function SkillTreeViz({
 
   // Calculate layout
   const layout = useMemo(() => {
-    return calculateTreeLayout(visibleSkills, width, height)
-  }, [visibleSkills, width, height])
+    return calculateTreeLayout(
+      visibleSkills,
+      width,
+      height,
+      layered
+        ? { levelOf: (id) => tierById.get(id) ?? 0, spacingX: 120, spacingY: 210 }
+        : undefined
+    )
+  }, [visibleSkills, width, height, layered, tierById])
 
   // Build position map
   const positionMap = useMemo(() => {
@@ -138,11 +162,15 @@ export function SkillTreeViz({
 
   const hoveredSkill = hoveredSkillId ? skillsById.get(hoveredSkillId) : null
   const hoveredPos = hoveredSkillId ? positionMap.get(hoveredSkillId) : null
+  // The coordinate space is the computed layout canvas (so the layered tree's
+  // wider canvas fits); the mock demo's bounds equal the width/height props.
+  const baseW = layout.bounds.width
+  const baseH = layout.bounds.height
   const viewBoxState = useMemo(() => {
-    const viewWidth = width / zoom
-    const viewHeight = height / zoom
-    const centerOffsetX = (width - viewWidth) / 2
-    const centerOffsetY = (height - viewHeight) / 2
+    const viewWidth = baseW / zoom
+    const viewHeight = baseH / zoom
+    const centerOffsetX = (baseW - viewWidth) / 2
+    const centerOffsetY = (baseH - viewHeight) / 2
 
     return {
       x: centerOffsetX + panX,
@@ -151,7 +179,7 @@ export function SkillTreeViz({
       height: viewHeight,
       value: `${centerOffsetX + panX} ${centerOffsetY + panY} ${viewWidth} ${viewHeight}`,
     }
-  }, [width, height, zoom, panX, panY])
+  }, [baseW, baseH, zoom, panX, panY])
 
   const hoveredViewportPos = useMemo(() => {
     if (!hoveredPos) return null
@@ -266,7 +294,8 @@ export function SkillTreeViz({
             if (!fromNode || !toNode || !skill) return null
 
             const isActive = hoveredSkillId === conn.to || hoveredSkillId === conn.from
-            const color = getSkillCategoryColor(skill)
+            const color = resolveColor(skill)
+            const restOpacity = skill.locked ? 0.12 : 0.6
 
             return (
               <motion.path
@@ -277,8 +306,8 @@ export function SkillTreeViz({
                 fill="none"
                 strokeLinecap="round"
                 filter={`url(#glow-${conn.from}-${conn.to})`}
-                initial={{ opacity: 0.55 }}
-                animate={{ opacity: isActive ? 1 : 0.55 }}
+                initial={{ opacity: restOpacity }}
+                animate={{ opacity: isActive ? 1 : restOpacity }}
                 transition={{ duration: 0.2 }}
               />
             )
@@ -299,7 +328,7 @@ export function SkillTreeViz({
               (s) => s.parent_id === node.skillId
             )
             const isExpanded = expandedNodeIds.has(node.skillId)
-            const color = getSkillCategoryColor(skill)
+            const color = resolveColor(skill)
 
             return (
               <motion.g
@@ -318,18 +347,34 @@ export function SkillTreeViz({
                 className={isChild ? 'cursor-pointer' : 'cursor-default'}
                 style={{
                   color,
-                  transition: 'filter 0.2s ease',
+                  opacity: skill.locked ? 0.4 : 1,
+                  transition: 'filter 0.2s ease, opacity 0.2s ease',
                   filter: isHovered ? `drop-shadow(0 0 12px ${color})` : undefined,
                 }}
               >
+                {/* Outer ring marks the root as the "you are here" starting point */}
+                {!skill.parent_id && (
+                  <polygon
+                    points={hexPoints(radius + 7)}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth={1}
+                    opacity={0.35}
+                  />
+                )}
+
                 {/* Hexagon background */}
                 <motion.polygon
                   points={hexPoints(radius)}
-                  fill={`color-mix(in srgb, ${color} 12%, transparent)`}
+                  fill={
+                    !skill.parent_id
+                      ? `color-mix(in srgb, ${color} 24%, transparent)`
+                      : `color-mix(in srgb, ${color} 12%, transparent)`
+                  }
                   stroke={color}
                   initial={{ strokeWidth: 1.5 }}
                   animate={{
-                    strokeWidth: isHovered ? 2.5 : 1.5,
+                    strokeWidth: isHovered ? 2.5 : !skill.parent_id ? 2 : 1.5,
                   }}
                   transition={{ duration: 0.2 }}
                   opacity={0.8}
@@ -366,17 +411,25 @@ export function SkillTreeViz({
                 {/* Skill name label */}
                 <motion.text
                   textAnchor="middle"
-                  y={radius + 18}
+                  y={radius + 18 + (node.labelDy ?? 0)}
                   className="font-mono"
                   style={{
-                    fontSize: skill.name.length > 20 ? 9 : 11,
-                    fill: isHovered ? 'var(--color-term-fg)' : 'var(--color-term-muted)',
+                    fontSize: skill.name.length > 16 ? 9 : 11,
+                    fill: isHovered
+                      ? 'var(--color-term-fg)'
+                      : skill.locked
+                        ? 'var(--color-term-dim)'
+                        : 'var(--color-term-muted)',
+                    paintOrder: 'stroke',
+                    stroke: 'var(--color-term-bg)',
+                    strokeWidth: 3.5,
+                    strokeLinejoin: 'round',
                   }}
                   initial={{ opacity: 0.7 }}
-                  animate={{ opacity: isHovered ? 1 : 0.7 }}
+                  animate={{ opacity: isHovered ? 1 : skill.locked ? 0.6 : 0.92 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {skill.name.length > 22 ? skill.name.substring(0, 19) + '...' : skill.name}
+                  {skill.name.length > 20 ? skill.name.substring(0, 17) + '…' : skill.name}
                 </motion.text>
 
                 {/* Expand/collapse indicator (if has children) */}

@@ -197,6 +197,9 @@ def _insight(
     summary: str,
     error: str | None = None,
 ) -> dict:
+    # Language skills are deterministic facts about the repo, independent of the
+    # LLM path taken, so resolve them here for every insight.
+    language_skills = detectors.detect_language_skills(digest)
     return {
         "nameWithOwner": digest.get("nameWithOwner"),
         "primaryLanguage": (digest.get("primaryLanguage") or {}).get("name"),
@@ -207,7 +210,7 @@ def _insight(
         "llmUsed": llm_used,
         "llmSkipped": llm_skipped,
         "filesExamined": files_examined,
-        "skills": skills,
+        "skills": language_skills + skills,
         "summary": summary,
         "signalsEcho": digest.get("signals") or {},
         "error": error,
