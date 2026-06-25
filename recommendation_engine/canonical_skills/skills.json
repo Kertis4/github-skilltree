@@ -1,0 +1,87 @@
+[
+  {
+    "id": "python",
+    "name": "Python",
+    "aliases": ["py", "python programming"],
+    "keywords": ["python", "scripting", "automation"],
+    "prerequisites": []
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "aliases": ["java programming", "jvm language"],
+    "keywords": ["java", "oop", "object oriented"],
+    "prerequisites": []
+  },
+  {
+    "id": "http",
+    "name": "HTTP",
+    "aliases": ["web protocol", "http protocol"],
+    "keywords": ["request", "response", "headers"],
+    "prerequisites": []
+  },
+  {
+    "id": "git",
+    "name": "Git",
+    "aliases": ["version control", "git vcs"],
+    "keywords": ["commit", "branch", "merge"],
+    "prerequisites": []
+  },
+  {
+    "id": "databases",
+    "name": "Databases",
+    "aliases": ["db", "database systems"],
+    "keywords": ["sql", "queries", "storage"],
+    "prerequisites": []
+  },
+
+  {
+    "id": "backend_apis",
+    "name": "Backend APIs",
+    "aliases": ["api development", "rest api"],
+    "keywords": ["endpoint", "server", "routing"],
+    "prerequisites": ["python", "http"]
+  },
+  {
+    "id": "frontend_dev",
+    "name": "Frontend Development",
+    "aliases": ["frontend", "ui development"],
+    "keywords": ["html", "css", "ui"],
+    "prerequisites": []
+  },
+  {
+    "id": "testing",
+    "name": "Testing",
+    "aliases": ["unit testing", "software testing"],
+    "keywords": ["pytest", "test cases", "coverage"],
+    "prerequisites": ["python"]
+  },
+  {
+    "id": "databases_advanced",
+    "name": "Database Design",
+    "aliases": ["db design", "schema design"],
+    "keywords": ["normalization", "indexes", "relations"],
+    "prerequisites": ["databases"]
+  },
+  {
+    "id": "devops",
+    "name": "DevOps",
+    "aliases": ["ci cd", "deployment pipelines"],
+    "keywords": ["ci", "cd", "deployment"],
+    "prerequisites": ["git"]
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "aliases": ["containers", "containerization"],
+    "keywords": ["docker", "containers", "images"],
+    "prerequisites": ["devops"]
+  },
+  {
+    "id": "system_design",
+    "name": "System Design",
+    "aliases": ["architecture design", "scalable systems"],
+    "keywords": ["scalability", "distributed systems", "architecture"],
+    "prerequisites": ["backend_apis", "databases"]
+  }
+]
