@@ -160,12 +160,95 @@ export interface Analysis {
   repos: Record<string, RepoAnalysis>
 }
 
+// ── skill analysis (the collated, reduce-ready output of the worker pipeline) ──
+
+/** A single proficiency level a skill can reach. */
+export type SkillLevel = 'none' | 'basic' | 'intermediate' | 'advanced'
+
+/** One path-cited proof that a skill is present, tied to its source repo. */
+export interface SkillEvidence {
+  repo: string
+  path: string
+  observation: string
+}
+
+/** A strong contributing repo for a skill (for "where did this come from"). */
+export interface SkillExemplar {
+  nameWithOwner: string
+  level: SkillLevel
+  estimatedLines: number
+  primaryLanguage: { name: string; color: string | null } | null
+}
+
+/** One taxonomy skill, aggregated across every repo where it appears. */
+export interface Skill {
+  skillId: string
+  /** `hard` = deterministic heuristic; `soft` = LLM-judged paradigm skill. */
+  category: 'hard' | 'soft'
+  present: boolean
+  /** Friendly 0..100 score (saturating curve over `strength`). */
+  score: number
+  /** Raw unbounded base the score is derived from. */
+  strength: number
+  level: SkillLevel
+  reposPresent: number
+  repoSpread: string[]
+  relevantLines: number
+  recencyBonus: number
+  lastPracticedAt: string | null
+  avgConfidence: number
+  /** Provenance: `heuristic` and/or `llm`. */
+  sources: string[]
+  evidence: SkillEvidence[]
+  exemplarRepos: SkillExemplar[]
+  rationales: string[]
+}
+
+/** What the analysis stage actually did (for honest UI badges). */
+export interface SkillStats {
+  reposAnalyzed: number
+  reposWithSource: number
+  llmCalls: number
+  /** True when no LLM ran (heuristics only — e.g. Azure not configured). */
+  dryRun: boolean
+}
+
+/** The map-stage contract describing how scores were produced. */
+export interface SkillContract {
+  mapModelId: string
+  taxonomy: string[]
+  scoreModel: { scale: number; formula: string; overall: string }
+  version: string
+}
+
+/**
+ * The collated skill profile produced by the analysis pipeline. `skillset` holds
+ * one aggregated record per taxonomy skill; `topSkills`/`gaps` are convenience
+ * orderings over it.
+ */
+export interface SkillAnalysis {
+  jobId: string | null
+  user: { login: string; name: string | null }
+  generatedAt: string
+  contract: SkillContract
+  stats: SkillStats
+  /** Mean of per-skill scores, 0..100. */
+  overallScore: number
+  /** Present skills, strongest first. */
+  topSkills: string[]
+  /** Taxonomy skills not demonstrated anywhere. */
+  gaps: string[]
+  skillset: Record<string, Skill>
+}
+
 /** The message the backend popup posts back to us on completion. */
 export interface AuthMessage {
   type: 'skilltree:auth'
   ok: boolean
   error: string | null
   analysis: Analysis | null
+  /** The synthesized skill profile (null if analysis was skipped or failed). */
+  skills: SkillAnalysis | null
 }
 
 /** The resolved backend API base URL (no trailing slash). */
@@ -206,6 +289,7 @@ export function onAuthMessage(handler: (msg: AuthMessage) => void): () => void {
       ok: Boolean(data.ok),
       error: data.error ?? null,
       analysis: (data.analysis as Analysis | null) ?? null,
+      skills: (data.skills as SkillAnalysis | null) ?? null,
     })
   }
   window.addEventListener('message', listener)

@@ -226,11 +226,23 @@ async def _run_and_stream(code: str) -> AsyncIterator[str]:
         # Never store the credential - drop it as soon as we're done with it.
         token = None
 
+    # 3. Synthesize the skill profile from the blob (real LLM when Azure is
+    #    configured, deterministic heuristics otherwise). Never let a pipeline
+    #    error sink the sign-in - the repo digests still reach the dashboard.
+    skills: dict | None = None
     if analysis is not None:
         _log_summary(analysis)
+        try:
+            skills = await run_analysis(
+                analysis, dry_run=not settings.analysis_configured
+            )
+            _log_skill_summary(skills)
+        except Exception as exc:  # noqa: BLE001 - analysis is best-effort here
+            logger.warning("Skill analysis failed: %s", exc)
+            skills = None
 
-    # 3. Emit the trailing script: postMessage to the opener, then self-close.
-    yield _result_tail(analysis=analysis, error=err)
+    # 4. Emit the trailing script: postMessage to the opener, then self-close.
+    yield _result_tail(analysis=analysis, skills=skills, error=err)
 
 
 def _log_summary(analysis: dict) -> None:
@@ -249,6 +261,26 @@ def _log_summary(analysis: dict) -> None:
             f"  - {repo['nameWithOwner']:<45} "
             f"{repo['estimatedLines']:>9,} est. lines  [{primary}]"
         )
+
+
+def _log_skill_summary(skills: dict) -> None:
+    """Print the synthesized per-skill profile to the server console."""
+    stats = skills["stats"]
+    logger.info(
+        "Skill profile for @%s: overall %d/100 - %d/%d skills - %d LLM call(s)%s",
+        (skills.get("user") or {}).get("login") or "unknown",
+        skills["overallScore"],
+        len(skills["topSkills"]),
+        len(skills["contract"]["taxonomy"]),
+        stats["llmCalls"],
+        " (heuristics only)" if stats["dryRun"] else "",
+    )
+    ranked = sorted(
+        skills["skillset"].values(), key=lambda s: s["score"], reverse=True
+    )
+    for s in ranked:
+        mark = "*" if s["present"] else " "
+        print(f"  {mark} {s['skillId']:<16} {s['score']:>3}/100  {s['level']}")
 
 
 def _client_payload(analysis: dict | None) -> dict | None:
@@ -333,6 +365,7 @@ _LOADING_HTML = (
     '<li style="animation-delay:1.6s">&#8627; walking file trees &middot; recursive</li>'
     '<li style="animation-delay:2.3s">&#8627; detecting toolchains &amp; manifests</li>'
     '<li style="animation-delay:3s">&#8627; assembling per-repo digests</li>'
+    '<li style="animation-delay:3.7s">&#8627; synthesizing skill profile &middot; llm</li>'
     "</ul>"
     '<div class="hint">// keep this window open &mdash; it closes automatically '
     '<span class="cur">&#9611;</span></div>'
@@ -343,7 +376,7 @@ _LOADING_HTML = (
 )
 
 
-def _result_tail(*, analysis: dict | None, error: str | None) -> str:
+def _result_tail(*, analysis: dict | None, skills: dict | None, error: str | None) -> str:
     """The trailing HTML chunk: postMessage the result, then self-close."""
     payload = json.dumps(
         {
@@ -351,6 +384,7 @@ def _result_tail(*, analysis: dict | None, error: str | None) -> str:
             "ok": error is None,
             "error": error,
             "analysis": _client_payload(analysis),
+            "skills": skills,
         }
     )
     target_origin = json.dumps(settings.frontend_origin)
@@ -362,11 +396,17 @@ def _result_tail(*, analysis: dict | None, error: str | None) -> str:
             f"Analyzed {totals['repoCount']} public repositories "
             f"(~{totals['estimatedLines']:,} estimated lines of code):"
         )
+        score_line = (
+            f"<p>skill score: {skills['overallScore']}/100 &middot; top: "
+            f"{escape(', '.join(skills['topSkills'][:3]))}</p>"
+            if skills
+            else ""
+        )
         rows = "".join(
             f"<li>{escape(r['nameWithOwner'])} &mdash; {r['estimatedLines']:,} est. lines</li>"
             for r in analysis["repos"].values()
         )
-        fallback = f"<p>{escape(heading)}</p><ul>{rows}</ul>"
+        fallback = f"<p>{escape(heading)}</p>{score_line}<ul>{rows}</ul>"
     elif error is not None:
         fallback = f'<p class="err">{escape(error)}</p>'
     else:
