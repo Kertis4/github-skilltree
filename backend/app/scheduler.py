@@ -35,6 +35,7 @@ from . import detectors
 from .config import get_settings
 from .personas import compute_personas
 from .worker import analyze_repo
+from .xp import compute_xp
 
 logger = logging.getLogger("skilltree.scheduler")
 
@@ -284,4 +285,7 @@ async def run_analysis(
     # profile above (skills + language mix + repo volume/recency). Saved alongside
     # everything else so the frontend gets the "Spotify-Wrapped" personas for free.
     profile["personas"] = compute_personas(profile)
+    # XP + level breakdown, derived from per-skill strength values in the skillset.
+    # Saved in the same blob so the frontend XP bar and level display work immediately.
+    profile["xp"] = compute_xp(profile)
     return profile

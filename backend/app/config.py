@@ -60,6 +60,17 @@ class Settings(BaseSettings):
     # ~63/100, ~210 for ~90/100 (diminishing returns). Tune for desired game-feel.
     score_scale: float = 90.0
 
+    # --- XP / leveling ---
+    # Level-curve constant K in level = 1 + floor(sqrt(totalXp / K)) (classic RPG
+    # curve, matches the README). XP is the sum of per-skill strength values from the
+    # collated blob (strength = repos_present x log(lines) x recency x confidence).
+    # At K=0.15: a moderate developer (strength sum ~100) sits around level 26;
+    # a strong multi-skill dev (~500) around level 58; elite devs approach 100.
+    xp_level_curve_k: float = 0.15
+    # Hard ceiling on level (for now). Level saturates here no matter how high XP goes.
+    xp_max_level: int = 100
+
+
     @property
     def configured(self) -> bool:
         """True only when both halves of the OAuth client credential are present."""
