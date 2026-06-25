@@ -22,11 +22,16 @@ explainable, with zero hallucination risk.
 from __future__ import annotations
 
 # Canonical taxonomy for the analysis stage (matches the blob's config.taxonomy).
-HARD_SKILLS = ("docker", "ci", "iac", "testing", "typing", "documentation", "architecture")
+HARD_SKILLS = (
+    "git", "docker", "ci", "iac", "testing", "typing", "documentation",
+    "architecture", "sql",
+)
 # Programming-language skills, resolved deterministically from GitHub-linguist byte
 # shares (no LLM, no file reads) - same provenance guarantees as the HARD skills.
 LANGUAGE_SKILLS = ("javascript", "typescript", "python", "html-css")
-SOFT_SKILLS = ("oop", "functional", "async", "error-handling")
+# SOFT skills need code eyes (LLM). ``databases``/``orm`` are LLM-judged but also
+# seeded deterministically from data-file signals (see ``seed_data_skills``).
+SOFT_SKILLS = ("oop", "functional", "async", "error-handling", "databases", "orm")
 TAXONOMY = HARD_SKILLS + LANGUAGE_SKILLS + SOFT_SKILLS
 
 # GitHub-linguist language name (lower-cased) -> taxonomy language skill id. Several
@@ -110,9 +115,14 @@ def plausible_gap_skills(digest: dict) -> list[str]:
     langs = set(repo_languages(digest))
     if not (langs & _CODE_LANGS):
         return []
-    gaps = ["oop", "functional", "error-handling"]
+    signals = digest.get("signals") or {}
+    gaps = ["oop", "functional", "error-handling", "databases"]
     if langs & _ASYNC_LANGS:
         gaps.append("async")
+    # Only ask about an ORM when there is a concrete persistence signal, to avoid
+    # spending the token budget on repos with no database surface.
+    if signals.get("hasDatabase") or signals.get("hasOrm"):
+        gaps.append("orm")
     return gaps
 
 
@@ -124,6 +134,17 @@ def detect_hard_skills(digest: dict) -> list[dict]:
     langs = repo_languages(digest)
 
     skills: list[dict] = []
+
+    # --- git (every GitHub repository is version-controlled with Git) ---
+    skills.append(
+        _skill(
+            "git",
+            True,
+            level="basic",
+            evidence=[{"path": "(repo)", "observation": "GitHub repository (Git version control)"}],
+            rationale="all GitHub repositories are tracked with Git",
+        )
+    )
 
     # --- docker ---
     docker_paths = _configs_by_category(digest, "docker")
@@ -160,6 +181,20 @@ def detect_hard_skills(digest: dict) -> list[dict]:
             level="intermediate" if len(iac_paths) > 2 else ("basic" if iac_paths else "none"),
             evidence=[{"path": p, "observation": "infrastructure-as-code"} for p in iac_paths],
             rationale=f"{len(iac_paths)} IaC file(s) detected" if iac_paths else "no IaC files",
+        )
+    )
+
+    # --- sql (schema/query files + migration directories; deterministic) ---
+    data_paths = _configs_by_category(digest, "data")
+    sql_paths = [p for p in data_paths if p.lower().endswith(".sql") or "migrat" in p.lower()]
+    skills.append(
+        _skill(
+            "sql",
+            bool(signals.get("hasSql")) or bool(sql_paths),
+            level="intermediate" if len(sql_paths) > 3 else ("basic" if sql_paths else "none"),
+            evidence=[{"path": p, "observation": "SQL / migration file"} for p in sql_paths[:6]],
+            rationale=f"{len(sql_paths)} SQL/migration file(s) detected" if sql_paths
+            else "no SQL/migration files",
         )
     )
 
@@ -262,6 +297,60 @@ def detect_hard_skills(digest: dict) -> list[dict]:
     )
 
     return skills
+
+
+# Substrings in a data-category path that point to an ORM / data-mapper config.
+_ORM_PATH_HINTS = ("prisma", "ormconfig", "sequelize", "knexfile", "alembic", "typeorm")
+
+
+def seed_data_skills(digest: dict, skills: list[dict]) -> None:
+    """Deterministically light up ``databases``/``orm`` from data-file signals.
+
+    Persistence work often leaves file traces (``.sql`` schemas, ``migrations/``,
+    Prisma/Sequelize/Alembic config) even when the database itself is gitignored.
+    This seeds those skills as present so they register without an LLM pass, and
+    *upgrades* an LLM 'absent' to present when the files clearly show otherwise -
+    but never downgrades a skill the model already marked present. Mutates
+    ``skills`` in place (appending records that are missing)."""
+    signals = digest.get("signals") or {}
+    data_paths = _configs_by_category(digest, "data")
+    by_id = {s.get("skillId"): s for s in skills}
+
+    def _light(skill_id: str, level: str, paths: list[str], rationale: str) -> None:
+        evidence = [{"path": p, "observation": "database/SQL artifact"} for p in paths[:4]]
+        rec = by_id.get(skill_id)
+        if rec is None:
+            rec = _skill(skill_id, True, level=level, evidence=evidence,
+                         rationale=rationale, source="heuristic", confidence=1.0)
+            skills.append(rec)
+            by_id[skill_id] = rec
+            return
+        if rec.get("present"):
+            return  # never downgrade a model 'present'
+        rec["present"] = True
+        rec["source"] = "heuristic"
+        rec["confidence"] = 1.0
+        if rec.get("level") in (None, "none"):
+            rec["level"] = level
+        if not rec.get("evidence"):
+            rec["evidence"] = evidence
+        rec["rationale"] = rationale
+
+    if signals.get("hasDatabase") or signals.get("hasSql"):
+        _light(
+            "databases",
+            "intermediate" if signals.get("hasSql") else "basic",
+            data_paths,
+            "SQL / migration / database files present in repo",
+        )
+    if signals.get("hasOrm"):
+        orm_paths = [p for p in data_paths if any(h in p.lower() for h in _ORM_PATH_HINTS)]
+        _light(
+            "orm",
+            "basic",
+            orm_paths or data_paths,
+            "ORM / data-mapper config present (Prisma/Sequelize/Alembic/...)",
+        )
 
 
 def _language_shares(digest: dict) -> dict[str, float]:

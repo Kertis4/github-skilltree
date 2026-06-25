@@ -33,6 +33,7 @@ import httpx
 
 from . import detectors
 from .config import get_settings
+from .personas import compute_personas
 from .worker import analyze_repo
 
 logger = logging.getLogger("skilltree.scheduler")
@@ -250,7 +251,7 @@ async def run_analysis(
     gaps = [s["skillId"] for s in skillset.values() if not s["present"]]
 
     llm_calls = sum(1 for i in repo_insights.values() if i.get("llmUsed"))
-    return {
+    profile = {
         "jobId": blob.get("jobId"),
         "user": blob.get("user"),
         "generatedAt": now.isoformat(),
@@ -279,3 +280,8 @@ async def run_analysis(
         "skillset": skillset,
         "corpus": _compact_corpus(repo_insights),
     }
+    # Coding-personality distribution, derived deterministically from the whole
+    # profile above (skills + language mix + repo volume/recency). Saved alongside
+    # everything else so the frontend gets the "Spotify-Wrapped" personas for free.
+    profile["personas"] = compute_personas(profile)
+    return profile

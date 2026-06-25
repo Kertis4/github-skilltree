@@ -32,9 +32,11 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import secrets
 from collections.abc import AsyncIterator
 from html import escape
+from typing import Any
 
 import httpx
 from fastapi import FastAPI, Request, Response
@@ -45,10 +47,12 @@ from fastapi.responses import (
     RedirectResponse,
     StreamingResponse,
 )
+from pydantic import BaseModel, Field
 
 from .config import get_settings
 from .blob import build_analysis_blob
 from .github_oauth import build_authorize_url, exchange_code_for_token
+from .recommend import build_user_skill_tree, recommend
 from .scheduler import run_analysis
 
 logging.basicConfig(
@@ -77,7 +81,11 @@ STATE_COOKIE = "skilltree_oauth_state"
 @app.get("/health")
 def health() -> dict[str, object]:
     """Liveness probe; also reports whether OAuth credentials are configured."""
-    return {"status": "ok", "oauth_configured": settings.configured}
+    return {
+        "status": "ok",
+        "oauth_configured": settings.configured,
+        "recruiter_enabled": settings.recruiter_configured,
+    }
 
 
 @app.post("/analyze")
@@ -124,6 +132,7 @@ async def analyze(
         )
 
     collated = await run_analysis(blob, dry_run=dryRun, max_repos=maxRepos)
+    _attach_skill_extras(collated)
     logger.info(
         "Analysis complete for @%s: %d repos, %d LLM call(s)%s",
         (collated.get("user") or {}).get("login", "unknown"),
@@ -133,6 +142,144 @@ async def analyze(
     )
     return JSONResponse(content=collated)
 
+
+class RecommendRequest(BaseModel):
+    """Body for ``POST /recommend``.
+
+    ``skillset`` is the dashboard's in-memory ``skills.skillset`` map (keyed by
+    skillId); ``goal`` is the learner's free-text intent (may be empty for a
+    deterministic "grow next" list).
+    """
+
+    skillset: dict[str, Any] = Field(default_factory=dict)
+    goal: str = ""
+    track: str = ""
+    manualSkills: list[str] = Field(default_factory=list)
+
+
+@app.post("/recommend")
+def recommend_skills(body: RecommendRequest) -> Response:
+    """Goal-directed "learn next" recommendations for the dashboard panel.
+
+    Ranks the taxonomy against the user's demonstrated strengths (and, when a
+    ``goal`` is supplied, steers toward the skills that goal implies). When the
+    optional recommendation-stage Azure resource is configured AND a goal is
+    given, a short natural-language explanation is generated; otherwise the
+    deterministic ranking is returned on its own.
+
+    Defined as a sync handler so FastAPI runs it in a worker thread - the
+    explanation step makes a blocking HTTP call, which must not stall the loop.
+    """
+    result = recommend(
+        body.skillset,
+        goal=body.goal,
+        track=body.track,
+        extra_skills=body.manualSkills,
+        top_k=8,
+        endpoint_url=settings.azure_openai_recommendation_endpoint,
+        api_key=settings.azure_openai_recommendation_api_key,
+        model=settings.azure_openai_recommendation_deployment,
+    )
+    return JSONResponse(content=result)
+
+
+# GitHub username rules: 1-39 chars, alphanumerics or single hyphens, and it may
+# not start or end with a hyphen. We pull it out of a pasted profile URL / @handle.
+_GH_LOGIN_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$")
+
+
+def _parse_github_login(raw: str) -> str | None:
+    """Extract a GitHub username from a profile URL, an @handle or a bare name."""
+    s = (raw or "").strip()
+    if not s:
+        return None
+    # Reduce a full URL to its first path segment after the github.com host.
+    if "github.com" in s.lower():
+        parts = re.split(r"github\.com[/:]?", s, maxsplit=1, flags=re.IGNORECASE)
+        s = parts[1] if len(parts) > 1 else ""
+    s = s.lstrip("@/").split("/")[0].split("?")[0].split("#")[0].strip()
+    return s if _GH_LOGIN_RE.match(s) else None
+
+
+class AnalyzeUserRequest(BaseModel):
+    """Body for ``POST /analyze/github-user`` - the recruiter "any user" flow."""
+
+    target: str = ""
+    # Cap the (most-code-first) repos that get the heavy tree enrichment + LLM,
+    # keeping the paste-a-link experience responsive. None / <=0 means no cap.
+    maxRepos: int | None = 30
+
+
+@app.post("/analyze/github-user")
+async def analyze_github_user(body: AnalyzeUserRequest) -> Response:
+    """Analyze ANY public GitHub profile from a pasted username / profile URL.
+
+    Unlike the OAuth flow (which analyzes the *signed-in* user via ``viewer``),
+    this reads a **named** user's PUBLIC repositories with the backend's service
+    token, runs the same deterministic + LLM skill pipeline, and returns the
+    dashboard-ready ``{ok, error, analysis, skills}`` payload. No sign-in is
+    required - it is built for recruiters evaluating a candidate from a link.
+    """
+    login = _parse_github_login(body.target)
+    if not login:
+        return JSONResponse(
+            status_code=422,
+            content={
+                "detail": "Enter a GitHub username or profile URL, e.g. github.com/octocat."
+            },
+        )
+    if not settings.recruiter_configured:
+        return JSONResponse(
+            status_code=503,
+            content={
+                "detail": (
+                    "Recruiter analysis is not enabled. Set GITHUB_SERVICE_TOKEN in "
+                    "backend/.env (see .env.example) and restart the server."
+                )
+            },
+        )
+
+    cap = body.maxRepos if (body.maxRepos and body.maxRepos > 0) else None
+    try:
+        analysis = await build_analysis_blob(
+            settings.github_service_token, login=login, max_repos=cap
+        )
+    except ValueError as exc:  # unknown user / GraphQL error payload
+        return JSONResponse(status_code=404, content={"detail": str(exc)})
+    except httpx.HTTPError:
+        return JSONResponse(
+            status_code=502,
+            content={"detail": "GitHub request failed. Please try again."},
+        )
+
+    if not analysis.get("repos"):
+        return JSONResponse(
+            content={
+                "ok": True,
+                "error": f"@{login} has no public repositories to analyze.",
+                "analysis": _client_payload(analysis),
+                "skills": None,
+            }
+        )
+
+    _log_summary(analysis)
+    skills: dict | None = None
+    try:
+        skills = await run_analysis(analysis, dry_run=not settings.analysis_configured)
+        _log_skill_summary(skills)
+        _attach_skill_extras(skills)
+    except Exception as exc:  # noqa: BLE001 - analysis is best-effort
+        logger.warning("Recruiter skill analysis failed for @%s: %s", login, exc)
+        skills = None
+
+    return JSONResponse(
+        content={
+            "ok": True,
+            "error": None,
+            "analysis": _client_payload(analysis),
+            "skills": skills,
+        }
+    )
 
 
 @app.get("/auth/github/login")
@@ -237,6 +384,7 @@ async def _run_and_stream(code: str) -> AsyncIterator[str]:
                 analysis, dry_run=not settings.analysis_configured
             )
             _log_skill_summary(skills)
+            _attach_skill_extras(skills)
         except Exception as exc:  # noqa: BLE001 - analysis is best-effort here
             logger.warning("Skill analysis failed: %s", exc)
             skills = None
@@ -281,6 +429,40 @@ def _log_skill_summary(skills: dict) -> None:
     for s in ranked:
         mark = "*" if s["present"] else " "
         print(f"  {mark} {s['skillId']:<16} {s['score']:>3}/100  {s['level']}")
+
+
+def _attach_skill_extras(skills: dict | None) -> None:
+    """Enrich the skill payload with the recommendation engine's outputs.
+
+    Adds two fields the dashboard renders front-and-centre:
+
+      * ``userSkillTree`` - the user's demonstrated skills as a small
+        ``[{name, strength, prerequisites}]`` graph (drives the skill tree XP).
+      * ``recommendations`` - the default "grow next" list (deterministic
+        ranking, no goal, no LLM) for the recommendations panel. A goal-directed
+        list with a prose explanation is fetched on demand via ``POST /recommend``.
+
+    Best-effort: the recommendation modules live outside the backend package and
+    are imported lazily, so a failure here must never sink sign-in. Both bridge
+    helpers already degrade to empty lists internally; the guard is belt-and-braces.
+    """
+    if not isinstance(skills, dict):
+        return
+    skillset = skills.get("skillset")
+    if not isinstance(skillset, dict):
+        return
+    try:
+        skills["userSkillTree"] = build_user_skill_tree(skillset)
+    except Exception as exc:  # noqa: BLE001 - recommendations are best-effort
+        logger.warning("User skill tree synthesis failed: %s", exc)
+        skills.setdefault("userSkillTree", [])
+    try:
+        skills["recommendations"] = recommend(skillset, goal="", top_k=6)[
+            "recommendations"
+        ]
+    except Exception as exc:  # noqa: BLE001 - recommendations are best-effort
+        logger.warning("Default recommendations failed: %s", exc)
+        skills.setdefault("recommendations", [])
 
 
 def _client_payload(analysis: dict | None) -> dict | None:

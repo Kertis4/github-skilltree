@@ -36,11 +36,23 @@ _SOURCE_EXTS = {
     ".scala", ".php", ".dart", ".ex", ".exs", ".m", ".pl", ".hs", ".clj", ".lua",
     ".r", ".jl", ".vue", ".svelte",
 }
+# Persistence-specific extensions: schema/query/ORM files that reveal database
+# work the worker would otherwise never see (the .db itself is rarely committed).
+_DB_EXTS = {".sql", ".prisma"}
 # Path fragments that mark generated / vendored / non-representative files.
 _SKIP_PATH_FRAGMENTS = (
     "node_modules/", "/dist/", "/build/", "/vendor/", "/.venv/", "site-packages/",
     "package-lock.json", "yarn.lock", "pnpm-lock", "poetry.lock", ".min.", ".map",
-    "/migrations/", "/__pycache__/",
+    "/__pycache__/",
+)
+# Skipped for generic source selection but ALLOWED when hunting persistence code:
+# migrations are the clearest window into schema / ORM models.
+_DB_ONLY_SKIP = ("/migrations/",)
+# Path substrings that flag a file as database/persistence related, so we surface
+# a couple to the model even when they are not the largest files in the repo.
+_DB_PATH_HINTS = (
+    "/db/", "/db.", "database", "/models/", "/model/", "schema", "/dao/",
+    "repository", "/repositories/", "/queries/", "/migrations/", "/entities/", "/orm",
 )
 
 
@@ -51,31 +63,72 @@ def _ext(path: str) -> str:
     return name[dot:] if dot > 0 else ""
 
 
-def _is_skippable(path: str) -> bool:
-    """True if the path is generated/vendored/non-source and not worth reading."""
+def _looks_db_related(path: str) -> bool:
+    """True if the path suggests database/persistence code worth showing the model."""
+    low = f"/{path.lower()}"
+    return _ext(path) in _DB_EXTS or any(h in low for h in _DB_PATH_HINTS)
+
+
+def _is_skippable(path: str, *, allow_db: bool = False) -> bool:
+    """True if the path is generated/vendored/non-source and not worth reading.
+
+    When ``allow_db`` is set, migration directories are permitted (they reveal
+    schema/ORM models); generated/vendored fragments are always skipped."""
     low = path.lower()
-    return any(frag in low for frag in _SKIP_PATH_FRAGMENTS)
+    if any(frag in low for frag in _SKIP_PATH_FRAGMENTS):
+        return True
+    if not allow_db and any(frag in low for frag in _DB_ONLY_SKIP):
+        return True
+    return False
 
 
 def select_candidate_files(digest: dict, *, limit: int = 8) -> list[dict]:
     """Rank the repo's known source files by how representative they are.
 
-    Uses ``largestFiles`` (repo-wide, full paths) - the biggest real source file
-    is usually the most paradigm-revealing - after dropping lockfiles, generated
-    output, and non-source extensions. Returns ``[{path, bytes}]`` largest-first.
+    Pulls candidates from ``largestFiles`` and the full ``tree`` (paths + bytes),
+    drops lockfiles / generated output / non-source files, then returns
+    ``[{path, bytes}]`` with up to a few **database/persistence** files first (so
+    schema/ORM/SQL code is actually shown to the model) followed by the largest
+    representative source files.
     """
-    seen: set[str] = set()
-    candidates: list[dict] = []
+    # Pool unique (path -> bytes); largestFiles first, then the rest of the tree.
+    pool: dict[str, int] = {}
     for entry in digest.get("largestFiles") or []:
         path = entry.get("path") or ""
-        if not path or path in seen:
+        if path:
+            pool.setdefault(path, int(entry.get("bytes") or 0))
+    for entry in digest.get("tree") or []:
+        if entry.get("type") == "blob":
+            path = entry.get("path") or ""
+            if path:
+                pool.setdefault(path, int(entry.get("bytes") or 0))
+
+    db_files: list[dict] = []
+    other_files: list[dict] = []
+    for path, size in pool.items():
+        ext = _ext(path)
+        if ext not in _SOURCE_EXTS and ext not in _DB_EXTS:
             continue
-        if _ext(path) not in _SOURCE_EXTS or _is_skippable(path):
+        is_db = _looks_db_related(path)
+        if _is_skippable(path, allow_db=is_db):
             continue
-        seen.add(path)
-        candidates.append({"path": path, "bytes": int(entry.get("bytes") or 0)})
-    candidates.sort(key=lambda c: c["bytes"], reverse=True)
-    return candidates[:limit]
+        (db_files if is_db else other_files).append({"path": path, "bytes": size})
+
+    db_files.sort(key=lambda c: c["bytes"], reverse=True)
+    other_files.sort(key=lambda c: c["bytes"], reverse=True)
+    # A couple of DB files up front; the rest of the budget goes to the biggest
+    # representative source files.
+    ordered = db_files[:3] + other_files
+    seen: set[str] = set()
+    out: list[dict] = []
+    for cand in ordered:
+        if cand["path"] in seen:
+            continue
+        seen.add(cand["path"])
+        out.append(cand)
+        if len(out) >= limit:
+            break
+    return out
 
 
 async def fetch_file_content(

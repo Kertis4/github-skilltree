@@ -110,7 +110,12 @@ import uuid
 
 import httpx
 
-from .github_graphql import _est_lines, analyze_user_repositories
+from .github_graphql import (
+    _aggregate,
+    _est_lines,
+    analyze_named_user_repositories,
+    analyze_user_repositories,
+)
 
 GITHUB_API_URL = "https://api.github.com"
 
@@ -122,6 +127,7 @@ _TREE_CONCURRENCY = 8
 # the LLM's job; we only declare which skills we score, so the blob is
 # self-documenting for whoever builds the worker.
 TAXONOMY = [
+    "git",
     "oop",
     "functional",
     "async",
@@ -133,6 +139,9 @@ TAXONOMY = [
     "architecture",
     "error-handling",
     "documentation",
+    "sql",
+    "databases",
+    "orm",
 ]
 
 # Token budget a single repo digest should fit within once the worker stage
@@ -168,11 +177,25 @@ _CONFIG_EXACT = {
     "jenkinsfile": "ci",
     ".gitlab-ci.yml": "ci",
     "azure-pipelines.yml": "ci",
+    # data / persistence: presence implies database + (often) ORM work, even when
+    # the database file itself is gitignored and never committed to the repo.
+    "schema.prisma": "data",
+    "ormconfig.json": "data",
+    "ormconfig.js": "data",
+    "knexfile.js": "data",
+    "knexfile.ts": "data",
+    "alembic.ini": "data",
+    "database.yml": "data",
+    "sequelize.json": "data",
 }
 # A path that starts with one of these (anywhere in the tree) maps to a category.
 _CONFIG_PREFIX = {
     ".github/workflows/": "ci",
     ".circleci/": "ci",
+    "migrations/": "data",
+    "alembic/": "data",
+    "db/migrate/": "data",
+    "prisma/": "data",
 }
 # A filename starting with one of these stems (e.g. ``vite.config.ts``).
 _CONFIG_NAME_PREFIX = {
@@ -186,6 +209,8 @@ _CONFIG_NAME_PREFIX = {
 _CONFIG_SUFFIX = {
     ".tf": "iac",
     ".tfvars": "iac",
+    ".sql": "data",
+    ".prisma": "data",
 }
 
 # Documentation file extensions - counted as a ``documentation`` signal.
@@ -372,6 +397,30 @@ def _derive_signals(
     }
 
 
+# Substrings in a ``data``-category path that indicate an ORM / data-mapper.
+_ORM_PATH_HINTS = ("prisma", "ormconfig", "sequelize", "knexfile", "alembic", "typeorm")
+
+
+def _data_signals(configs: list[dict]) -> dict:
+    """Database / SQL / ORM signals from detected ``data``-category config paths.
+
+    Computed without reading file contents: ``.sql`` files, migration directories,
+    or ORM config (Prisma/Sequelize/Alembic/...) are strong deterministic evidence
+    of persistence work even when the database itself is gitignored and never
+    committed to the repo.
+    """
+    data_paths = [
+        (c.get("path") or "").lower() for c in configs if c.get("category") == "data"
+    ]
+    has_sql = any(p.endswith(".sql") or "migrat" in p for p in data_paths)
+    has_orm = any(any(h in p for h in _ORM_PATH_HINTS) for p in data_paths)
+    return {
+        "hasSql": has_sql,
+        "hasDatabase": bool(data_paths),
+        "hasOrm": has_orm,
+    }
+
+
 async def _fetch_tree(
     client: httpx.AsyncClient,
     headers: dict,
@@ -404,16 +453,33 @@ async def _fetch_tree(
     return entries, bool(body.get("truncated"))
 
 
-async def build_analysis_blob(token: str) -> dict:
-    """Build the full analysis blob for the signed-in user.
+async def build_analysis_blob(
+    token: str, *, login: str | None = None, max_repos: int | None = None
+) -> dict:
+    """Build the full analysis blob for a GitHub user.
 
     Starts from the GraphQL analysis (repos + languages + top-level files), then
     enriches every repo with its recursive file tree, a structure summary, and
     detected config files. Returns a JSON-serialisable dict; the caller must
     discard the token immediately afterwards.
+
+    By default the blob describes the **signed-in** user (the OAuth flow). Pass
+    ``login`` to analyze an arbitrary public profile instead (the recruiter
+    "analyze any user" flow) — the token then only needs public-read access and
+    identifies the *caller*, not the analyzed user. ``max_repos`` caps how many
+    (most-code-first) repos get the expensive per-repo tree enrichment, bounding
+    latency and GitHub API calls for very large accounts.
     """
-    base = await analyze_user_repositories(token)
+    if login:
+        base = await analyze_named_user_repositories(token, login)
+    else:
+        base = await analyze_user_repositories(token)
     repo_list: list[dict] = base["repos"]
+    if max_repos is not None and 0 <= max_repos < len(repo_list):
+        # Cap the expensive per-repo tree enrichment to the biggest N repos, and
+        # recompute totals so the UI's aggregate numbers match what was analyzed.
+        repo_list = repo_list[:max_repos]
+        base = _aggregate(base["user"], repo_list)
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -440,6 +506,7 @@ async def build_analysis_blob(token: str) -> dict:
                 has_license=has_license,
                 config_count=len(configs),
             )
+            signals.update(_data_signals(configs))
             repo["tree"] = tree
             repo["treeTruncated"] = truncated
             repo["treeBytes"] = profile["treeBytes"]

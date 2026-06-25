@@ -33,6 +33,15 @@ class Settings(BaseSettings):
     # (Per the project README we keep the demo public-only to reduce risk.)
     oauth_scopes: str = "read:user public_repo"
 
+    # --- GitHub service token (recruiter / "analyze any user" mode) — OPTIONAL ---
+    # A GitHub Personal Access Token used to read ANY public profile's repos when a
+    # recruiter pastes a username (no OAuth round-trip). It needs no scopes beyond
+    # public read (a classic token with `public_repo`, or a fine-grained token with
+    # public read-only, or even an empty-scope token — GitHub's GraphQL API simply
+    # requires *some* valid token to read public data). It is a credential: keep it
+    # only in backend/.env. When unset, the recruiter endpoint returns 503.
+    github_service_token: str = ""
+
     # --- Azure OpenAI (map-stage LLM) — credentials via env / .env, never committed ---
     # The Azure OpenAI endpoint of the Foundry resource (NOT the Project endpoint).
     azure_openai_endpoint: str = ""
@@ -43,6 +52,16 @@ class Settings(BaseSettings):
     # Data-plane API version. "2024-10-21" supports structured json_schema outputs;
     # bump to a newer preview if a call rejects response_format.
     azure_openai_api_version: str = "2024-10-21"
+
+    # --- Azure OpenAI (recommendation-stage LLM) — optional, separate resource ---
+    # The recommendation engine writes a short natural-language explanation of the
+    # "learn next" skills. It POSTs to the FULL chat-completions URL directly, so
+    # this endpoint must include the deployment + api-version (unlike the map-stage
+    # base endpoint above). All three are optional: when unset, recommendations are
+    # still returned (deterministic ranking) — only the prose explanation is skipped.
+    azure_openai_recommendation_endpoint: str = ""
+    azure_openai_recommendation_api_key: str = ""
+    azure_openai_recommendation_deployment: str = "gpt-5-mini"
 
     # --- analysis pipeline tuning ---
     # How many repos to analyze concurrently (bounds load + GitHub raw fetches).
@@ -66,12 +85,25 @@ class Settings(BaseSettings):
         return bool(self.github_client_id and self.github_client_secret)
 
     @property
+    def recruiter_configured(self) -> bool:
+        """True when a service token is set, enabling the "analyze any user" flow."""
+        return bool(self.github_service_token)
+
+    @property
     def analysis_configured(self) -> bool:
         """True only when the Azure OpenAI endpoint, key and deployment are all set."""
         return bool(
             self.azure_openai_endpoint
             and self.azure_openai_api_key
             and self.azure_openai_deployment
+        )
+
+    @property
+    def recommendation_configured(self) -> bool:
+        """True when the (optional) recommendation-stage Azure endpoint + key are set."""
+        return bool(
+            self.azure_openai_recommendation_endpoint
+            and self.azure_openai_recommendation_api_key
         )
 
 

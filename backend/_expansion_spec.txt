@@ -1,0 +1,109 @@
+TAXONOMY EXPANSION SPEC  (throwaway working file — will be deleted)
+=====================================================================
+
+GOAL
+----
+Expand the canonical skill graph so that EACH of the 6 career tracks has ~50
+skills. The file is the single source of truth read by both detection and the
+skill-tree/radar viz. You ADD new skills (purely additive); do NOT remove or
+renumber existing ones.
+
+FILE TO EDIT
+------------
+backend/app/skills/taxonomy.yaml
+Append new `- id:` entries to the END of the top-level `skills:` list. Keep the
+exact 2-space indentation and list-item style of the existing entries. The last
+existing skill is `docker`; add yours after it.
+
+HARD VALIDATION RULES (the loader rejects the file otherwise)
+-------------------------------------------------------------
+* id: unique, lowercase-kebab, stable (no duplicates with existing or new ids).
+* kind: exactly one of: hard | concept
+        (hard = a concrete technology/tool; concept = a paradigm/skill)
+* domain: exactly one of these 8 ids:
+        languages | paradigms | frameworks | architecture | build-tooling |
+        data | quality | infrastructure
+* detection.evidence: one of: deterministic | llm | hybrid
+        - deterministic: resolved from files globs and/or signals (no LLM)
+        - llm: needs source-code reading; MUST set `languages` (relevance gate)
+        - hybrid: both
+* graph.tier: integer 0..5  (0 = foundational; set ~ 1 + max(tier of requires))
+* graph.requires: list of EXISTING skill ids (existing or ones added earlier in
+        this same file). Must NOT include the skill's own id. The whole graph
+        MUST stay ACYCLIC. Prefer 0-2 prerequisites.
+* tracks: a map {trackId: weight}. trackId one of:
+        frontend | fullstack | backend | infrastructure | systems | mobile
+        weight: float 0.0..1.0 (honest affinity; primary track >= 0.6).
+* resources: list of {title, url, kind, level}
+        kind: docs | tutorial | course | book | video | reference
+        level: basic | intermediate | advanced
+        Use REAL, well-known, stable URLs (official docs/MDN/etc). 1-2 each.
+
+YAML TEMPLATE (copy this shape exactly)
+---------------------------------------
+  - id: my-skill-id
+    name: Human Readable Name
+    kind: hard
+    domain: frameworks
+    summary: "One sentence, <= ~110 chars, plain language."
+    detection:
+      evidence: llm
+      content_hints: ["someImport", "keyword(", "decorator"]
+      languages: [python, javascript, typescript]
+    graph:
+      requires: [some-existing-id]
+      tier: 3
+    tracks: { backend: 0.8, fullstack: 0.6 }
+    resources:
+      - { title: "Official Docs", url: "https://example.com/docs", kind: docs, level: intermediate }
+
+Notes on detection blocks:
+* deterministic skill example:
+      detection:
+        evidence: deterministic
+        files: ["**/*.tf", "*.tf"]
+        languages: []
+* For `llm` skills ALWAYS include a non-empty `languages` list (lowercased:
+  python, javascript, typescript, go, rust, java, "c#", "c++", c, ruby, php,
+  kotlin, swift, dart, scala, bash, html, css, sql). Quote "c#"/"c++".
+* Use `content_hints` (snake_case) for idioms the model looks for.
+
+TRACK-MEMBERSHIP / WEIGHTING GUIDANCE
+-------------------------------------
+* A skill may belong to MANY tracks. fullstack ~= union of frontend + backend:
+  most frontend and backend skills should also carry a fullstack weight ~0.5-0.8.
+* Shared foundations (languages, core CS concepts, git, testing) carry a weight
+  on most/all tracks (0.4-0.7).
+* To "count" toward a track's ~50 at the validator's default threshold, a skill
+  needs affinity >= 0.5 for that track. Do not inflate weights dishonestly —
+  add genuinely relevant skills instead.
+
+EXISTING SKILL IDS (already in the file — reference as prereqs, do NOT redefine)
+-------------------------------------------------------------------------------
+git, javascript, typescript, python, html-css, programming, oop, functional,
+async, error-handling, testing, documentation, components, state-management,
+react, webpack, accessibility, http-fundamentals, rest-apis, databases, sql,
+orm, web-frameworks, auth, caching, ci, docker
+
+CANONICAL LANGUAGE SKILL IDS (added by the FOUNDATION batch; safe to reference)
+-------------------------------------------------------------------------------
+go, rust, java, csharp, cpp, c, ruby, php, kotlin, swift, dart, scala, bash
+(plus existing: javascript, typescript, python, html-css, sql)
+
+WORKFLOW (do this exactly)
+--------------------------
+1. Read backend/app/skills/taxonomy.yaml to see the current ids and format.
+2. Append your assigned new skills to the end of the `skills:` list.
+3. From the `backend/` directory, validate with the project venv:
+     & ".\.venv\Scripts\python.exe" -m app.skills.models
+   This prints "OK taxonomy ... N skills" and a per-track count. If it raises
+   (unknown domain/track, bad ref, cycle, dup id, weight out of range), FIX and
+   re-run until it prints OK. Iterate until clean.
+4. Aim for ~50 skills (at affinity >= 0.5) in EACH track you are assigned.
+   Read the per-track counts the command prints to check.
+
+RETURN (KEEP IT COMPACT — do NOT paste the YAML back)
+-----------------------------------------------------
+Return ONLY: (a) number of skills you added, (b) the final per-track counts line
+from the validator, (c) confirmation it validated OK, (d) any ids you could not
+add and why. No skill bodies, no file dumps.

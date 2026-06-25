@@ -41,8 +41,16 @@ interface TaxDomain {
   color: string
   icon: string
 }
+interface TaxTrack {
+  id: string
+  label: string
+  color: string
+  icon: string
+  blurb: string
+}
 interface TaxonomyGraph {
   version: string
+  tracks: TaxTrack[]
   domains: TaxDomain[]
   skills: TaxSkill[]
 }
@@ -135,20 +143,67 @@ function primaryParent(skill: TaxSkill, levels: Map<string, number>): string {
 
 // ── public API ───────────────────────────────────────────────────────────────
 
+/** Minimum track-affinity for a skill to count as part of a career track. */
+export const TRACK_AFFINITY_THRESHOLD = 0.4
+
+/** A career track the user can focus their skill tree on. */
+export interface SkillTrack {
+  id: string
+  label: string
+  color: string
+  icon: string
+  blurb: string
+}
+
+/** The career tracks defined by the taxonomy, with palette colours resolved. */
+export function listTracks(): SkillTrack[] {
+  return TAXONOMY.tracks.map((t) => ({ ...t, color: paletteColor(t.color) }))
+}
+
+/** Taxonomy skill ids that belong to a track (affinity ≥ `threshold`). */
+export function trackSkillIds(
+  trackId: string,
+  threshold = TRACK_AFFINITY_THRESHOLD,
+): Set<string> {
+  const ids = new Set<string>()
+  for (const s of TAXONOMY.skills) {
+    if ((s.tracks?.[trackId] ?? 0) >= threshold) ids.add(s.id)
+  }
+  return ids
+}
+
 /**
  * Build the skill-tree nodes for the viz from a detection result. Pass `null`
  * to get the full taxonomy with every node locked (a "what you could learn" map).
+ * Pass a `trackId` to focus the tree on one career track's skills only.
  *
  * The first node is always the synthetic root. Every node carries a `tier`
  * (its row in the dependency layering) which the layout uses to place it.
  */
-export function projectSkillTree(analysis: SkillAnalysis | null): Skill[] {
+export function projectSkillTree(
+  analysis: SkillAnalysis | null,
+  trackId?: string | null,
+): Skill[] {
+  // When a track is chosen, narrow the taxonomy to that track's skills so the
+  // tree stays a focused path rather than the full (large) graph.
+  const inTrack = trackId ? trackSkillIds(trackId) : null
+  const skills = inTrack ? TAXONOMY.skills.filter((s) => inTrack.has(s.id)) : TAXONOMY.skills
+
   // Index detected skills by their taxonomy id (after alias normalisation).
   const detected = new Map<string, AnalysisSkill>()
   if (analysis) {
     for (const rec of Object.values(analysis.skillset)) {
       detected.set(SKILL_ALIASES[rec.skillId] ?? rec.skillId, rec)
     }
+  }
+
+  // The recommendation engine returns the user's demonstrated skills as a small
+  // {name, strength} graph. When present we let it drive each node's XP so the
+  // tree reflects Michael's agent output; we fall back to the detector's score
+  // for any lit node it doesn't cover (and if the engine produced nothing).
+  const userStrength = new Map<string, number>()
+  for (const node of analysis?.userSkillTree ?? []) {
+    userStrength.set(node.name, node.strength)
   }
 
   // "Programming Basics" is foundational and isn't emitted by the detector — if
@@ -159,12 +214,12 @@ export function projectSkillTree(analysis: SkillAnalysis | null): Skill[] {
     (analysis.stats.reposWithSource > 0 ||
       Object.values(analysis.skillset).some((s) => s.present))
 
-  const levels = computeLevels(TAXONOMY.skills)
+  const levels = computeLevels(skills)
 
   const present = (s: TaxSkill): boolean =>
     s.id === 'programming' ? canCode : !!detected.get(s.id)?.present
 
-  const demonstrated = TAXONOMY.skills.filter(present).length
+  const demonstrated = skills.filter(present).length
 
   const root: Skill = {
     id: ROOT_ID,
@@ -174,22 +229,32 @@ export function projectSkillTree(analysis: SkillAnalysis | null): Skill[] {
     xp: Math.round(overall),
     level: demonstrated,
     parent_id: null,
-    description: `${demonstrated} of ${TAXONOMY.skills.length} skills demonstrated across your repositories — the foundation of your profile.`,
+    description: `${demonstrated} of ${skills.length} skills demonstrated across your repositories — the foundation of your profile.`,
     locked: demonstrated === 0,
     tier: 0,
   }
 
-  const skillNodes: Skill[] = TAXONOMY.skills
+  const skillNodes: Skill[] = skills
     .map((s): Skill => {
       const isProgramming = s.id === 'programming'
       const rec = detected.get(s.id)
       const lit = present(s)
-      const score = isProgramming ? overall : (rec?.score ?? 0)
+      // Prefer the recommendation engine's strength (0..1) for XP when it has an
+      // entry for this skill; otherwise use the detector's 0..100 score.
+      const engineStrength = userStrength.get(s.id)
+      const hasEngine = engineStrength !== undefined
+      const score = isProgramming
+        ? overall
+        : hasEngine
+          ? Math.round(engineStrength * 100)
+          : (rec?.score ?? 0)
       const lvl = isProgramming
         ? levelFromScore(overall)
-        : rec
-          ? LEVEL_NUM[rec.level]
-          : 0
+        : hasEngine
+          ? levelFromScore(Math.round(engineStrength * 100))
+          : rec
+            ? LEVEL_NUM[rec.level]
+            : 0
       const evidence = (rec?.evidence ?? [])
         .slice(0, 4)
         .map((e) => `${e.repo}: ${e.observation}`)
@@ -220,9 +285,10 @@ export function projectSkillTree(analysis: SkillAnalysis | null): Skill[] {
 
 /** Headline counts for the skill-tree panel. */
 export function skillTreeSummary(
-  analysis: SkillAnalysis | null
+  analysis: SkillAnalysis | null,
+  trackId?: string | null,
 ): { present: number; total: number; version: string } {
-  const nodes = projectSkillTree(analysis).filter((n) => n.id !== ROOT_ID)
+  const nodes = projectSkillTree(analysis, trackId).filter((n) => n.id !== ROOT_ID)
   return {
     present: nodes.filter((n) => !n.locked).length,
     total: nodes.length,

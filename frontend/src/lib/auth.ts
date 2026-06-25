@@ -222,6 +222,74 @@ export interface SkillContract {
 }
 
 /**
+ * One node of the user's demonstrated-skill graph, synthesized by the
+ * recommendation engine from the analysis output. `strength` is 0..1 and
+ * `prerequisites` are taxonomy skill ids this skill builds on.
+ */
+export interface UserSkillTreeNode {
+  name: string
+  strength: number
+  prerequisites: string[]
+}
+
+/** A learning resource attached to a recommended skill (from the taxonomy). */
+export interface RecommendationResource {
+  title: string
+  url: string
+  kind: string
+  level: string
+}
+
+/**
+ * One "learn next" recommendation produced by the recommendation engine. `score`
+ * ranks the suggestion (0..1); `currentStrength` is the user's present mastery
+ * (0..1); `reasonCodes` explain why it surfaced (e.g. `target`, `prerequisite`,
+ * `weak`).
+ */
+export interface Recommendation {
+  skillId: string
+  skillName: string
+  score: number
+  currentStrength: number
+  reasonCodes: string[]
+  summary?: string | null
+  domain?: string | null
+  resources?: RecommendationResource[]
+}
+
+/** The full `POST /recommend` response (ranked list + optional LLM prose). */
+export interface RecommendationResult {
+  recommendations: Recommendation[]
+  explanation: string | null
+  goal: string
+}
+
+/**
+ * One "coding-personality" archetype in the user's persona distribution. The
+ * backend derives these deterministically from the skill profile (no LLM), so
+ * every developer is a *blend* with one dominant `primary`. `share` is the
+ * 0..1 weight in the mix; `score` is the same value as a friendly 0..100.
+ */
+export interface Persona {
+  id: string
+  label: string
+  tagline: string
+  description: string
+  /** Friendly 0..100 strength (== round(share * 100)). */
+  score: number
+  /** Fraction 0..1 of the whole persona mix (all personas sum to 1). */
+  share: number
+}
+
+/** The coding-personality distribution: the dominant id plus every archetype. */
+export interface PersonaProfile {
+  /** The strongest persona's id, or null when nothing scored. */
+  primary: string | null
+  /** Every persona, sorted strongest-first. */
+  personas: Persona[]
+}
+
+/**
  * The collated skill profile produced by the analysis pipeline. `skillset` holds
  * one aggregated record per taxonomy skill; `topSkills`/`gaps` are convenience
  * orderings over it.
@@ -239,6 +307,12 @@ export interface SkillAnalysis {
   /** Taxonomy skills not demonstrated anywhere. */
   gaps: string[]
   skillset: Record<string, Skill>
+  /** The user's demonstrated-skill graph (drives the skill tree XP). */
+  userSkillTree?: UserSkillTreeNode[]
+  /** Default "grow next" suggestions (deterministic, no goal). */
+  recommendations?: Recommendation[]
+  /** The coding-personality distribution ("Spotify-Wrapped" personas). */
+  personas?: PersonaProfile
 }
 
 /** The message the backend popup posts back to us on completion. */
@@ -251,9 +325,77 @@ export interface AuthMessage {
   skills: SkillAnalysis | null
 }
 
+/**
+ * The result of analyzing an arbitrary public GitHub profile (recruiter flow).
+ * Same `{analysis, skills}` shape the OAuth popup posts back, so it feeds the
+ * exact same dashboard views — just without a sign-in.
+ */
+export interface UserAnalysisResult {
+  ok: boolean
+  error: string | null
+  analysis: Analysis | null
+  skills: SkillAnalysis | null
+}
+
 /** The resolved backend API base URL (no trailing slash). */
 export function getApiBaseUrl(): string {
   return API_BASE_URL
+}
+
+/**
+ * Ask the backend for goal-directed "learn next" recommendations.
+ *
+ * Posts the user's demonstrated `skillset` plus a free-text `goal` to
+ * `POST /recommend`. When the backend's optional recommendation LLM is
+ * configured and a goal is supplied, the result includes a short prose
+ * `explanation`; otherwise only the deterministic ranking is returned.
+ */
+export async function fetchRecommendations(
+  skillset: Record<string, Skill>,
+  goal: string,
+  opts: { track?: string; manualSkills?: string[] } = {},
+): Promise<RecommendationResult> {
+  const res = await fetch(`${API_BASE_URL}/recommend`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      skillset,
+      goal,
+      track: opts.track ?? '',
+      manualSkills: opts.manualSkills ?? [],
+    }),
+  })
+  if (!res.ok) {
+    throw new Error(`Recommendation request failed (${res.status})`)
+  }
+  return (await res.json()) as RecommendationResult
+}
+
+/**
+ * Analyze ANY public GitHub profile from a pasted username or profile URL — the
+ * recruiter flow. POSTs to `/analyze/github-user` (which reads public data with
+ * the backend's service token, no sign-in) and returns the same `{analysis,
+ * skills}` payload the OAuth popup produces. Throws with the backend's `detail`
+ * message on failure (e.g. unknown user, service token not configured).
+ */
+export async function analyzeGitHubUser(target: string): Promise<UserAnalysisResult> {
+  const res = await fetch(`${API_BASE_URL}/analyze/github-user`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ target }),
+  })
+  const data = (await res.json().catch(() => null)) as
+    | (UserAnalysisResult & { detail?: string })
+    | null
+  if (!res.ok) {
+    throw new Error(data?.detail ?? `Analysis failed (${res.status})`)
+  }
+  return {
+    ok: Boolean(data?.ok),
+    error: data?.error ?? null,
+    analysis: data?.analysis ?? null,
+    skills: data?.skills ?? null,
+  }
 }
 
 /**

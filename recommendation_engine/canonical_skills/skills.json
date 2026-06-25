@@ -1,87 +1,570 @@
 [
   {
+    "id": "git",
+    "name": "Version Control (Git)",
+    "aliases": [
+      "version control (git)",
+      "git"
+    ],
+    "keywords": [
+      "version",
+      "control",
+      "git",
+      "tooling",
+      "tracking",
+      "changes",
+      "commits",
+      "branches",
+      "merges",
+      "collaboration"
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "aliases": [
+      "javascript"
+    ],
+    "keywords": [
+      "javascript",
+      "languages",
+      "language",
+      "web",
+      "runtime",
+      "browsers",
+      "node"
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "aliases": [
+      "typescript"
+    ],
+    "keywords": [
+      "typescript",
+      "languages",
+      "typed",
+      "javascript",
+      "static",
+      "types",
+      "catch",
+      "errors",
+      "before",
+      "runtime"
+    ],
+    "prerequisites": [
+      "javascript"
+    ]
+  },
+  {
     "id": "python",
     "name": "Python",
-    "aliases": ["py", "python programming"],
-    "keywords": ["python", "scripting", "automation"],
+    "aliases": [
+      "python"
+    ],
+    "keywords": [
+      "python",
+      "languages",
+      "versatile",
+      "readable",
+      "language",
+      "backends",
+      "data",
+      "scripting"
+    ],
     "prerequisites": []
   },
   {
-    "id": "java",
-    "name": "Java",
-    "aliases": ["java programming", "jvm language"],
-    "keywords": ["java", "oop", "object oriented"],
+    "id": "html-css",
+    "name": "HTML & CSS",
+    "aliases": [
+      "html & css",
+      "html css"
+    ],
+    "keywords": [
+      "html",
+      "css",
+      "languages",
+      "structure",
+      "style",
+      "web",
+      "semantic",
+      "markup",
+      "layout"
+    ],
     "prerequisites": []
   },
   {
-    "id": "http",
-    "name": "HTTP",
-    "aliases": ["web protocol", "http protocol"],
-    "keywords": ["request", "response", "headers"],
+    "id": "programming",
+    "name": "Programming Basics",
+    "aliases": [
+      "programming basics",
+      "programming"
+    ],
+    "keywords": [
+      "programming",
+      "basics",
+      "paradigms",
+      "debugging",
+      "variables",
+      "control",
+      "flow",
+      "functions",
+      "data",
+      "structures"
+    ],
     "prerequisites": []
   },
   {
-    "id": "git",
-    "name": "Git",
-    "aliases": ["version control", "git vcs"],
-    "keywords": ["commit", "branch", "merge"],
+    "id": "oop",
+    "name": "Object-Oriented Design",
+    "aliases": [
+      "object-oriented design",
+      "oop"
+    ],
+    "keywords": [
+      "object",
+      "oriented",
+      "design",
+      "paradigms",
+      "modelling",
+      "classes",
+      "encapsulation",
+      "inheritance",
+      "polymorphism"
+    ],
+    "prerequisites": [
+      "programming"
+    ]
+  },
+  {
+    "id": "functional",
+    "name": "Functional Programming",
+    "aliases": [
+      "functional programming",
+      "functional"
+    ],
+    "keywords": [
+      "functional",
+      "programming",
+      "paradigms",
+      "pure",
+      "higher",
+      "order",
+      "functions",
+      "immutability",
+      "map",
+      "filter",
+      "reduce"
+    ],
+    "prerequisites": [
+      "programming"
+    ]
+  },
+  {
+    "id": "async",
+    "name": "Async & Concurrency",
+    "aliases": [
+      "async & concurrency",
+      "async"
+    ],
+    "keywords": [
+      "async",
+      "concurrency",
+      "paradigms",
+      "non",
+      "blocking",
+      "await",
+      "promises",
+      "coroutines"
+    ],
+    "prerequisites": [
+      "programming"
+    ]
+  },
+  {
+    "id": "error-handling",
+    "name": "Error Handling",
+    "aliases": [
+      "error handling"
+    ],
+    "keywords": [
+      "error",
+      "handling",
+      "quality",
+      "robust",
+      "failure",
+      "exceptions",
+      "custom",
+      "errors",
+      "input",
+      "validation"
+    ],
+    "prerequisites": [
+      "programming"
+    ]
+  },
+  {
+    "id": "testing",
+    "name": "Automated Testing",
+    "aliases": [
+      "automated testing",
+      "testing"
+    ],
+    "keywords": [
+      "automated",
+      "testing",
+      "quality",
+      "proving",
+      "works",
+      "unit",
+      "integration",
+      "end",
+      "tests"
+    ],
+    "prerequisites": [
+      "programming"
+    ]
+  },
+  {
+    "id": "documentation",
+    "name": "Documentation",
+    "aliases": [
+      "documentation"
+    ],
+    "keywords": [
+      "documentation",
+      "quality",
+      "explaining",
+      "readmes",
+      "api",
+      "docs",
+      "inline",
+      "comments"
+    ],
     "prerequisites": []
+  },
+  {
+    "id": "components",
+    "name": "Component Architecture",
+    "aliases": [
+      "component architecture",
+      "components"
+    ],
+    "keywords": [
+      "component",
+      "architecture",
+      "composing",
+      "uis",
+      "reusable",
+      "encapsulated",
+      "components",
+      "clear",
+      "props",
+      "state"
+    ],
+    "prerequisites": [
+      "javascript"
+    ]
+  },
+  {
+    "id": "state-management",
+    "name": "State Management",
+    "aliases": [
+      "state management"
+    ],
+    "keywords": [
+      "state",
+      "management",
+      "architecture",
+      "modelling",
+      "sharing",
+      "predictably",
+      "component",
+      "tree"
+    ],
+    "prerequisites": [
+      "components"
+    ]
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "aliases": [
+      "react"
+    ],
+    "keywords": [
+      "react",
+      "frameworks",
+      "component",
+      "based",
+      "library",
+      "interactive",
+      "user",
+      "interfaces"
+    ],
+    "prerequisites": [
+      "javascript",
+      "components"
+    ]
+  },
+  {
+    "id": "webpack",
+    "name": "Webpack / Bundlers",
+    "aliases": [
+      "webpack / bundlers",
+      "webpack"
+    ],
+    "keywords": [
+      "webpack",
+      "bundlers",
+      "tooling",
+      "bundling",
+      "transforming",
+      "front",
+      "end",
+      "assets",
+      "browser"
+    ],
+    "prerequisites": [
+      "javascript"
+    ]
+  },
+  {
+    "id": "accessibility",
+    "name": "Accessibility (a11y)",
+    "aliases": [
+      "accessibility (a11y)",
+      "accessibility"
+    ],
+    "keywords": [
+      "accessibility",
+      "a11y",
+      "quality",
+      "interfaces",
+      "usable",
+      "everyone",
+      "semantics",
+      "aria",
+      "keyboard",
+      "contrast"
+    ],
+    "prerequisites": [
+      "html-css"
+    ]
+  },
+  {
+    "id": "http-fundamentals",
+    "name": "HTTP Fundamentals",
+    "aliases": [
+      "http fundamentals"
+    ],
+    "keywords": [
+      "http",
+      "fundamentals",
+      "architecture",
+      "web",
+      "talks",
+      "methods",
+      "status",
+      "codes",
+      "headers",
+      "requests",
+      "responses"
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "rest-apis",
+    "name": "REST APIs",
+    "aliases": [
+      "rest apis"
+    ],
+    "keywords": [
+      "rest",
+      "apis",
+      "architecture",
+      "designing",
+      "resource",
+      "oriented",
+      "http",
+      "predictable",
+      "verbs",
+      "routes"
+    ],
+    "prerequisites": [
+      "http-fundamentals"
+    ]
   },
   {
     "id": "databases",
     "name": "Databases",
-    "aliases": ["db", "database systems"],
-    "keywords": ["sql", "queries", "storage"],
-    "prerequisites": []
-  },
-
-  {
-    "id": "backend_apis",
-    "name": "Backend APIs",
-    "aliases": ["api development", "rest api"],
-    "keywords": ["endpoint", "server", "routing"],
-    "prerequisites": ["python", "http"]
-  },
-  {
-    "id": "frontend_dev",
-    "name": "Frontend Development",
-    "aliases": ["frontend", "ui development"],
-    "keywords": ["html", "css", "ui"],
+    "aliases": [
+      "databases"
+    ],
+    "keywords": [
+      "databases",
+      "data",
+      "persisting",
+      "modelling",
+      "relationships",
+      "indexing",
+      "querying"
+    ],
     "prerequisites": []
   },
   {
-    "id": "testing",
-    "name": "Testing",
-    "aliases": ["unit testing", "software testing"],
-    "keywords": ["pytest", "test cases", "coverage"],
-    "prerequisites": ["python"]
+    "id": "sql",
+    "name": "SQL",
+    "aliases": [
+      "sql"
+    ],
+    "keywords": [
+      "sql",
+      "data",
+      "querying",
+      "relational",
+      "joins",
+      "aggregates",
+      "subqueries"
+    ],
+    "prerequisites": [
+      "databases"
+    ]
   },
   {
-    "id": "databases_advanced",
-    "name": "Database Design",
-    "aliases": ["db design", "schema design"],
-    "keywords": ["normalization", "indexes", "relations"],
-    "prerequisites": ["databases"]
+    "id": "orm",
+    "name": "ORM & Data Access",
+    "aliases": [
+      "orm & data access",
+      "orm"
+    ],
+    "keywords": [
+      "orm",
+      "data",
+      "access",
+      "mapping",
+      "objects",
+      "tables",
+      "query",
+      "builders",
+      "models",
+      "migrations"
+    ],
+    "prerequisites": [
+      "databases",
+      "sql"
+    ]
   },
   {
-    "id": "devops",
-    "name": "DevOps",
-    "aliases": ["ci cd", "deployment pipelines"],
-    "keywords": ["ci", "cd", "deployment"],
-    "prerequisites": ["git"]
+    "id": "web-frameworks",
+    "name": "Web Frameworks",
+    "aliases": [
+      "web frameworks"
+    ],
+    "keywords": [
+      "web",
+      "frameworks",
+      "server",
+      "turn",
+      "handlers",
+      "services",
+      "fastapi",
+      "express"
+    ],
+    "prerequisites": [
+      "rest-apis"
+    ]
+  },
+  {
+    "id": "auth",
+    "name": "Authentication & Authorization",
+    "aliases": [
+      "authentication & authorization",
+      "auth"
+    ],
+    "keywords": [
+      "authentication",
+      "authorization",
+      "architecture",
+      "proving",
+      "identity",
+      "gating",
+      "access",
+      "sessions",
+      "tokens",
+      "oauth",
+      "scopes"
+    ],
+    "prerequisites": [
+      "rest-apis",
+      "http-fundamentals"
+    ]
+  },
+  {
+    "id": "caching",
+    "name": "Caching",
+    "aliases": [
+      "caching"
+    ],
+    "keywords": [
+      "caching",
+      "architecture",
+      "serving",
+      "results",
+      "faster",
+      "http",
+      "caches",
+      "memory",
+      "stores",
+      "invalidation"
+    ],
+    "prerequisites": [
+      "databases",
+      "rest-apis"
+    ]
+  },
+  {
+    "id": "ci",
+    "name": "Continuous Integration",
+    "aliases": [
+      "continuous integration",
+      "ci"
+    ],
+    "keywords": [
+      "continuous",
+      "integration",
+      "tooling",
+      "automating",
+      "test",
+      "checks",
+      "push"
+    ],
+    "prerequisites": [
+      "git"
+    ]
   },
   {
     "id": "docker",
-    "name": "Docker",
-    "aliases": ["containers", "containerization"],
-    "keywords": ["docker", "containers", "images"],
-    "prerequisites": ["devops"]
-  },
-  {
-    "id": "system_design",
-    "name": "System Design",
-    "aliases": ["architecture design", "scalable systems"],
-    "keywords": ["scalability", "distributed systems", "architecture"],
-    "prerequisites": ["backend_apis", "databases"]
+    "name": "Docker & Containers",
+    "aliases": [
+      "docker & containers",
+      "docker"
+    ],
+    "keywords": [
+      "docker",
+      "containers",
+      "infrastructure",
+      "packaging",
+      "app",
+      "dependencies",
+      "portable",
+      "container",
+      "image"
+    ],
+    "prerequisites": []
   }
 ]

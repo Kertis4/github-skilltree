@@ -207,26 +207,87 @@ const layeredLayout = (
     }
   }
 
-  // Assign coordinates. Canvas width is driven by the widest row.
-  const widest = Math.max(1, ...Array.from(byLevel.values(), (a) => a.length));
-  const canvasWidth = widest * spacingX + spacingX;
+  // ---- x-coordinate assignment -------------------------------------------
+  // Row *order* is fixed above; now assign real x so children cluster directly
+  // *under* their parents instead of sitting on a rigid centered grid (which is
+  // what made single children jump to the canvas centre and rows drift out of
+  // alignment). Each node relaxes toward the barycenter of its neighbours, then
+  // every row is de-overlapped (order preserved) and re-centred on that mass.
+  const minGap = Math.max(spacingX, nodeRadius * 2 + 96);
+  const xById = new Map<string, number>();
+  for (const arr of byLevel.values()) {
+    const rowWidth = (arr.length - 1) * minGap;
+    arr.forEach((s, i) => xById.set(s.id, i * minGap - rowWidth / 2));
+  }
+
+  const mean = (xs: number[]) =>
+    xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
+
+  const relaxLevel = (arr: Skill[], down: boolean) => {
+    if (arr.length === 0) return;
+    // Desired x = barycenter of parents (down sweep) or children (up sweep).
+    const desired = arr.map((s) => {
+      const neigh = down
+        ? s.parent_id
+          ? [s.parent_id]
+          : []
+        : childrenOf.get(s.id) ?? [];
+      const xs = neigh
+        .map((id) => xById.get(id))
+        .filter((v): v is number => v !== undefined);
+      return xs.length ? mean(xs) : xById.get(s.id)!;
+    });
+    arr.forEach((s, i) => xById.set(s.id, desired[i]));
+    // De-overlap left-to-right, keeping the established order.
+    for (let i = 1; i < arr.length; i++) {
+      const prev = xById.get(arr[i - 1].id)!;
+      if (xById.get(arr[i].id)! - prev < minGap) {
+        xById.set(arr[i].id, prev + minGap);
+      }
+    }
+    // Re-centre the row on the desired mass so it stays under its parents.
+    const shift = mean(desired) - mean(arr.map((s) => xById.get(s.id)!));
+    for (const s of arr) xById.set(s.id, xById.get(s.id)! + shift);
+  };
+
+  for (let pass = 0; pass < 12; pass++) {
+    const down = pass % 2 === 0;
+    const order = down
+      ? Array.from({ length: maxLevel + 1 }, (_, i) => i)
+      : Array.from({ length: maxLevel + 1 }, (_, i) => maxLevel - i);
+    for (const level of order) relaxLevel(byLevel.get(level) ?? [], down);
+  }
+
+  // Normalise so the left-most node sits at a fixed margin, and size the canvas
+  // to the real content extent (so long captions aren't clipped at the edges).
+  const margin = spacingX;
+  let minX = Number.POSITIVE_INFINITY;
+  let maxX = Number.NEGATIVE_INFINITY;
+  for (const x of xById.values()) {
+    minX = Math.min(minX, x);
+    maxX = Math.max(maxX, x);
+  }
+  if (!Number.isFinite(minX)) {
+    minX = 0;
+    maxX = 0;
+  }
+  const offsetX = margin - minX;
+  const canvasWidth = maxX - minX + margin * 2;
+
   const nodes: SkillNodePosition[] = [];
   const connections: Array<{ from: string; to: string }> = [];
-
   for (let level = 0; level <= maxLevel; level++) {
     const arr = byLevel.get(level);
     if (!arr) continue;
-    const count = arr.length;
-    const rowWidth = (count - 1) * spacingX;
-    const startX = (canvasWidth - rowWidth) / 2;
     const y = spacingY * 0.85 + level * spacingY;
     arr.forEach((s, i) => {
       nodes.push({
         skillId: s.id,
-        x: count === 1 ? canvasWidth / 2 : startX + i * spacingX,
+        x: xById.get(s.id)! + offsetX,
         y,
         radius: nodeRadius,
-        labelDy: i % 2 === 0 ? 0 : 17,
+        // Stagger captions so dense rows don't collide horizontally.
+        labelDy: arr.length > 1 ? (i % 2 === 0 ? 0 : 20) : 0,
       });
       if (s.parent_id) connections.push({ from: s.parent_id, to: s.id });
     });

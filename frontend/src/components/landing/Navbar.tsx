@@ -60,6 +60,16 @@ export function Navbar({ onLogin }: NavbarProps) {
             </span>
             radar
           </Link>
+          <Link
+            to="/recruiter"
+            className="group flex items-center gap-1 transition-colors hover:text-accent"
+            title="Analyze any public GitHub profile"
+          >
+            <span className="text-accent opacity-0 transition-opacity group-hover:opacity-100">
+              /
+            </span>
+            recruiter
+          </Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-3">

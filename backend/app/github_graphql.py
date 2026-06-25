@@ -27,19 +27,9 @@ BYTES_PER_LINE = 48
 
 # One paginated query pulls everything we need per repo. `languages` covers the
 # whole repository (all files); the default-branch `tree.entries` gives the
-# top-level files with their byte sizes.
-_REPOS_QUERY = """
-query($cursor: String) {
-  viewer {
-    login
-    name
-    repositories(
-      first: 50
-      after: $cursor
-      privacy: PUBLIC
-      ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
-      orderBy: { field: UPDATED_AT, direction: DESC }
-    ) {
+# top-level files with their byte sizes. The repo *connection* selection below is
+# shared by both the signed-in (`viewer`) and named-user (`user(login:)`) queries.
+_REPO_CONNECTION = """
       pageInfo { hasNextPage endCursor }
       nodes {
         nameWithOwner
@@ -73,10 +63,28 @@ query($cursor: String) {
           }
         }
       }
-    }
-  }
-}
 """
+
+# Repos owned / collaborated on by the signed-in user (the OAuth flow).
+_REPOS_QUERY = (
+    "query($cursor: String) {\n  viewer {\n    login\n    name\n"
+    "    repositories(first: 50, after: $cursor, privacy: PUBLIC,"
+    " ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER],"
+    " orderBy: { field: UPDATED_AT, direction: DESC }) {"
+    + _REPO_CONNECTION
+    + "    }\n  }\n}\n"
+)
+
+# Public repos OWNED by a named user (the recruiter "analyze any user" flow).
+_USER_REPOS_QUERY = (
+    "query($login: String!, $cursor: String) {\n  user(login: $login) {\n"
+    "    login\n    name\n"
+    "    repositories(first: 50, after: $cursor, privacy: PUBLIC,"
+    " ownerAffiliations: [OWNER],"
+    " orderBy: { field: UPDATED_AT, direction: DESC }) {"
+    + _REPO_CONNECTION
+    + "    }\n  }\n}\n"
+)
 
 
 def _est_lines(num_bytes: int) -> int:
@@ -146,35 +154,40 @@ def _shape_repo(node: dict) -> dict:
     }
 
 
-async def analyze_user_repositories(token: str) -> dict:
-    """Fetch + summarise every public repo for the signed-in user via GraphQL.
+async def _paginate_repos(
+    token: str, query: str, owner_key: str, variables: dict | None = None
+) -> dict:
+    """Run a paginated repositories query and return ``{user, repos}``.
 
-    Returns a JSON-serialisable dict ``{user, totals, repos}``. The token is used
-    only for these requests; the caller must discard it immediately afterwards.
-
-    Raises ``ValueError`` on a GraphQL error payload, or ``httpx.HTTPError`` on
-    transport/HTTP failures.
+    ``owner_key`` is the field under ``data`` that holds the owner object
+    (``"viewer"`` or ``"user"``). Raises ``ValueError`` on a GraphQL error or
+    when the named owner does not exist; ``httpx.HTTPError`` on transport faults.
+    The token is used only for these requests; the caller must discard it after.
     """
     headers = {"Authorization": f"Bearer {token}", "Accept": "application/json"}
     repos: list[dict] = []
     user = {"login": "", "name": None}
     cursor: str | None = None
+    base_vars = dict(variables or {})
 
     async with httpx.AsyncClient(timeout=30) as client:
         while True:
             resp = await client.post(
                 GITHUB_GRAPHQL_URL,
                 headers=headers,
-                json={"query": _REPOS_QUERY, "variables": {"cursor": cursor}},
+                json={"query": query, "variables": {**base_vars, "cursor": cursor}},
             )
             resp.raise_for_status()
             body = resp.json()
             if body.get("errors"):
                 raise ValueError(body["errors"][0].get("message", "GraphQL query failed"))
 
-            viewer = (body.get("data") or {}).get("viewer") or {}
-            user = {"login": viewer.get("login", ""), "name": viewer.get("name")}
-            conn = viewer.get("repositories") or {}
+            owner = (body.get("data") or {}).get(owner_key)
+            if owner is None:
+                # `user(login:)` returns null for an unknown / non-user handle.
+                raise ValueError("No public GitHub user found for that handle.")
+            user = {"login": owner.get("login", ""), "name": owner.get("name")}
+            conn = owner.get("repositories") or {}
             for node in conn.get("nodes") or []:
                 if node:
                     repos.append(_shape_repo(node))
@@ -185,7 +198,11 @@ async def analyze_user_repositories(token: str) -> dict:
             else:
                 break
 
-    # --- aggregate language totals across every repo ---
+    return {"user": user, "repos": repos}
+
+
+def _aggregate(user: dict, repos: list[dict]) -> dict:
+    """Fold per-repo language bytes into global totals; sort most-code-first."""
     lang_bytes: dict[str, int] = {}
     lang_color: dict[str, str | None] = {}
     total_bytes = 0
@@ -216,3 +233,31 @@ async def analyze_user_repositories(token: str) -> dict:
         "languages": languages_total,
     }
     return {"user": user, "totals": totals, "repos": repos}
+
+
+async def analyze_user_repositories(token: str) -> dict:
+    """Fetch + summarise every public repo for the signed-in user via GraphQL.
+
+    Returns a JSON-serialisable dict ``{user, totals, repos}``. The token is used
+    only for these requests; the caller must discard it immediately afterwards.
+
+    Raises ``ValueError`` on a GraphQL error payload, or ``httpx.HTTPError`` on
+    transport/HTTP failures.
+    """
+    fetched = await _paginate_repos(token, _REPOS_QUERY, "viewer")
+    return _aggregate(fetched["user"], fetched["repos"])
+
+
+async def analyze_named_user_repositories(token: str, login: str) -> dict:
+    """Fetch + summarise every public repo OWNED by ``login`` via GraphQL.
+
+    Same ``{user, totals, repos}`` shape as :func:`analyze_user_repositories`, but
+    targets an arbitrary public profile (the recruiter "analyze any user" flow)
+    instead of the token's own ``viewer``. The token only needs public-read access
+    — it identifies the *caller*, not the analyzed user. Raises ``ValueError`` when
+    the handle is not a real GitHub user.
+    """
+    fetched = await _paginate_repos(
+        token, _USER_REPOS_QUERY, "user", {"login": login}
+    )
+    return _aggregate(fetched["user"], fetched["repos"])

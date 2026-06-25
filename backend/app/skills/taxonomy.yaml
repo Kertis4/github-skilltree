@@ -538,3 +538,1476 @@ skills:
     tracks: { backend: 0.6, fullstack: 0.5, infrastructure: 1.0, systems: 0.4 }
     resources:
       - { title: "Docker: Get Started", url: "https://docs.docker.com/get-started/", kind: docs, level: intermediate }
+
+  # ===== FOUNDATION batch — shared languages =====
+  - id: go
+    name: Go
+    kind: hard
+    domain: languages
+    summary: "A simple, fast, statically-typed language built for concurrent services and tooling."
+    detection:
+      evidence: deterministic
+      files: ["**/*.go", "go.mod"]
+      content_hints: []
+      languages: [go]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.7, infrastructure: 0.7, systems: 0.6, fullstack: 0.4 }
+    resources:
+      - { title: "A Tour of Go", url: "https://go.dev/tour/", kind: tutorial, level: basic }
+      - { title: "Effective Go", url: "https://go.dev/doc/effective_go", kind: docs, level: intermediate }
+
+  - id: rust
+    name: Rust
+    kind: hard
+    domain: languages
+    summary: "A systems language focused on memory safety and performance without a garbage collector."
+    detection:
+      evidence: deterministic
+      files: ["**/*.rs", "Cargo.toml"]
+      content_hints: []
+      languages: [rust]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { systems: 0.9, backend: 0.5, infrastructure: 0.4 }
+    resources:
+      - { title: "The Rust Programming Language", url: "https://doc.rust-lang.org/book/", kind: book, level: basic }
+
+  - id: java
+    name: Java
+    kind: hard
+    domain: languages
+    summary: "A mature, object-oriented language for backend services, Android and large systems."
+    detection:
+      evidence: deterministic
+      files: ["**/*.java", "pom.xml", "build.gradle"]
+      content_hints: []
+      languages: [java]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.7, mobile: 0.6, systems: 0.4, fullstack: 0.4 }
+    resources:
+      - { title: "Dev.java: Learn Java", url: "https://dev.java/learn/", kind: tutorial, level: basic }
+
+  - id: csharp
+    name: C#
+    kind: hard
+    domain: languages
+    summary: "A versatile, statically-typed .NET language for services, desktop and games."
+    detection:
+      evidence: deterministic
+      files: ["**/*.cs", "*.csproj"]
+      content_hints: []
+      languages: ["c#"]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.7, systems: 0.4, fullstack: 0.4 }
+    resources:
+      - { title: "C# docs (Microsoft Learn)", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", kind: docs, level: basic }
+
+  - id: cpp
+    name: C++
+    kind: hard
+    domain: languages
+    summary: "A high-performance systems language with manual memory control and zero-cost abstractions."
+    detection:
+      evidence: deterministic
+      files: ["**/*.cpp", "**/*.hpp", "**/*.cc"]
+      content_hints: []
+      languages: ["c++"]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { systems: 0.9, backend: 0.3 }
+    resources:
+      - { title: "cppreference", url: "https://en.cppreference.com/w/", kind: reference, level: intermediate }
+
+  - id: c
+    name: C
+    kind: hard
+    domain: languages
+    summary: "The foundational systems language behind operating systems, embedded and low-level code."
+    detection:
+      evidence: deterministic
+      files: ["**/*.c", "**/*.h"]
+      content_hints: []
+      languages: [c]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { systems: 0.9 }
+    resources:
+      - { title: "cppreference: C", url: "https://en.cppreference.com/w/c", kind: reference, level: intermediate }
+
+  - id: ruby
+    name: Ruby
+    kind: hard
+    domain: languages
+    summary: "A dynamic, expressive language popular for web backends and developer tooling."
+    detection:
+      evidence: deterministic
+      files: ["**/*.rb", "Gemfile"]
+      content_hints: []
+      languages: [ruby]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.6, fullstack: 0.5 }
+    resources:
+      - { title: "Ruby Documentation", url: "https://www.ruby-lang.org/en/documentation/", kind: docs, level: basic }
+
+  - id: php
+    name: PHP
+    kind: hard
+    domain: languages
+    summary: "A widely-deployed server language powering large parts of the web."
+    detection:
+      evidence: deterministic
+      files: ["**/*.php", "composer.json"]
+      content_hints: []
+      languages: [php]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.6, fullstack: 0.5 }
+    resources:
+      - { title: "PHP Manual", url: "https://www.php.net/manual/en/", kind: docs, level: basic }
+
+  - id: kotlin
+    name: Kotlin
+    kind: hard
+    domain: languages
+    summary: "A concise, null-safe JVM language and the modern default for Android."
+    detection:
+      evidence: deterministic
+      files: ["**/*.kt", "**/*.kts"]
+      content_hints: []
+      languages: [kotlin]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { mobile: 0.8, backend: 0.5 }
+    resources:
+      - { title: "Kotlin Documentation", url: "https://kotlinlang.org/docs/home.html", kind: docs, level: basic }
+
+  - id: swift
+    name: Swift
+    kind: hard
+    domain: languages
+    summary: "Apple's safe, fast language for iOS, macOS and server-side apps."
+    detection:
+      evidence: deterministic
+      files: ["**/*.swift", "Package.swift"]
+      content_hints: []
+      languages: [swift]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { mobile: 0.9, systems: 0.3 }
+    resources:
+      - { title: "The Swift Programming Language", url: "https://docs.swift.org/swift-book/", kind: book, level: basic }
+
+  - id: dart
+    name: Dart
+    kind: hard
+    domain: languages
+    summary: "A client-optimized language powering Flutter apps across mobile and web."
+    detection:
+      evidence: deterministic
+      files: ["**/*.dart", "pubspec.yaml"]
+      content_hints: []
+      languages: [dart]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { mobile: 0.8, frontend: 0.4 }
+    resources:
+      - { title: "Dart Documentation", url: "https://dart.dev/guides", kind: docs, level: basic }
+
+  - id: scala
+    name: Scala
+    kind: hard
+    domain: languages
+    summary: "A JVM language blending object-oriented and functional styles, common in data systems."
+    detection:
+      evidence: deterministic
+      files: ["**/*.scala", "build.sbt"]
+      content_hints: []
+      languages: [scala]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { backend: 0.5, systems: 0.4 }
+    resources:
+      - { title: "Scala Documentation", url: "https://docs.scala-lang.org/", kind: docs, level: intermediate }
+
+  - id: bash
+    name: Shell & Bash
+    kind: hard
+    domain: languages
+    summary: "Scripting the shell to automate tasks, glue tools and run CI/CD steps."
+    detection:
+      evidence: deterministic
+      files: ["**/*.sh", "**/*.bash"]
+      content_hints: []
+      languages: [bash]
+    graph:
+      requires: []
+      tier: 0
+    tracks: { infrastructure: 0.7, systems: 0.5, backend: 0.4 }
+    resources:
+      - { title: "GNU Bash Manual", url: "https://www.gnu.org/software/bash/manual/", kind: reference, level: intermediate }
+
+  # ===== FOUNDATION batch — core CS concepts =====
+  - id: data-structures
+    name: Data Structures
+    kind: concept
+    domain: paradigms
+    summary: "Organising data for efficient access — arrays, maps, stacks, queues, trees, graphs."
+    detection:
+      evidence: llm
+      content_hints: ["array", "hash map", "linked list", "stack", "queue", "binary tree", "graph"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, ruby, kotlin, swift]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.5, fullstack: 0.6, backend: 0.7, infrastructure: 0.5, systems: 0.8, mobile: 0.5 }
+    resources:
+      - { title: "VisuAlgo: Data Structures", url: "https://visualgo.net/en", kind: reference, level: intermediate }
+
+  - id: algorithms
+    name: Algorithms
+    kind: concept
+    domain: paradigms
+    summary: "Designing and analysing step-by-step solutions — sorting, searching, complexity."
+    detection:
+      evidence: llm
+      content_hints: ["sort", "binary search", "dynamic programming", "greedy", "complexity", "O(n)"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, ruby, kotlin, swift]
+    graph:
+      requires: [data-structures]
+      tier: 2
+    tracks: { frontend: 0.5, fullstack: 0.6, backend: 0.7, systems: 0.8, mobile: 0.5 }
+    resources:
+      - { title: "Khan Academy: Algorithms", url: "https://www.khanacademy.org/computing/computer-science/algorithms", kind: course, level: basic }
+
+  - id: recursion
+    name: Recursion
+    kind: concept
+    domain: paradigms
+    summary: "Solving problems by having a function call itself toward a base case."
+    detection:
+      evidence: llm
+      content_hints: ["base case", "recursive", "factorial", "fibonacci", "divide and conquer", "call itself"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, ruby, kotlin, swift, scala]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.4, fullstack: 0.4, backend: 0.5, systems: 0.6 }
+    resources:
+      - { title: "MDN: Recursion", url: "https://developer.mozilla.org/en-US/docs/Glossary/Recursion", kind: reference, level: basic }
+
+  - id: design-patterns
+    name: Design Patterns
+    kind: concept
+    domain: architecture
+    summary: "Reusable solutions to recurring design problems — factories, observers, strategies."
+    detection:
+      evidence: llm
+      content_hints: ["Factory", "Singleton", "Observer", "Strategy", "Adapter", "Decorator"]
+      languages: [python, javascript, typescript, java, "c#", "c++", ruby, kotlin, swift, php, scala]
+    graph:
+      requires: [oop]
+      tier: 2
+    tracks: { frontend: 0.5, fullstack: 0.6, backend: 0.7, mobile: 0.6, systems: 0.5 }
+    resources:
+      - { title: "Refactoring Guru: Design Patterns", url: "https://refactoring.guru/design-patterns", kind: reference, level: intermediate }
+
+  - id: debugging
+    name: Debugging
+    kind: concept
+    domain: quality
+    summary: "Systematically finding and fixing defects with breakpoints, logs and tracing."
+    detection:
+      evidence: llm
+      content_hints: ["breakpoint", "debugger", "console.log", "print(", "stack trace", "step over"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, ruby, kotlin, swift]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.6, fullstack: 0.6, backend: 0.6, infrastructure: 0.6, systems: 0.6, mobile: 0.6 }
+    resources:
+      - { title: "VS Code: Debugging", url: "https://code.visualstudio.com/docs/editor/debugging", kind: docs, level: basic }
+
+  - id: regex
+    name: Regular Expressions
+    kind: concept
+    domain: quality
+    summary: "Matching and extracting text with pattern syntax across languages and tools."
+    detection:
+      evidence: llm
+      content_hints: ["re.compile", ".match(", "Pattern.compile", "regex", "[a-z]", "(?:"]
+      languages: [python, javascript, typescript, java, "c#", go, ruby, php]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.4, fullstack: 0.5, backend: 0.5, infrastructure: 0.4, systems: 0.4 }
+    resources:
+      - { title: "MDN: Regular Expressions", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions", kind: docs, level: intermediate }
+
+  - id: logging
+    name: Logging & Observability
+    kind: concept
+    domain: quality
+    summary: "Recording what software does at runtime to diagnose and monitor behaviour."
+    detection:
+      evidence: llm
+      content_hints: ["logger", "logging.getLogger", "console.log", "log.Info", "slf4j", "winston"]
+      languages: [python, javascript, typescript, java, "c#", go, rust, ruby, kotlin, swift]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.4, fullstack: 0.5, backend: 0.6, infrastructure: 0.6, systems: 0.5, mobile: 0.4 }
+    resources:
+      - { title: "Python logging HOWTO", url: "https://docs.python.org/3/howto/logging.html", kind: docs, level: intermediate }
+
+  - id: security-fundamentals
+    name: Security Fundamentals
+    kind: concept
+    domain: quality
+    summary: "Writing safer code — input validation, secrets handling and common web vulnerabilities."
+    detection:
+      evidence: llm
+      content_hints: ["sanitize", "escape", "csrf", "xss", "sql injection", "bcrypt"]
+      languages: [python, javascript, typescript, java, "c#", go, ruby, php, kotlin, swift]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.5, fullstack: 0.6, backend: 0.7, infrastructure: 0.7, systems: 0.5, mobile: 0.5 }
+    resources:
+      - { title: "OWASP Top Ten", url: "https://owasp.org/www-project-top-ten/", kind: reference, level: intermediate }
+
+  - id: performance-optimization
+    name: Performance Optimization
+    kind: concept
+    domain: quality
+    summary: "Making code faster and leaner — profiling, benchmarking and removing bottlenecks."
+    detection:
+      evidence: llm
+      content_hints: ["benchmark", "profiler", "memoize", "lazy", "big-o", "hot path"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, kotlin, swift]
+    graph:
+      requires: [algorithms]
+      tier: 3
+    tracks: { frontend: 0.6, fullstack: 0.5, backend: 0.6, systems: 0.8, mobile: 0.6 }
+    resources:
+      - { title: "web.dev: Fast load times", url: "https://web.dev/explore/fast", kind: docs, level: intermediate }
+
+  - id: clean-code
+    name: Clean Code
+    kind: concept
+    domain: quality
+    summary: "Writing readable, well-named, single-purpose code that others can maintain."
+    detection:
+      evidence: llm
+      content_hints: ["meaningful names", "single responsibility", "DRY", "small functions", "guard clause"]
+      languages: [python, javascript, typescript, java, "c#", "c++", c, go, rust, ruby, kotlin, swift]
+    graph:
+      requires: [programming]
+      tier: 1
+    tracks: { frontend: 0.5, fullstack: 0.5, backend: 0.5, infrastructure: 0.5, systems: 0.5, mobile: 0.5 }
+    resources:
+      - { title: "Clean Code (Robert C. Martin)", url: "https://www.oreilly.com/library/view/clean-code-a/9780136083238/", kind: book, level: intermediate }
+
+  - id: refactoring
+    name: Refactoring
+    kind: concept
+    domain: quality
+    summary: "Improving code structure without changing behaviour — extract, rename, simplify."
+    detection:
+      evidence: llm
+      content_hints: ["extract method", "rename", "code smell", "refactor", "inline variable", "extract function"]
+      languages: [python, javascript, typescript, java, "c#", "c++", go, ruby, kotlin, swift]
+    graph:
+      requires: [clean-code]
+      tier: 2
+    tracks: { frontend: 0.5, fullstack: 0.5, backend: 0.5, infrastructure: 0.5, systems: 0.5, mobile: 0.5 }
+    resources:
+      - { title: "Refactoring Guru: Refactoring", url: "https://refactoring.guru/refactoring", kind: reference, level: intermediate }
+
+  - id: code-review
+    name: Code Review
+    kind: concept
+    domain: quality
+    summary: "Reviewing changes via pull requests to catch bugs and share knowledge."
+    detection:
+      evidence: deterministic
+      files: ["**/CODEOWNERS", ".github/PULL_REQUEST_TEMPLATE.md", ".github/pull_request_template.md", ".github/PULL_REQUEST_TEMPLATE/**"]
+      content_hints: []
+      languages: []
+    graph:
+      requires: [git]
+      tier: 1
+    tracks: { frontend: 0.5, fullstack: 0.5, backend: 0.5, infrastructure: 0.5, systems: 0.5, mobile: 0.5 }
+    resources:
+      - { title: "Google Engineering Practices: Code Review", url: "https://google.github.io/eng-practices/review/", kind: reference, level: intermediate }
+
+  - id: cli-scripting
+    name: CLI & Scripting
+    kind: concept
+    domain: build-tooling
+    summary: "Automating workflows on the command line with shell and scripting languages."
+    detection:
+      evidence: llm
+      content_hints: ["#!/bin/bash", "argparse", "getopts", "stdin", "exit 1", "sys.argv"]
+      languages: [bash, python, ruby, javascript, typescript, go]
+    graph:
+      requires: [bash]
+      tier: 1
+    tracks: { fullstack: 0.4, backend: 0.5, infrastructure: 0.7, systems: 0.5 }
+    resources:
+      - { title: "The Linux Command Line", url: "https://linuxcommand.org/tlcl.php", kind: book, level: basic }
+
+  - id: package-management
+    name: Package Management
+    kind: concept
+    domain: build-tooling
+    summary: "Declaring, resolving and pinning third-party dependencies for reproducible builds."
+    detection:
+      evidence: deterministic
+      files: ["package.json", "requirements.txt", "pyproject.toml", "Cargo.toml", "go.mod", "pom.xml", "Gemfile", "composer.json", "pubspec.yaml", "package-lock.json", "yarn.lock"]
+      content_hints: []
+      languages: []
+    graph:
+      requires: [git]
+      tier: 1
+    tracks: { frontend: 0.5, fullstack: 0.5, backend: 0.5, mobile: 0.4 }
+    resources:
+      - { title: "npm: About packages and modules", url: "https://docs.npmjs.com/about-packages-and-modules", kind: docs, level: basic }
+
+  # ===== FRONTEND + MOBILE batch — frameworks =====
+  - id: vue
+    name: Vue.js
+    kind: hard
+    domain: frameworks
+    summary: "A progressive, component-based framework with reactive data binding and a gentle learning curve."
+    detection:
+      evidence: deterministic
+      files: ["**/*.vue", "vue.config.*", "package.json"]
+      content_hints: ["vue", "createApp", "defineComponent"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript, components]
+      tier: 3
+    tracks: { frontend: 0.9, fullstack: 0.7 }
+    resources:
+      - { title: "Vue.js Guide", url: "https://vuejs.org/guide/introduction.html", kind: docs, level: intermediate }
+
+  - id: angular
+    name: Angular
+    kind: hard
+    domain: frameworks
+    summary: "A batteries-included TypeScript framework for building large single-page applications."
+    detection:
+      evidence: deterministic
+      files: ["angular.json", "**/*.component.ts", "package.json"]
+      content_hints: ["@angular/core", "@Component", "NgModule"]
+      languages: [typescript]
+    graph:
+      requires: [typescript, components]
+      tier: 3
+    tracks: { frontend: 0.9, fullstack: 0.6 }
+    resources:
+      - { title: "Angular Docs", url: "https://angular.dev/overview", kind: docs, level: intermediate }
+
+  - id: svelte
+    name: Svelte
+    kind: hard
+    domain: frameworks
+    summary: "A compiler-first UI framework that ships minimal runtime by moving work to build time."
+    detection:
+      evidence: deterministic
+      files: ["**/*.svelte", "svelte.config.*", "package.json"]
+      content_hints: ["svelte", "$:", "createEventDispatcher"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript, components]
+      tier: 3
+    tracks: { frontend: 0.9, fullstack: 0.6 }
+    resources:
+      - { title: "Svelte Docs", url: "https://svelte.dev/docs", kind: docs, level: intermediate }
+
+  - id: nextjs
+    name: Next.js
+    kind: hard
+    domain: frameworks
+    summary: "A React meta-framework with file-based routing, server rendering and full-stack APIs."
+    detection:
+      evidence: deterministic
+      files: ["next.config.*", "package.json"]
+      content_hints: ["next", "getServerSideProps", "use client"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [react]
+      tier: 4
+    tracks: { frontend: 0.85, fullstack: 0.8 }
+    resources:
+      - { title: "Next.js Docs", url: "https://nextjs.org/docs", kind: docs, level: intermediate }
+
+  - id: nuxt
+    name: Nuxt
+    kind: hard
+    domain: frameworks
+    summary: "A Vue meta-framework adding routing, server rendering and a full-stack project structure."
+    detection:
+      evidence: deterministic
+      files: ["nuxt.config.*", "package.json"]
+      content_hints: ["nuxt", "defineNuxtConfig", "useFetch"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [vue]
+      tier: 4
+    tracks: { frontend: 0.8, fullstack: 0.7 }
+    resources:
+      - { title: "Nuxt Docs", url: "https://nuxt.com/docs", kind: docs, level: intermediate }
+
+  - id: astro
+    name: Astro
+    kind: hard
+    domain: frameworks
+    summary: "A content-focused framework that ships zero JS by default and hydrates islands on demand."
+    detection:
+      evidence: deterministic
+      files: ["**/*.astro", "astro.config.*", "package.json"]
+      content_hints: ["astro", "client:load", "getStaticPaths"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript, components]
+      tier: 3
+    tracks: { frontend: 0.8, fullstack: 0.6 }
+    resources:
+      - { title: "Astro Docs", url: "https://docs.astro.build/en/getting-started/", kind: docs, level: intermediate }
+
+  - id: remix
+    name: Remix
+    kind: hard
+    domain: frameworks
+    summary: "A React framework built on web standards with nested routes, loaders and actions."
+    detection:
+      evidence: deterministic
+      files: ["remix.config.*", "package.json"]
+      content_hints: ["@remix-run", "useLoaderData", "ActionFunction"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [react]
+      tier: 4
+    tracks: { frontend: 0.8, fullstack: 0.7 }
+    resources:
+      - { title: "Remix Docs", url: "https://remix.run/docs/en/main", kind: docs, level: intermediate }
+
+  - id: solidjs
+    name: SolidJS
+    kind: hard
+    domain: frameworks
+    summary: "A reactive UI library with fine-grained signals and no virtual DOM for fast updates."
+    detection:
+      evidence: deterministic
+      files: ["package.json"]
+      content_hints: ["solid-js", "createSignal", "createEffect"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript, components]
+      tier: 3
+    tracks: { frontend: 0.8, fullstack: 0.5 }
+    resources:
+      - { title: "SolidJS Docs", url: "https://docs.solidjs.com/", kind: docs, level: intermediate }
+
+  - id: tailwind
+    name: Tailwind CSS
+    kind: hard
+    domain: frameworks
+    summary: "A utility-first CSS framework that styles markup with composable class names."
+    detection:
+      evidence: deterministic
+      files: ["tailwind.config.*", "postcss.config.*"]
+      content_hints: ["@tailwind", "tailwindcss"]
+      languages: [css, javascript, typescript]
+    graph:
+      requires: [html-css]
+      tier: 2
+    tracks: { frontend: 0.8, fullstack: 0.5 }
+    resources:
+      - { title: "Tailwind CSS Docs", url: "https://tailwindcss.com/docs/installation", kind: docs, level: basic }
+
+  - id: redux
+    name: Redux
+    kind: hard
+    domain: frameworks
+    summary: "A predictable state container using a single store, actions and pure reducers."
+    detection:
+      evidence: deterministic
+      files: ["package.json"]
+      content_hints: ["redux", "@reduxjs/toolkit", "createSlice", "configureStore"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [state-management]
+      tier: 4
+    tracks: { frontend: 0.75, fullstack: 0.5 }
+    resources:
+      - { title: "Redux Toolkit Docs", url: "https://redux-toolkit.js.org/introduction/getting-started", kind: docs, level: intermediate }
+
+  - id: react-query
+    name: React Query / Data Fetching
+    kind: hard
+    domain: frameworks
+    summary: "Declarative server-state management — caching, background refetch and request dedup for UIs."
+    detection:
+      evidence: deterministic
+      files: ["package.json"]
+      content_hints: ["@tanstack/react-query", "react-query", "useQuery", "useMutation"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [react]
+      tier: 4
+    tracks: { frontend: 0.75, fullstack: 0.6 }
+    resources:
+      - { title: "TanStack Query Docs", url: "https://tanstack.com/query/latest/docs/framework/react/overview", kind: docs, level: intermediate }
+
+  # ===== FRONTEND batch — build & tooling =====
+  - id: vite
+    name: Vite
+    kind: hard
+    domain: build-tooling
+    summary: "A fast dev server and build tool using native ES modules and Rollup for production."
+    detection:
+      evidence: deterministic
+      files: ["vite.config.*"]
+      content_hints: ["defineConfig", "vite"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript]
+      tier: 3
+    tracks: { frontend: 0.75, fullstack: 0.5 }
+    resources:
+      - { title: "Vite Guide", url: "https://vitejs.dev/guide/", kind: docs, level: intermediate }
+
+  - id: eslint
+    name: ESLint / Linting
+    kind: hard
+    domain: build-tooling
+    summary: "Statically analysing JavaScript and TypeScript to catch bugs and enforce a consistent style."
+    detection:
+      evidence: deterministic
+      files: [".eslintrc*", "eslint.config.*"]
+      content_hints: ["eslint", "rules", "plugin:"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript]
+      tier: 2
+    tracks: { frontend: 0.7, fullstack: 0.5, backend: 0.4 }
+    resources:
+      - { title: "ESLint Docs", url: "https://eslint.org/docs/latest/", kind: docs, level: intermediate }
+
+  - id: sass
+    name: Sass / SCSS
+    kind: hard
+    domain: build-tooling
+    summary: "A CSS preprocessor adding variables, nesting, mixins and partials to stylesheets."
+    detection:
+      evidence: deterministic
+      files: ["**/*.scss", "**/*.sass"]
+      content_hints: ["@mixin", "@include", "$"]
+      languages: [scss, css]
+    graph:
+      requires: [html-css]
+      tier: 1
+    tracks: { frontend: 0.7, fullstack: 0.4 }
+    resources:
+      - { title: "Sass Documentation", url: "https://sass-lang.com/documentation/", kind: docs, level: basic }
+
+  # ===== FRONTEND batch — layout & architecture =====
+  - id: css-layout
+    name: CSS Grid & Flexbox
+    kind: concept
+    domain: architecture
+    summary: "Laying out interfaces with two-dimensional grids and one-dimensional flexible boxes."
+    detection:
+      evidence: llm
+      content_hints: ["display: grid", "display: flex", "grid-template", "flex-direction", "justify-content", "gap:"]
+      languages: [css, html, javascript, typescript]
+    graph:
+      requires: [html-css]
+      tier: 1
+    tracks: { frontend: 0.8, fullstack: 0.4 }
+    resources:
+      - { title: "MDN: CSS Grid Layout", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout", kind: docs, level: intermediate }
+      - { title: "CSS-Tricks: A Guide to Flexbox", url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/", kind: reference, level: basic }
+
+  - id: design-systems
+    name: Design Systems
+    kind: concept
+    domain: architecture
+    summary: "Building shared component libraries and design tokens for consistent, scalable UIs."
+    detection:
+      evidence: llm
+      content_hints: ["design tokens", "ThemeProvider", "component library", "variant", "tokens", "theme"]
+      languages: [javascript, typescript, css]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { frontend: 0.7, fullstack: 0.4 }
+    resources:
+      - { title: "Material Design 3", url: "https://m3.material.io/foundations", kind: reference, level: intermediate }
+
+  - id: client-routing
+    name: Client-Side Routing
+    kind: concept
+    domain: architecture
+    summary: "Mapping URLs to views in single-page apps without full page reloads."
+    detection:
+      evidence: llm
+      content_hints: ["react-router", "useNavigate", "createBrowserRouter", "vue-router", "history.push", "Route path"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { frontend: 0.75, fullstack: 0.5 }
+    resources:
+      - { title: "React Router Docs", url: "https://reactrouter.com/en/main", kind: docs, level: intermediate }
+
+  - id: fetch-ajax
+    name: Fetch & AJAX
+    kind: concept
+    domain: architecture
+    summary: "Loading and sending data from the browser asynchronously with fetch and HTTP clients."
+    detection:
+      evidence: llm
+      content_hints: ["fetch(", "XMLHttpRequest", "axios", "await fetch", ".then(", "response.json()"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript, http-fundamentals]
+      tier: 2
+    tracks: { frontend: 0.75, fullstack: 0.6 }
+    resources:
+      - { title: "MDN: Fetch API", url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API", kind: docs, level: intermediate }
+
+  # ===== FRONTEND batch — platform & quality =====
+  - id: dom-manipulation
+    name: DOM Manipulation
+    kind: concept
+    domain: paradigms
+    summary: "Reading and updating the live document tree and wiring up browser events directly."
+    detection:
+      evidence: llm
+      content_hints: ["document.querySelector", "addEventListener", "createElement", "innerHTML", "appendChild", "getElementById"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript]
+      tier: 1
+    tracks: { frontend: 0.8, fullstack: 0.4 }
+    resources:
+      - { title: "MDN: Document Object Model", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model", kind: docs, level: basic }
+
+  - id: frontend-testing
+    name: Frontend Testing
+    kind: hard
+    domain: quality
+    summary: "Testing components and UI logic with runners like Jest, Vitest and Testing Library."
+    detection:
+      evidence: hybrid
+      signals: [hasTests]
+      files: ["jest.config.*", "vitest.config.*"]
+      content_hints: ["render(", "screen.getBy", "@testing-library", "expect("]
+      languages: [javascript, typescript]
+    graph:
+      requires: [testing, components]
+      tier: 3
+    tracks: { frontend: 0.75, fullstack: 0.5 }
+    resources:
+      - { title: "Vitest Guide", url: "https://vitest.dev/guide/", kind: docs, level: intermediate }
+      - { title: "Testing Library Docs", url: "https://testing-library.com/docs/", kind: docs, level: intermediate }
+
+  # ===== FRONTEND + MOBILE overlap =====
+  - id: responsive-design
+    name: Responsive Design
+    kind: concept
+    domain: architecture
+    summary: "Adapting layouts to any screen with media queries, fluid units and flexible images."
+    detection:
+      evidence: llm
+      content_hints: ["@media", "min-width", "max-width", "MediaQuery", "flex-wrap", "viewport"]
+      languages: [css, html, javascript, dart, swift, kotlin]
+    graph:
+      requires: [html-css]
+      tier: 2
+    tracks: { frontend: 0.7, fullstack: 0.4, mobile: 0.6 }
+    resources:
+      - { title: "MDN: Responsive Design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design", kind: docs, level: intermediate }
+
+  - id: pwa
+    name: Progressive Web Apps
+    kind: concept
+    domain: frameworks
+    summary: "Installable, offline-capable web apps using service workers and a web app manifest."
+    detection:
+      evidence: deterministic
+      files: ["**/manifest.webmanifest", "**/manifest.json", "**/service-worker.*", "**/sw.js"]
+      content_hints: ["serviceWorker", "workbox", "navigator.serviceWorker"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [javascript]
+      tier: 3
+    tracks: { frontend: 0.6, fullstack: 0.4, mobile: 0.6 }
+    resources:
+      - { title: "web.dev: Learn PWA", url: "https://web.dev/learn/pwa/", kind: course, level: intermediate }
+
+  - id: i18n
+    name: Internationalization (i18n)
+    kind: concept
+    domain: architecture
+    summary: "Adapting apps to languages, locales and formats with translation catalogs and pluralization."
+    detection:
+      evidence: llm
+      content_hints: ["i18next", "useTranslation", "NSLocalizedString", "AppLocalizations", "intl", "gettext"]
+      languages: [javascript, typescript, dart, swift, kotlin]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { frontend: 0.6, fullstack: 0.5, mobile: 0.6 }
+    resources:
+      - { title: "i18next Docs", url: "https://www.i18next.com/", kind: docs, level: intermediate }
+
+  - id: react-native
+    name: React Native
+    kind: hard
+    domain: frameworks
+    summary: "Building native iOS and Android apps from React components and JavaScript."
+    detection:
+      evidence: deterministic
+      files: ["package.json", "metro.config.*", "app.json"]
+      content_hints: ["react-native", "from 'react-native'", "StyleSheet.create"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [react]
+      tier: 4
+    tracks: { mobile: 0.95, frontend: 0.6, fullstack: 0.4 }
+    resources:
+      - { title: "React Native Docs", url: "https://reactnative.dev/docs/getting-started", kind: docs, level: intermediate }
+
+  # ===== MOBILE batch — frameworks & SDKs =====
+  - id: flutter
+    name: Flutter
+    kind: hard
+    domain: frameworks
+    summary: "Google's UI toolkit for natively compiled apps across mobile, web and desktop from one Dart codebase."
+    detection:
+      evidence: deterministic
+      files: ["pubspec.yaml", "**/lib/main.dart"]
+      content_hints: ["flutter:", "package:flutter", "StatelessWidget", "StatefulWidget"]
+      languages: [dart]
+    graph:
+      requires: [dart]
+      tier: 1
+    tracks: { mobile: 0.95, frontend: 0.3 }
+    resources:
+      - { title: "Flutter Docs", url: "https://docs.flutter.dev/", kind: docs, level: intermediate }
+
+  - id: swiftui
+    name: SwiftUI
+    kind: hard
+    domain: frameworks
+    summary: "Apple's declarative UI framework for building interfaces across all Apple platforms."
+    detection:
+      evidence: llm
+      content_hints: ["import SwiftUI", "some View", "@State", "VStack", "@Binding", "NavigationStack"]
+      languages: [swift]
+    graph:
+      requires: [swift]
+      tier: 1
+    tracks: { mobile: 0.9 }
+    resources:
+      - { title: "SwiftUI Tutorials", url: "https://developer.apple.com/tutorials/swiftui", kind: tutorial, level: intermediate }
+      - { title: "SwiftUI Documentation", url: "https://developer.apple.com/documentation/swiftui", kind: docs, level: intermediate }
+
+  - id: uikit
+    name: UIKit
+    kind: hard
+    domain: frameworks
+    summary: "Apple's imperative iOS UI framework using view controllers, views and Auto Layout."
+    detection:
+      evidence: llm
+      content_hints: ["import UIKit", "UIViewController", "UITableView", "viewDidLoad", "IBOutlet", "UIView"]
+      languages: [swift]
+    graph:
+      requires: [swift]
+      tier: 1
+    tracks: { mobile: 0.85 }
+    resources:
+      - { title: "UIKit Documentation", url: "https://developer.apple.com/documentation/uikit", kind: docs, level: intermediate }
+
+  - id: jetpack-compose
+    name: Jetpack Compose
+    kind: hard
+    domain: frameworks
+    summary: "Android's modern declarative UI toolkit for building native interfaces in Kotlin."
+    detection:
+      evidence: llm
+      content_hints: ["@Composable", "androidx.compose", "MaterialTheme", "remember {", "Modifier.", "Column("]
+      languages: [kotlin]
+    graph:
+      requires: [kotlin]
+      tier: 1
+    tracks: { mobile: 0.9 }
+    resources:
+      - { title: "Jetpack Compose Docs", url: "https://developer.android.com/jetpack/compose", kind: docs, level: intermediate }
+
+  - id: android-sdk
+    name: Android SDK
+    kind: hard
+    domain: frameworks
+    summary: "The core Android platform — activities, intents, resources and the app manifest."
+    detection:
+      evidence: deterministic
+      files: ["**/AndroidManifest.xml", "**/build.gradle", "**/build.gradle.kts"]
+      content_hints: ["android.app", "Activity", "Intent"]
+      languages: [kotlin, java]
+    graph:
+      requires: [kotlin, java]
+      tier: 1
+    tracks: { mobile: 0.85 }
+    resources:
+      - { title: "Android Developer Guides", url: "https://developer.android.com/guide", kind: docs, level: intermediate }
+
+  - id: ios-sdk
+    name: iOS SDK
+    kind: hard
+    domain: frameworks
+    summary: "Apple's iOS platform frameworks, project structure and app lifecycle tooling."
+    detection:
+      evidence: deterministic
+      files: ["**/*.xcodeproj/**", "**/Info.plist", "Podfile", "**/*.xcworkspace/**"]
+      content_hints: ["UIApplicationDelegate", "AppDelegate", "import Foundation"]
+      languages: [swift]
+    graph:
+      requires: [swift]
+      tier: 1
+    tracks: { mobile: 0.85 }
+    resources:
+      - { title: "Apple Developer Documentation", url: "https://developer.apple.com/documentation/", kind: reference, level: intermediate }
+
+  - id: expo
+    name: Expo
+    kind: hard
+    domain: frameworks
+    summary: "A managed toolchain and runtime that speeds up building and shipping React Native apps."
+    detection:
+      evidence: deterministic
+      files: ["app.json", "app.config.*", "eas.json"]
+      content_hints: ["expo", "expo-router", "EXPO_"]
+      languages: [javascript, typescript]
+    graph:
+      requires: [react-native]
+      tier: 5
+    tracks: { mobile: 0.8, frontend: 0.4 }
+    resources:
+      - { title: "Expo Docs", url: "https://docs.expo.dev/", kind: docs, level: intermediate }
+
+  # ===== MOBILE batch — app architecture =====
+  - id: mobile-navigation
+    name: Mobile Navigation
+    kind: concept
+    domain: architecture
+    summary: "Moving between screens with stacks, tabs and drawers in native and cross-platform apps."
+    detection:
+      evidence: llm
+      content_hints: ["NavController", "Navigator", "NavHostController", "react-navigation", "navigationController", "GoRouter"]
+      languages: [javascript, typescript, dart, swift, kotlin]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "React Navigation Docs", url: "https://reactnavigation.org/docs/getting-started", kind: docs, level: intermediate }
+
+  - id: mobile-state
+    name: Mobile State Management
+    kind: concept
+    domain: architecture
+    summary: "Managing app and UI state on mobile with patterns like Provider, Riverpod, Bloc and ViewModel."
+    detection:
+      evidence: llm
+      content_hints: ["Provider", "Riverpod", "Bloc", "ViewModel", "ObservableObject", "StateFlow"]
+      languages: [dart, swift, kotlin, javascript, typescript]
+    graph:
+      requires: [state-management]
+      tier: 4
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "Flutter: State Management", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/intro", kind: docs, level: intermediate }
+
+  - id: mobile-networking
+    name: Mobile Networking
+    kind: concept
+    domain: architecture
+    summary: "Calling APIs from apps with native HTTP clients and serializing JSON responses."
+    detection:
+      evidence: llm
+      content_hints: ["URLSession", "Retrofit", "OkHttp", "Alamofire", "dio", "HttpClient"]
+      languages: [swift, kotlin, dart, java, javascript]
+    graph:
+      requires: [http-fundamentals]
+      tier: 2
+    tracks: { mobile: 0.75, backend: 0.3 }
+    resources:
+      - { title: "Retrofit Docs", url: "https://square.github.io/retrofit/", kind: docs, level: intermediate }
+
+  - id: push-notifications
+    name: Push Notifications
+    kind: concept
+    domain: architecture
+    summary: "Delivering remote alerts to devices via FCM and APNs, including tokens and handlers."
+    detection:
+      evidence: llm
+      content_hints: ["FirebaseMessaging", "APNs", "UNUserNotificationCenter", "FCM", "registerForRemoteNotifications", "onMessageReceived"]
+      languages: [swift, kotlin, dart, javascript, java]
+    graph:
+      requires: [mobile-networking]
+      tier: 3
+    tracks: { mobile: 0.7, backend: 0.3 }
+    resources:
+      - { title: "Firebase Cloud Messaging", url: "https://firebase.google.com/docs/cloud-messaging", kind: docs, level: intermediate }
+
+  - id: mobile-storage
+    name: Mobile Local Storage
+    kind: concept
+    domain: data
+    summary: "Persisting data on-device with SQLite, Room, Core Data and key-value stores."
+    detection:
+      evidence: llm
+      content_hints: ["SQLite", "Room", "CoreData", "AsyncStorage", "sqflite", "UserDefaults"]
+      languages: [swift, kotlin, dart, javascript, java]
+    graph:
+      requires: [programming]
+      tier: 2
+    tracks: { mobile: 0.75, backend: 0.3 }
+    resources:
+      - { title: "Android: Data and storage", url: "https://developer.android.com/training/data-storage", kind: docs, level: intermediate }
+
+  - id: app-lifecycle
+    name: App Lifecycle
+    kind: concept
+    domain: architecture
+    summary: "Reacting to create, resume, pause and background states across a mobile app's life."
+    detection:
+      evidence: llm
+      content_hints: ["onCreate", "onResume", "viewDidLoad", "applicationDidBecomeActive", "AppLifecycleState", "onPause"]
+      languages: [swift, kotlin, dart, java]
+    graph:
+      requires: [programming]
+      tier: 2
+    tracks: { mobile: 0.7 }
+    resources:
+      - { title: "Android: Activity lifecycle", url: "https://developer.android.com/guide/components/activities/activity-lifecycle", kind: docs, level: intermediate }
+
+  - id: mobile-layouts
+    name: Responsive Mobile Layouts
+    kind: concept
+    domain: architecture
+    summary: "Building adaptive screens with constraint, flex and safe-area layout systems on devices."
+    detection:
+      evidence: llm
+      content_hints: ["ConstraintLayout", "AutoLayout", "SafeArea", "MediaQuery", "Flexible", "LazyColumn"]
+      languages: [dart, swift, kotlin, javascript]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "Flutter: Layouts", url: "https://docs.flutter.dev/ui/layout", kind: docs, level: intermediate }
+
+  - id: gestures-touch
+    name: Gestures & Touch
+    kind: concept
+    domain: paradigms
+    summary: "Handling taps, drags, swipes and multi-touch gestures in mobile interfaces."
+    detection:
+      evidence: llm
+      content_hints: ["GestureDetector", "onTap", "PanGesture", "TapGestureRecognizer", "onPanUpdate", "TouchableOpacity"]
+      languages: [dart, swift, kotlin, javascript]
+    graph:
+      requires: [components]
+      tier: 3
+    tracks: { mobile: 0.75, frontend: 0.3 }
+    resources:
+      - { title: "Flutter: Gestures", url: "https://docs.flutter.dev/ui/interactivity/gestures", kind: docs, level: intermediate }
+
+  # ===== MOBILE batch — device capabilities & quality =====
+  - id: mobile-auth
+    name: Mobile Authentication
+    kind: concept
+    domain: architecture
+    summary: "Securing apps with biometrics, OAuth flows and secure on-device credential storage."
+    detection:
+      evidence: llm
+      content_hints: ["BiometricPrompt", "LocalAuthentication", "FaceID", "TouchID", "Keychain", "EncryptedSharedPreferences"]
+      languages: [swift, kotlin, dart, javascript]
+    graph:
+      requires: [auth]
+      tier: 4
+    tracks: { mobile: 0.75, backend: 0.3 }
+    resources:
+      - { title: "Android: Biometric auth", url: "https://developer.android.com/training/sign-in/biometric-auth", kind: docs, level: advanced }
+
+  - id: camera-sensors
+    name: Camera & Sensors
+    kind: concept
+    domain: architecture
+    summary: "Capturing photos and reading device sensors like the accelerometer and gyroscope."
+    detection:
+      evidence: llm
+      content_hints: ["AVFoundation", "CameraX", "image_picker", "accelerometer", "CMMotionManager", "SensorManager"]
+      languages: [swift, kotlin, dart, javascript, java]
+    graph:
+      requires: [programming]
+      tier: 2
+    tracks: { mobile: 0.75 }
+    resources:
+      - { title: "Android: CameraX", url: "https://developer.android.com/media/camera/camerax", kind: docs, level: intermediate }
+
+  - id: maps-geolocation
+    name: Maps & Geolocation
+    kind: concept
+    domain: architecture
+    summary: "Showing maps and tracking device location with platform location services and SDKs."
+    detection:
+      evidence: llm
+      content_hints: ["CLLocationManager", "FusedLocationProvider", "Geolocator", "MapKit", "GoogleMap", "navigator.geolocation"]
+      languages: [swift, kotlin, dart, javascript]
+    graph:
+      requires: [programming]
+      tier: 2
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "Google Maps Platform Docs", url: "https://developers.google.com/maps/documentation", kind: docs, level: intermediate }
+
+  - id: deep-linking
+    name: Deep Linking
+    kind: concept
+    domain: architecture
+    summary: "Routing users into specific app screens via URL schemes, App Links and universal links."
+    detection:
+      evidence: llm
+      content_hints: ["deep link", "universal link", "App Links", "URL scheme", "onGenerateRoute", "Linking.openURL"]
+      languages: [swift, kotlin, dart, javascript]
+    graph:
+      requires: [mobile-navigation]
+      tier: 4
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "Android: App Links", url: "https://developer.android.com/training/app-links", kind: docs, level: advanced }
+
+  - id: mobile-performance
+    name: Mobile Performance
+    kind: concept
+    domain: quality
+    summary: "Keeping apps smooth — eliminating jank, reducing memory use and profiling render time."
+    detection:
+      evidence: llm
+      content_hints: ["jank", "frame rate", "memory leak", "Instruments", "profile build", "render performance"]
+      languages: [swift, kotlin, dart, javascript, java]
+    graph:
+      requires: [performance-optimization]
+      tier: 4
+    tracks: { mobile: 0.7 }
+    resources:
+      - { title: "Android: App performance", url: "https://developer.android.com/topic/performance", kind: docs, level: advanced }
+
+  - id: mobile-testing
+    name: Mobile Testing
+    kind: hard
+    domain: quality
+    summary: "Testing mobile apps with unit, widget and UI frameworks like XCTest, Espresso and Detox."
+    detection:
+      evidence: hybrid
+      signals: [hasTests]
+      content_hints: ["XCTest", "Espresso", "XCUITest", "flutter_test", "Detox", "androidx.test"]
+      languages: [swift, kotlin, dart, java, javascript]
+    graph:
+      requires: [testing]
+      tier: 2
+    tracks: { mobile: 0.75 }
+    resources:
+      - { title: "Android: Test apps", url: "https://developer.android.com/training/testing", kind: docs, level: intermediate }
+      - { title: "Flutter: Testing", url: "https://docs.flutter.dev/testing", kind: docs, level: intermediate }
+
+  - id: mobile-accessibility
+    name: Mobile Accessibility
+    kind: concept
+    domain: quality
+    summary: "Making apps usable with screen readers and accessible labels on iOS and Android."
+    detection:
+      evidence: llm
+      content_hints: ["contentDescription", "accessibilityLabel", "Semantics", "VoiceOver", "TalkBack", "importantForAccessibility"]
+      languages: [swift, kotlin, dart, javascript]
+    graph:
+      requires: [accessibility]
+      tier: 3
+    tracks: { mobile: 0.7, frontend: 0.3 }
+    resources:
+      - { title: "Android: Accessibility", url: "https://developer.android.com/guide/topics/ui/accessibility", kind: docs, level: intermediate }
+
+  - id: app-store-deploy
+    name: App Store Deployment
+    kind: concept
+    domain: infrastructure
+    summary: "Building, signing and releasing apps to the App Store and Google Play, often via Fastlane."
+    detection:
+      evidence: deterministic
+      files: ["fastlane/**", "**/Fastfile", "**/ExportOptions.plist"]
+      content_hints: ["fastlane", "gym", "supply"]
+      languages: []
+    graph:
+      requires: [ci]
+      tier: 3
+    tracks: { mobile: 0.75, infrastructure: 0.4 }
+    resources:
+      - { title: "fastlane Docs", url: "https://docs.fastlane.tools/", kind: docs, level: intermediate }
+
+  # ===== BACKEND + DATA batch — server frameworks, data stores & service architecture =====
+  - id: django
+    name: Django
+    kind: hard
+    domain: frameworks
+    summary: "Python's batteries-included web framework — ORM, admin, auth and routing out of the box."
+    detection:
+      evidence: deterministic
+      files: ["**/manage.py", "**/settings.py", "**/wsgi.py", "**/asgi.py", "requirements.txt", "pyproject.toml"]
+      content_hints: ["django", "INSTALLED_APPS", "urlpatterns", "models.Model"]
+      languages: [python]
+    graph:
+      requires: [web-frameworks]
+      tier: 4
+    tracks: { backend: 0.85, fullstack: 0.7 }
+    resources:
+      - { title: "Django Documentation", url: "https://docs.djangoproject.com/en/stable/", kind: docs, level: intermediate }
+
+  - id: fastapi
+    name: FastAPI
+    kind: hard
+    domain: frameworks
+    summary: "Modern async Python framework for fast, type-hinted APIs with automatic OpenAPI docs."
+    detection:
+      evidence: deterministic
+      files: ["requirements.txt", "pyproject.toml", "**/*.py"]
+      content_hints: ["from fastapi import", "FastAPI()", "@app.get", "@app.post", "APIRouter"]
+      languages: [python]
+    graph:
+      requires: [web-frameworks]
+      tier: 4
+    tracks: { backend: 0.85, fullstack: 0.7 }
+    resources:
+      - { title: "FastAPI Documentation", url: "https://fastapi.tiangolo.com/", kind: docs, level: intermediate }
+
+  - id: express
+    name: Express
+    kind: hard
+    domain: frameworks
+    summary: "Minimal, unopinionated Node.js framework for routing and middleware-based HTTP servers."
+    detection:
+      evidence: deterministic
+      files: ["package.json", "**/*.js", "**/*.ts"]
+      content_hints: ["require('express')", "from 'express'", "express()", "app.use(", "app.listen("]
+      languages: [javascript, typescript]
+    graph:
+      requires: [web-frameworks]
+      tier: 4
+    tracks: { backend: 0.8, fullstack: 0.75 }
+    resources:
+      - { title: "Express Documentation", url: "https://expressjs.com/", kind: docs, level: intermediate }
+
+  - id: spring-boot
+    name: Spring Boot
+    kind: hard
+    domain: frameworks
+    summary: "Convention-over-configuration Java framework for production-ready services and REST APIs."
+    detection:
+      evidence: deterministic
+      files: ["pom.xml", "build.gradle", "build.gradle.kts", "**/application.properties", "**/application.yml"]
+      content_hints: ["spring-boot", "@SpringBootApplication", "@RestController", "@Autowired"]
+      languages: [java, kotlin]
+    graph:
+      requires: [web-frameworks]
+      tier: 4
+    tracks: { backend: 0.85, fullstack: 0.55 }
+    resources:
+      - { title: "Spring Boot", url: "https://spring.io/projects/spring-boot", kind: docs, level: intermediate }
+
+  - id: rails
+    name: Ruby on Rails
+    kind: hard
+    domain: frameworks
+    summary: "Ruby's opinionated, convention-driven framework for database-backed web apps."
+    detection:
+      evidence: deterministic
+      files: ["Gemfile", "config/routes.rb", "config/application.rb", "**/*.rb"]
+      content_hints: ["rails", "ActiveRecord::Base", "ApplicationController", "ActionController"]
+      languages: [ruby]
+    graph:
+      requires: [web-frameworks]
+      tier: 4
+    tracks: { backend: 0.8, fullstack: 0.7 }
+    resources:
+      - { title: "Ruby on Rails Guides", url: "https://guides.rubyonrails.org/", kind: docs, level: intermediate }
+
+  - id: postgresql
+    name: PostgreSQL
+    kind: hard
+    domain: data
+    summary: "A powerful open-source relational database with rich SQL, JSON and indexing features."
+    detection:
+      evidence: deterministic
+      files: ["**/*.sql", "**/migrations/**", "docker-compose.yml", "docker-compose.yaml"]
+      content_hints: ["postgres", "psycopg2", "postgresql://", "jsonb", "pg_"]
+      languages: [sql, python, javascript, typescript]
+    graph:
+      requires: [sql]
+      tier: 3
+    tracks: { backend: 0.8, fullstack: 0.55, infrastructure: 0.3 }
+    resources:
+      - { title: "PostgreSQL Documentation", url: "https://www.postgresql.org/docs/", kind: docs, level: intermediate }
+
+  - id: mongodb
+    name: MongoDB
+    kind: hard
+    domain: data
+    summary: "A document-oriented NoSQL database storing flexible JSON-like records in collections."
+    detection:
+      evidence: deterministic
+      files: ["package.json", "requirements.txt", "docker-compose.yml", "**/*.js", "**/*.ts", "**/*.py"]
+      content_hints: ["mongodb://", "mongoose", "pymongo", "MongoClient", "collection.find"]
+      languages: [javascript, typescript, python, java, go]
+    graph:
+      requires: [databases]
+      tier: 3
+    tracks: { backend: 0.75, fullstack: 0.6 }
+    resources:
+      - { title: "MongoDB Manual", url: "https://www.mongodb.com/docs/manual/", kind: docs, level: intermediate }
+
+  - id: redis
+    name: Redis
+    kind: hard
+    domain: data
+    summary: "An in-memory key-value store used for caching, sessions, queues and real-time data."
+    detection:
+      evidence: deterministic
+      files: ["requirements.txt", "package.json", "docker-compose.yml", "docker-compose.yaml"]
+      content_hints: ["redis", "redis://", "ioredis", "createClient", "StrictRedis"]
+      languages: [python, javascript, typescript, go, java, ruby]
+    graph:
+      requires: [databases, caching]
+      tier: 5
+    tracks: { backend: 0.7, fullstack: 0.5, infrastructure: 0.5, systems: 0.4 }
+    resources:
+      - { title: "Redis Documentation", url: "https://redis.io/docs/latest/", kind: docs, level: intermediate }
+
+  - id: database-migrations
+    name: Database Migrations
+    kind: concept
+    domain: data
+    summary: "Evolving a database schema safely over time with versioned, repeatable change scripts."
+    detection:
+      evidence: llm
+      content_hints: ["migration", "alembic", "createTable", "add_column", "schema.up", "knex.schema"]
+      languages: [python, javascript, typescript, ruby, java, "c#", php, sql]
+    graph:
+      requires: [orm]
+      tier: 4
+    tracks: { backend: 0.75, fullstack: 0.6 }
+    resources:
+      - { title: "Django: Migrations", url: "https://docs.djangoproject.com/en/stable/topics/migrations/", kind: docs, level: intermediate }
+
+  - id: database-indexing
+    name: Database Indexing
+    kind: concept
+    domain: data
+    summary: "Speeding up queries with indexes — and knowing the read/write trade-offs they bring."
+    detection:
+      evidence: llm
+      content_hints: ["CREATE INDEX", "db_index", "addIndex", "composite index", "EXPLAIN", "B-tree"]
+      languages: [sql, python, javascript, typescript, java, ruby]
+    graph:
+      requires: [sql, databases]
+      tier: 3
+    tracks: { backend: 0.75, fullstack: 0.5 }
+    resources:
+      - { title: "Use The Index, Luke!", url: "https://use-the-index-luke.com/", kind: reference, level: intermediate }
+      - { title: "PostgreSQL: Indexes", url: "https://www.postgresql.org/docs/current/indexes.html", kind: docs, level: advanced }
+
+  - id: graphql
+    name: GraphQL
+    kind: concept
+    domain: architecture
+    summary: "A query language for APIs letting clients request exactly the data they need in one call."
+    detection:
+      evidence: llm
+      content_hints: ["type Query", "gql`", "buildSchema", "@Resolver", "graphene", "ApolloServer"]
+      languages: [javascript, typescript, python, java, ruby, go]
+    graph:
+      requires: [rest-apis]
+      tier: 3
+    tracks: { backend: 0.8, fullstack: 0.7, frontend: 0.4 }
+    resources:
+      - { title: "GraphQL: Learn", url: "https://graphql.org/learn/", kind: docs, level: intermediate }
+
+  - id: websockets
+    name: WebSockets
+    kind: concept
+    domain: architecture
+    summary: "Full-duplex, persistent connections for real-time messaging between client and server."
+    detection:
+      evidence: llm
+      content_hints: ["WebSocket", "socket.io", "ws://", "onmessage", "emit(", "websockets.connect"]
+      languages: [javascript, typescript, python, go, java]
+    graph:
+      requires: [http-fundamentals]
+      tier: 2
+    tracks: { backend: 0.75, fullstack: 0.6, frontend: 0.4, systems: 0.4 }
+    resources:
+      - { title: "MDN: WebSockets API", url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API", kind: docs, level: intermediate }
+
+  - id: message-queues
+    name: Message Queues
+    kind: concept
+    domain: architecture
+    summary: "Decoupling services with asynchronous messaging via brokers like RabbitMQ and Kafka."
+    detection:
+      evidence: llm
+      content_hints: ["rabbitmq", "kafka", "amqp", "KafkaProducer", "basic_publish", "celery"]
+      languages: [python, javascript, typescript, java, go, "c#"]
+    graph:
+      requires: [rest-apis]
+      tier: 3
+    tracks: { backend: 0.8, fullstack: 0.55, infrastructure: 0.5, systems: 0.4 }
+    resources:
+      - { title: "Apache Kafka Documentation", url: "https://kafka.apache.org/documentation/", kind: docs, level: advanced }
+      - { title: "RabbitMQ Tutorials", url: "https://www.rabbitmq.com/tutorials", kind: tutorial, level: intermediate }
+
+  - id: microservices
+    name: Microservices
+    kind: concept
+    domain: architecture
+    summary: "Structuring a system as small, independently deployable services that talk over the network."
+    detection:
+      evidence: llm
+      content_hints: ["microservice", "service discovery", "api gateway", "grpc", "circuit breaker", "message broker"]
+      languages: [python, javascript, typescript, java, go, "c#"]
+    graph:
+      requires: [rest-apis, web-frameworks]
+      tier: 4
+    tracks: { backend: 0.8, fullstack: 0.55, infrastructure: 0.5 }
+    resources:
+      - { title: "Martin Fowler: Microservices", url: "https://martinfowler.com/articles/microservices.html", kind: reference, level: advanced }

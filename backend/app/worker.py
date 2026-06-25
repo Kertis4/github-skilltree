@@ -37,6 +37,8 @@ _SKILL_DEFS = {
     "functional": "Functional style: pure/higher-order functions, map/filter/reduce, comprehensions/LINQ, immutability.",
     "async": "Asynchronous/concurrent code: async/await, promises, coroutines, threads, concurrency primitives.",
     "error-handling": "Robust error handling: try/except, custom error types, input validation, graceful failure.",
+    "databases": "Database usage: SQL queries, schema/table design, sqlite3/Postgres/MySQL/Mongo clients, connections, CRUD, indexing - even when the database file is gitignored and only the init/query code is committed.",
+    "orm": "ORM / data-mapper usage: SQLAlchemy, Prisma, Sequelize, TypeORM, Django ORM, ActiveRecord - model classes mapped to tables, query builders, relations, migrations.",
 }
 
 _SYSTEM_PROMPT = (
@@ -110,7 +112,9 @@ def _build_user_prompt(digest: dict, gap: list[str], excerpts: list[dict]) -> st
         f"Languages: {langs or 'n/a'}",
         f"Structure: {structure.get('fileCount', 0)} files, "
         f"{structure.get('dirCount', 0)} dirs, depth {structure.get('maxDepth', 0)}",
-        f"Signals: tests={signals.get('hasTests')}, typing-config={signals.get('hasLint')}",
+        f"Signals: tests={signals.get('hasTests')}, typing-config={signals.get('hasLint')}, "
+        f"sql-files={signals.get('hasSql')}, db-config={signals.get('hasDatabase')}, "
+        f"orm-config={signals.get('hasOrm')}",
         "",
         "Candidate skills to assess (assess ONLY these):",
         candidates,
@@ -200,6 +204,11 @@ def _insight(
     # Language skills are deterministic facts about the repo, independent of the
     # LLM path taken, so resolve them here for every insight.
     language_skills = detectors.detect_language_skills(digest)
+    all_skills = language_skills + skills
+    # Seed databases/orm from deterministic data-file signals so persistence work
+    # registers even on the heuristic-only path (and upgrades an LLM 'absent' when
+    # the files plainly show otherwise).
+    detectors.seed_data_skills(digest, all_skills)
     return {
         "nameWithOwner": digest.get("nameWithOwner"),
         "primaryLanguage": (digest.get("primaryLanguage") or {}).get("name"),
@@ -210,7 +219,7 @@ def _insight(
         "llmUsed": llm_used,
         "llmSkipped": llm_skipped,
         "filesExamined": files_examined,
-        "skills": language_skills + skills,
+        "skills": all_skills,
         "summary": summary,
         "signalsEcho": digest.get("signals") or {},
         "error": error,
