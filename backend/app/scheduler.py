@@ -90,7 +90,9 @@ def _build_skillset(repo_insights: dict, *, now: datetime, score_scale: float) -
     confidence/source provenance, plus capped, path-cited ``evidence`` and the strongest
     contributing repos (``exemplarRepos``). Per-repo skill triage is intentionally dropped.
     """
-    hard = set(detectors.HARD_SKILLS)
+    # Deterministic skills (HARD heuristics + language detection) are facts, so
+    # their strength gate is 1.0; SOFT paradigm skills are gated by model confidence.
+    hard = set(detectors.HARD_SKILLS) | set(detectors.LANGUAGE_SKILLS)
     skillset: dict[str, dict] = {}
     for skill_id in detectors.TAXONOMY:
         spread: list[str] = []

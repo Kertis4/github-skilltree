@@ -10,6 +10,8 @@ export interface SkillNodePosition {
   x: number;
   y: number;
   radius: number;
+  /** Extra vertical offset for the label, used to stagger dense rows. */
+  labelDy?: number;
 }
 
 export interface TreeLayout {
@@ -19,17 +21,36 @@ export interface TreeLayout {
 }
 
 /**
+ * Options for the dependency-layered layout. When `levelOf` is supplied the
+ * layout places nodes in fixed rows (by dependency depth) and orders siblings to
+ * sit under their parents, instead of the legacy parent-chain-depth packing.
+ */
+export interface LayeredLayoutOptions {
+  levelOf: (skillId: string) => number;
+  spacingX?: number;
+  spacingY?: number;
+}
+
+/**
  * Calculate positions for skill nodes in a hierarchical tree layout.
  * Uses a simple level-based positioning algorithm:
  * - Root at center top
  * - Each level moves down
  * - Siblings spread horizontally
+ *
+ * When `options` is provided, switches to the dependency-layered algorithm
+ * (rows by `levelOf`, barycenter sibling ordering, staggered labels).
  */
 export const calculateTreeLayout = (
   skills: Skill[],
   maxWidth: number = 800,
-  maxHeight: number = 600
+  maxHeight: number = 600,
+  options?: LayeredLayoutOptions
 ): TreeLayout => {
+  if (options) {
+    return layeredLayout(skills, options);
+  }
+
   const nodes: SkillNodePosition[] = [];
   const connections: Array<{ from: string; to: string }> = [];
   const nodeRadius = 30; // SVG circle/hexagon radius
@@ -101,6 +122,118 @@ export const calculateTreeLayout = (
     connections,
     bounds: { width: maxWidth, height: maxHeight },
   };
+};
+
+/**
+ * Dependency-layered layout (Sugiyama-lite).
+ *
+ * Rows come from `levelOf` (the prerequisite depth), so foundations sit at the
+ * top and advanced skills flow down. Within each row, nodes are ordered by the
+ * barycenter (average position) of their parents/children over a few passes, so
+ * children cluster beneath their prerequisites and edges rarely cross. Labels
+ * alternate vertical offset to stop neighbouring captions overlapping.
+ */
+const layeredLayout = (
+  skills: Skill[],
+  options: LayeredLayoutOptions
+): TreeLayout => {
+  const nodeRadius = 28;
+  const spacingX = options.spacingX ?? 160;
+  const spacingY = options.spacingY ?? 158;
+
+  // Bucket nodes by level.
+  const byLevel = new Map<number, Skill[]>();
+  let maxLevel = 0;
+  skills.forEach((s) => {
+    const level = Math.max(0, Math.round(options.levelOf(s.id)));
+    maxLevel = Math.max(maxLevel, level);
+    if (!byLevel.has(level)) byLevel.set(level, []);
+    byLevel.get(level)!.push(s);
+  });
+
+  // Stable initial order: cluster by category, then id.
+  for (const arr of byLevel.values()) {
+    arr.sort((a, b) =>
+      a.category === b.category
+        ? a.id < b.id
+          ? -1
+          : 1
+        : a.category < b.category
+          ? -1
+          : 1
+    );
+  }
+
+  // Index of each node within its row (kept in sync as we reorder).
+  const pos = new Map<string, number>();
+  const reindex = () => {
+    for (const arr of byLevel.values()) arr.forEach((s, i) => pos.set(s.id, i));
+  };
+  reindex();
+
+  const childrenOf = new Map<string, string[]>();
+  skills.forEach((s) => {
+    if (s.parent_id) {
+      if (!childrenOf.has(s.parent_id)) childrenOf.set(s.parent_id, []);
+      childrenOf.get(s.parent_id)!.push(s.id);
+    }
+  });
+
+  const barycenter = (ids: string[]): number =>
+    ids.length === 0
+      ? Number.POSITIVE_INFINITY
+      : ids.reduce((sum, id) => sum + (pos.get(id) ?? 0), 0) / ids.length;
+
+  // Alternate downward (order by parents) and upward (order by children) sweeps.
+  for (let pass = 0; pass < 6; pass++) {
+    const down = pass % 2 === 0;
+    const order = down
+      ? Array.from({ length: maxLevel }, (_, i) => i + 1)
+      : Array.from({ length: maxLevel }, (_, i) => maxLevel - 1 - i);
+    for (const level of order) {
+      const arr = byLevel.get(level);
+      if (!arr) continue;
+      arr.sort((a, b) => {
+        const ba = down
+          ? barycenter(a.parent_id ? [a.parent_id] : [])
+          : barycenter(childrenOf.get(a.id) ?? []);
+        const bb = down
+          ? barycenter(b.parent_id ? [b.parent_id] : [])
+          : barycenter(childrenOf.get(b.id) ?? []);
+        if (ba !== bb) return ba - bb;
+        return (pos.get(a.id) ?? 0) - (pos.get(b.id) ?? 0);
+      });
+      reindex();
+    }
+  }
+
+  // Assign coordinates. Canvas width is driven by the widest row.
+  const widest = Math.max(1, ...Array.from(byLevel.values(), (a) => a.length));
+  const canvasWidth = widest * spacingX + spacingX;
+  const nodes: SkillNodePosition[] = [];
+  const connections: Array<{ from: string; to: string }> = [];
+
+  for (let level = 0; level <= maxLevel; level++) {
+    const arr = byLevel.get(level);
+    if (!arr) continue;
+    const count = arr.length;
+    const rowWidth = (count - 1) * spacingX;
+    const startX = (canvasWidth - rowWidth) / 2;
+    const y = spacingY * 0.85 + level * spacingY;
+    arr.forEach((s, i) => {
+      nodes.push({
+        skillId: s.id,
+        x: count === 1 ? canvasWidth / 2 : startX + i * spacingX,
+        y,
+        radius: nodeRadius,
+        labelDy: i % 2 === 0 ? 0 : 17,
+      });
+      if (s.parent_id) connections.push({ from: s.parent_id, to: s.id });
+    });
+  }
+
+  const canvasHeight = spacingY * 0.85 + maxLevel * spacingY + spacingY;
+  return { nodes, connections, bounds: { width: canvasWidth, height: canvasHeight } };
 };
 
 /**

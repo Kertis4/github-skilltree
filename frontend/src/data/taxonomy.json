@@ -1,0 +1,1333 @@
+{
+  "version": "0.1.0-slice",
+  "tracks": [
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "color": "cyan",
+      "icon": "code",
+      "blurb": "Building user interfaces \u2014 markup, components, state and the browser platform."
+    },
+    {
+      "id": "fullstack",
+      "label": "Fullstack",
+      "color": "green",
+      "icon": "tree",
+      "blurb": "End-to-end product work spanning the UI, the API and the data beneath it."
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "color": "magenta",
+      "icon": "terminal",
+      "blurb": "Services, APIs, data and the logic that powers them."
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "color": "amber",
+      "icon": "cpu",
+      "blurb": "How code ships and runs \u2014 containers, pipelines and infrastructure-as-code."
+    },
+    {
+      "id": "systems",
+      "label": "Systems",
+      "color": "purple",
+      "icon": "bolt",
+      "blurb": "Lower-level and performance-sensitive work \u2014 memory, concurrency, protocols."
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile",
+      "color": "red",
+      "icon": "radar",
+      "blurb": "Native and cross-platform apps for phones and tablets."
+    }
+  ],
+  "domains": [
+    {
+      "id": "languages",
+      "label": "Languages",
+      "color": "cyan",
+      "icon": "code"
+    },
+    {
+      "id": "paradigms",
+      "label": "Paradigms",
+      "color": "magenta",
+      "icon": "sparkles"
+    },
+    {
+      "id": "frameworks",
+      "label": "Frameworks",
+      "color": "purple",
+      "icon": "bolt"
+    },
+    {
+      "id": "architecture",
+      "label": "Architecture",
+      "color": "green",
+      "icon": "tree"
+    },
+    {
+      "id": "build-tooling",
+      "label": "Build & Tooling",
+      "color": "amber",
+      "icon": "cpu"
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "color": "blue",
+      "icon": "terminal"
+    },
+    {
+      "id": "quality",
+      "label": "Quality",
+      "color": "accent",
+      "icon": "shield"
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "color": "red",
+      "icon": "radar"
+    }
+  ],
+  "skills": [
+    {
+      "id": "git",
+      "name": "Version Control (Git)",
+      "kind": "hard",
+      "domain": "build-tooling",
+      "summary": "Tracking changes with Git: commits, branches, merges and collaboration.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          ".git/**",
+          ".gitignore"
+        ],
+        "contentHints": [],
+        "languages": []
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "frontend": 0.5,
+        "fullstack": 0.5,
+        "backend": 0.5,
+        "infrastructure": 0.6,
+        "systems": 0.4,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "Pro Git (book)",
+          "url": "https://git-scm.com/book",
+          "kind": "book",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "kind": "hard",
+      "domain": "languages",
+      "summary": "The language of the web \u2014 the runtime for browsers and Node.js.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "**/*.js",
+          "**/*.mjs",
+          "**/*.jsx",
+          "package.json"
+        ],
+        "contentHints": [],
+        "languages": [
+          "javascript"
+        ]
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "frontend": 1.0,
+        "fullstack": 0.8,
+        "backend": 0.4,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+          "kind": "docs",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "kind": "hard",
+      "domain": "languages",
+      "summary": "Typed JavaScript \u2014 static types that catch errors before runtime.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "**/*.ts",
+          "**/*.tsx",
+          "tsconfig.json"
+        ],
+        "contentHints": [],
+        "languages": [
+          "typescript"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "javascript"
+        ],
+        "tier": 1
+      },
+      "tracks": {
+        "frontend": 0.9,
+        "fullstack": 0.8,
+        "backend": 0.5,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "TypeScript Handbook",
+          "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "kind": "hard",
+      "domain": "languages",
+      "summary": "A versatile, readable language for backends, data and scripting.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "**/*.py",
+          "pyproject.toml",
+          "requirements.txt"
+        ],
+        "contentHints": [],
+        "languages": [
+          "python"
+        ]
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "backend": 0.8,
+        "fullstack": 0.5,
+        "systems": 0.5,
+        "infrastructure": 0.4
+      },
+      "resources": [
+        {
+          "title": "The Python Tutorial",
+          "url": "https://docs.python.org/3/tutorial/",
+          "kind": "tutorial",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "html-css",
+      "name": "HTML & CSS",
+      "kind": "hard",
+      "domain": "languages",
+      "summary": "The structure and style of the web \u2014 semantic markup and layout.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "**/*.html",
+          "**/*.css",
+          "**/*.scss"
+        ],
+        "contentHints": [],
+        "languages": [
+          "html",
+          "css",
+          "scss"
+        ]
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "frontend": 1.0,
+        "fullstack": 0.6,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "MDN: Learn HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML",
+          "kind": "docs",
+          "level": "basic"
+        },
+        {
+          "title": "web.dev: Learn CSS",
+          "url": "https://web.dev/learn/css/",
+          "kind": "course",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "programming",
+      "name": "Programming Basics",
+      "kind": "concept",
+      "domain": "paradigms",
+      "summary": "Writing, running and debugging code \u2014 variables, control flow, functions and data structures.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [
+          "hasSourceCode"
+        ],
+        "files": [],
+        "contentHints": [],
+        "languages": []
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "frontend": 0.9,
+        "fullstack": 0.9,
+        "backend": 0.9,
+        "infrastructure": 0.6,
+        "systems": 0.9,
+        "mobile": 0.9
+      },
+      "resources": [
+        {
+          "title": "freeCodeCamp",
+          "url": "https://www.freecodecamp.org/learn/",
+          "kind": "course",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "oop",
+      "name": "Object-Oriented Design",
+      "kind": "concept",
+      "domain": "paradigms",
+      "summary": "Modelling with classes, encapsulation, inheritance and polymorphism.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "class ",
+          "def __init__",
+          "extends ",
+          "implements ",
+          "interface "
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "java",
+          "c#",
+          "c++",
+          "ruby",
+          "kotlin",
+          "swift",
+          "php",
+          "scala"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "programming"
+        ],
+        "tier": 1
+      },
+      "tracks": {
+        "backend": 0.7,
+        "frontend": 0.4,
+        "fullstack": 0.6,
+        "mobile": 0.6,
+        "systems": 0.5
+      },
+      "resources": [
+        {
+          "title": "MDN: Object-oriented programming",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "functional",
+      "name": "Functional Programming",
+      "kind": "concept",
+      "domain": "paradigms",
+      "summary": "Pure & higher-order functions, immutability, map/filter/reduce.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          ".map(",
+          ".filter(",
+          ".reduce(",
+          "=>",
+          "lambda ",
+          "const "
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "scala",
+          "f#",
+          "haskell",
+          "elixir",
+          "clojure",
+          "kotlin"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "programming"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "frontend": 0.6,
+        "backend": 0.5,
+        "fullstack": 0.6,
+        "systems": 0.4
+      },
+      "resources": [
+        {
+          "title": "Python: Functional Programming HOWTO",
+          "url": "https://docs.python.org/3/howto/functional.html",
+          "kind": "reference",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "async",
+      "name": "Async & Concurrency",
+      "kind": "concept",
+      "domain": "paradigms",
+      "summary": "Non-blocking code: async/await, promises, coroutines, concurrency.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "async ",
+          "await ",
+          "Promise",
+          "asyncio",
+          "goroutine",
+          "Future"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "c#",
+          "rust",
+          "go",
+          "kotlin",
+          "dart",
+          "elixir",
+          "scala"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "programming"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "frontend": 0.6,
+        "backend": 0.7,
+        "fullstack": 0.6,
+        "systems": 0.6,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "MDN: Asynchronous JavaScript",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "error-handling",
+      "name": "Error Handling",
+      "kind": "concept",
+      "domain": "quality",
+      "summary": "Robust failure handling: exceptions, custom errors, input validation.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "try",
+          "except",
+          "catch",
+          "throw",
+          "raise",
+          "Result",
+          "err != nil"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "java",
+          "c#",
+          "go",
+          "rust",
+          "ruby",
+          "kotlin",
+          "swift"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "programming"
+        ],
+        "tier": 1
+      },
+      "tracks": {
+        "frontend": 0.5,
+        "backend": 0.7,
+        "fullstack": 0.6,
+        "systems": 0.6,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "MDN: try...catch",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+          "kind": "reference",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "name": "Automated Testing",
+      "kind": "concept",
+      "domain": "quality",
+      "summary": "Proving code works: unit, integration and end-to-end tests.",
+      "detection": {
+        "evidence": "hybrid",
+        "signals": [
+          "hasTests"
+        ],
+        "files": [],
+        "contentHints": [
+          "def test_",
+          "it(",
+          "describe(",
+          "assert",
+          "expect("
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "java",
+          "c#",
+          "go",
+          "rust",
+          "ruby"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "programming"
+        ],
+        "tier": 1
+      },
+      "tracks": {
+        "frontend": 0.7,
+        "backend": 0.7,
+        "fullstack": 0.7,
+        "infrastructure": 0.5,
+        "systems": 0.6,
+        "mobile": 0.6
+      },
+      "resources": [
+        {
+          "title": "pytest documentation",
+          "url": "https://docs.pytest.org/",
+          "kind": "docs",
+          "level": "intermediate"
+        },
+        {
+          "title": "Jest: Getting Started",
+          "url": "https://jestjs.io/docs/getting-started",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "name": "Documentation",
+      "kind": "concept",
+      "domain": "quality",
+      "summary": "Explaining the code: READMEs, API docs and inline comments.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [
+          "hasReadme"
+        ],
+        "files": [
+          "**/*.md",
+          "**/*.rst",
+          "docs/**"
+        ],
+        "contentHints": [],
+        "languages": []
+      },
+      "graph": {
+        "requires": [],
+        "tier": 0
+      },
+      "tracks": {
+        "frontend": 0.5,
+        "backend": 0.5,
+        "fullstack": 0.5,
+        "infrastructure": 0.5,
+        "systems": 0.5,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "Write the Docs: Documentation Guide",
+          "url": "https://www.writethedocs.org/guide/",
+          "kind": "reference",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "name": "Component Architecture",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "Composing UIs from reusable, encapsulated components with clear props/state.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "function Component",
+          "props",
+          "useState",
+          "@Component",
+          "render()"
+        ],
+        "languages": [
+          "javascript",
+          "typescript",
+          "dart",
+          "swift",
+          "kotlin"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "javascript"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "frontend": 1.0,
+        "fullstack": 0.7,
+        "mobile": 0.6
+      },
+      "resources": [
+        {
+          "title": "React: Your First Component",
+          "url": "https://react.dev/learn/your-first-component",
+          "kind": "docs",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "state-management",
+      "name": "State Management",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "Modelling and sharing UI state predictably across a component tree.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "useReducer",
+          "useContext",
+          "store",
+          "dispatch",
+          "redux",
+          "signal("
+        ],
+        "languages": [
+          "javascript",
+          "typescript"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "components"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "frontend": 1.0,
+        "fullstack": 0.6,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "React: Managing State",
+          "url": "https://react.dev/learn/managing-state",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "kind": "hard",
+      "domain": "frameworks",
+      "summary": "A component-based library for building interactive user interfaces.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "package.json"
+        ],
+        "contentHints": [
+          "\"react\"",
+          "from 'react'",
+          "from \"react\""
+        ],
+        "languages": [
+          "javascript",
+          "typescript"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "javascript",
+          "components"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "frontend": 0.95,
+        "fullstack": 0.7,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "react.dev: Learn React",
+          "url": "https://react.dev/learn",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "webpack",
+      "name": "Webpack / Bundlers",
+      "kind": "hard",
+      "domain": "build-tooling",
+      "summary": "Bundling and transforming front-end assets for the browser.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "webpack.config.*",
+          "vite.config.*",
+          "rollup.config.*"
+        ],
+        "contentHints": [],
+        "languages": [
+          "javascript",
+          "typescript"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "javascript"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "frontend": 0.8,
+        "fullstack": 0.5
+      },
+      "resources": [
+        {
+          "title": "webpack: Concepts",
+          "url": "https://webpack.js.org/concepts/",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility (a11y)",
+      "kind": "concept",
+      "domain": "quality",
+      "summary": "Making interfaces usable by everyone \u2014 semantics, ARIA, keyboard, contrast.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "aria-",
+          "role=",
+          "alt=",
+          "tabindex",
+          "<label"
+        ],
+        "languages": [
+          "html",
+          "javascript",
+          "typescript"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "html-css"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "frontend": 0.8,
+        "fullstack": 0.4,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "MDN: Accessibility",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility",
+          "kind": "docs",
+          "level": "intermediate"
+        },
+        {
+          "title": "WCAG 2.1 Quick Reference",
+          "url": "https://www.w3.org/WAI/WCAG21/quickref/",
+          "kind": "reference",
+          "level": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "http-fundamentals",
+      "name": "HTTP Fundamentals",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "How the web talks \u2014 methods, status codes, headers, requests/responses.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "GET",
+          "POST",
+          "status_code",
+          "Content-Type",
+          "request",
+          "response"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "go",
+          "ruby",
+          "java",
+          "c#",
+          "php"
+        ]
+      },
+      "graph": {
+        "requires": [],
+        "tier": 1
+      },
+      "tracks": {
+        "backend": 0.8,
+        "frontend": 0.5,
+        "fullstack": 0.7,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "MDN: HTTP",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+          "kind": "docs",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "rest-apis",
+      "name": "REST APIs",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "Designing resource-oriented HTTP APIs with predictable verbs and routes.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "@app.get",
+          "@app.post",
+          "router.",
+          "app.route",
+          "@RestController",
+          "res.json"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "go",
+          "ruby",
+          "java",
+          "c#",
+          "php"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "http-fundamentals"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "backend": 1.0,
+        "fullstack": 0.8,
+        "frontend": 0.4,
+        "mobile": 0.4
+      },
+      "resources": [
+        {
+          "title": "REST API Tutorial",
+          "url": "https://restfulapi.net/",
+          "kind": "reference",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "kind": "concept",
+      "domain": "data",
+      "summary": "Persisting data \u2014 modelling, relationships, indexing and querying.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "SELECT",
+          "INSERT",
+          "CREATE TABLE",
+          "collection",
+          "find(",
+          "schema"
+        ],
+        "languages": [
+          "sql",
+          "python",
+          "javascript",
+          "typescript",
+          "go",
+          "java",
+          "ruby"
+        ]
+      },
+      "graph": {
+        "requires": [],
+        "tier": 2
+      },
+      "tracks": {
+        "backend": 0.9,
+        "fullstack": 0.6,
+        "infrastructure": 0.3
+      },
+      "resources": [
+        {
+          "title": "PostgreSQL Tutorial",
+          "url": "https://www.postgresql.org/docs/current/tutorial.html",
+          "kind": "tutorial",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "kind": "hard",
+      "domain": "data",
+      "summary": "Querying relational data with joins, aggregates and subqueries.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "**/*.sql",
+          "**/migrations/**"
+        ],
+        "contentHints": [
+          "SELECT",
+          "JOIN",
+          "WHERE",
+          "GROUP BY"
+        ],
+        "languages": [
+          "sql"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "databases"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "backend": 0.8,
+        "fullstack": 0.5,
+        "infrastructure": 0.2
+      },
+      "resources": [
+        {
+          "title": "Mode: SQL Tutorial",
+          "url": "https://mode.com/sql-tutorial/",
+          "kind": "tutorial",
+          "level": "basic"
+        }
+      ]
+    },
+    {
+      "id": "orm",
+      "name": "ORM & Data Access",
+      "kind": "concept",
+      "domain": "data",
+      "summary": "Mapping objects to tables \u2014 query builders, models, migrations.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "sqlalchemy",
+          "prisma",
+          "Model",
+          "Entity",
+          "repository",
+          "ActiveRecord"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "ruby",
+          "java",
+          "c#"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "databases",
+          "sql"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "backend": 0.7,
+        "fullstack": 0.5
+      },
+      "resources": [
+        {
+          "title": "SQLAlchemy ORM",
+          "url": "https://docs.sqlalchemy.org/en/20/orm/",
+          "kind": "docs",
+          "level": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "web-frameworks",
+      "name": "Web Frameworks",
+      "kind": "hard",
+      "domain": "frameworks",
+      "summary": "Server frameworks that turn handlers into running services (FastAPI, Express, \u2026).",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [],
+        "files": [
+          "requirements.txt",
+          "pyproject.toml",
+          "package.json"
+        ],
+        "contentHints": [
+          "fastapi",
+          "flask",
+          "django",
+          "express",
+          "nestjs",
+          "spring"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "java",
+          "ruby",
+          "go"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "rest-apis"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "backend": 0.85,
+        "fullstack": 0.7
+      },
+      "resources": [
+        {
+          "title": "FastAPI",
+          "url": "https://fastapi.tiangolo.com/",
+          "kind": "docs",
+          "level": "intermediate"
+        },
+        {
+          "title": "Express",
+          "url": "https://expressjs.com/",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "auth",
+      "name": "Authentication & Authorization",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "Proving identity and gating access \u2014 sessions, tokens, OAuth, scopes.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "jwt",
+          "oauth",
+          "session",
+          "login",
+          "password",
+          "bcrypt",
+          "Authorization"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "go",
+          "ruby",
+          "java",
+          "c#",
+          "php"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "rest-apis",
+          "http-fundamentals"
+        ],
+        "tier": 3
+      },
+      "tracks": {
+        "backend": 0.8,
+        "fullstack": 0.6,
+        "infrastructure": 0.3
+      },
+      "resources": [
+        {
+          "title": "OWASP Authentication Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+          "kind": "reference",
+          "level": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "caching",
+      "name": "Caching",
+      "kind": "concept",
+      "domain": "architecture",
+      "summary": "Serving results faster \u2014 HTTP caches, in-memory stores, invalidation.",
+      "detection": {
+        "evidence": "llm",
+        "signals": [],
+        "files": [],
+        "contentHints": [
+          "redis",
+          "memcached",
+          "Cache-Control",
+          "lru_cache",
+          "etag",
+          "ttl"
+        ],
+        "languages": [
+          "python",
+          "javascript",
+          "typescript",
+          "go",
+          "java",
+          "ruby"
+        ]
+      },
+      "graph": {
+        "requires": [
+          "databases",
+          "rest-apis"
+        ],
+        "tier": 4
+      },
+      "tracks": {
+        "backend": 0.7,
+        "fullstack": 0.5,
+        "infrastructure": 0.5,
+        "systems": 0.4
+      },
+      "resources": [
+        {
+          "title": "web.dev: HTTP caching",
+          "url": "https://web.dev/articles/http-cache",
+          "kind": "docs",
+          "level": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "ci",
+      "name": "Continuous Integration",
+      "kind": "hard",
+      "domain": "build-tooling",
+      "summary": "Automating build, test and checks on every push.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [
+          "hasCi"
+        ],
+        "files": [
+          ".github/workflows/**",
+          ".gitlab-ci.yml",
+          "azure-pipelines.yml"
+        ],
+        "contentHints": [],
+        "languages": []
+      },
+      "graph": {
+        "requires": [
+          "git"
+        ],
+        "tier": 2
+      },
+      "tracks": {
+        "frontend": 0.6,
+        "backend": 0.6,
+        "fullstack": 0.6,
+        "infrastructure": 0.8,
+        "systems": 0.4,
+        "mobile": 0.5
+      },
+      "resources": [
+        {
+          "title": "GitHub Actions",
+          "url": "https://docs.github.com/en/actions",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker & Containers",
+      "kind": "hard",
+      "domain": "infrastructure",
+      "summary": "Packaging an app and its dependencies into a portable container image.",
+      "detection": {
+        "evidence": "deterministic",
+        "signals": [
+          "hasDocker"
+        ],
+        "files": [
+          "Dockerfile",
+          "docker-compose.*",
+          ".dockerignore"
+        ],
+        "contentHints": [],
+        "languages": []
+      },
+      "graph": {
+        "requires": [],
+        "tier": 3
+      },
+      "tracks": {
+        "backend": 0.6,
+        "fullstack": 0.5,
+        "infrastructure": 1.0,
+        "systems": 0.4
+      },
+      "resources": [
+        {
+          "title": "Docker: Get Started",
+          "url": "https://docs.docker.com/get-started/",
+          "kind": "docs",
+          "level": "intermediate"
+        }
+      ]
+    }
+  ]
+}
